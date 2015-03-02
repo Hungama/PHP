@@ -1,0 +1,56 @@
+<?php
+$file = $_SERVER["SCRIPT_NAME"];
+$break = explode('/', $file);
+
+$pfile = $break[count($break) - 1];
+$serviceType=$_REQUEST['serviceType'];
+$service_info=$_REQUEST['service_info'];
+$serviceType=$_REQUEST['serviceType'];
+//$usrId=$_REQUEST['usrId'];
+$usrId=$_SESSION['usrId'];
+
+	if($serviceType=='TI' && $service_info=='1001')
+	{
+		$service_info=1601;
+	}
+	elseif($serviceType=='TI' && $service_info=='1002')
+	{
+		$service_info=1602;
+	}
+	elseif($serviceType=='TI' && $service_info=='1003')
+	{
+		$service_info=1603;
+	}
+	elseif($serviceType=='TI' && $service_info=='1005')
+	{
+		$service_info=1605;
+	}
+//echo "<pre>";print_r($_REQUEST);
+$arrPermissibleModule = array();
+$get_option="select b.module_id,a.module_name from ivr_web_module_master a, ivr_web_user_module b where a.id=b.module_id and b.user_id='$usrId' and b.status=1";
+$query = mysql_query($get_option, $dbConn);
+while(list($moduleId, $moduleName) = mysql_fetch_array($query)) {
+    $arrPermissibleModule[$moduleId] = $moduleName; 
+}
+
+?>
+<table class="txt" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td><img src="images/logo.png" alt="Hungama" align="left" border="0" hspace="0" vspace="15"><div style="margin-top: 20px; margin-right: 20px;" align="right"><b><font color="#0000cc">Welcome <?php echo ucwords(strtolower($_SESSION["usrName"])); ?> | </font><a href="javascript:void(0)" onClick="logout()"><font color="#0000cc">Logout</font></a> <br/> <?php if($_SESSION['lastLogin']!="0000-00-00 00:00:00") { ?>Last Login :: <?php echo $_SESSION['lastLogin']; } ?></b><br/><br/>
+	<SELECT NAME="modules" class="in" onChange="window.open(this.options[this.selectedIndex].value,'_top')">
+        <?php 
+        if(in_array("Customer Care", $arrPermissibleModule)) { ?>
+            <OPTION VALUE="main.php?service_info=<?php echo $service_info;?>&serviceType=<?php echo $serviceType;?>" <?php if($pfile=="main.php" || $pfile==""){ echo "selected"; }?>>Customer Care</OPTION>    
+        <?php } if(in_array("Bulk Upload", $arrPermissibleModule)) { ?>
+            <OPTION VALUE="bulk_upload.php?service_info=<?php echo $service_info;?>" <?php if($pfile=="bulk_upload.php" || $pfile==""){ echo "selected"; }?>>Bulk Upload</OPTION>
+        <?php }
+		if(in_array("FRC Admin", $arrPermissibleModule)) { ?>
+            <OPTION VALUE="frcAdmin.php?service_info=<?php echo $service_info;?>" <?php if($pfile=="frcAdmin.php" || $pfile==""){ echo "selected"; }?>>FRC Admin</OPTION>
+        <?php } ?>
+    </SELECT><br/>
+	</div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#0369b3" height="1"></td>
+  </tr>
+</tbody></table><br/>

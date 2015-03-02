@@ -1,0 +1,9 @@
+<?php
+//MASTER DATABASE ACCESS VARIABLES
+ $DB_HOST_M     = '10.130.14.106'; //DB HOST
+ $DB_USERNAME_M = 'billing';  //DB Username
+ $DB_PASSWORD_M = '';  //DB Password
+ $DB_DATABASE_M = 'master_db';  //Datbase Name
+ $db_m = $DB_DATABASE_M;
+
+?>

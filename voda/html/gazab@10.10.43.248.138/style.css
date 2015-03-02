@@ -1,0 +1,372 @@
+.txt { 
+	font-family: verdana; 
+	font-size: 11px
+	}
+
+.top {  
+	font-family: verdana;
+	font-size: 9px;
+	font-weight: bold;
+	color: #6C6B6B;
+	padding-right: 10px;
+	padding-bottom: 4px
+	}
+.top a{  
+	color: #6C6B6B;
+	text-decoration: none;
+	}
+.top a:hover{  
+	color: #000000;
+	}
+
+.links { 
+	font-family: arial;
+	font-size: 13px; 
+	color: #FFFFFF; 
+	font-weight: bold
+	}
+.links a{  
+	color: #FFFFFF;
+	text-decoration: none;
+	}
+.links a:hover{  
+	color: #01356F;
+	}
+
+.width { 
+	width: 779px;
+; background-color: #FFFFFF
+; border-color: black #D2D2D2; border-style: solid; border-top-width: 0px; border-right-width: 1px; border-bottom-width: 0px; border-left-width: 1px
+	}
+
+.line { 
+	border: 1px #D2D2D2 solid;
+	margin-right: 6px;
+	margin-left: 8px;
+	padding-top: 4px; 
+	padding-right: 2px; 
+	padding-bottom: 6px; 
+	padding-left: 7px; 
+	font-family: arial; 
+	font-size: 11px; 
+	font-weight: bold; 
+	color: #6A6A6A;
+	}
+
+.form {  
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px; 
+	margin-left: 0px;
+	}
+
+.tab {  
+	font-family: verdana; 
+	font-size: 12px;
+	color: #FFFFFF;
+	padding-left: 34px;
+	font-weight: bold;
+	padding-top: 7px
+	}
+.tab a{  
+	color: #FFFFFF;
+	text-decoration: none;
+	}
+.tab a:hover{  
+	color: #01356F;
+	}
+	
+.warea { 
+	margin-left: 196px; 
+	padding-right: 7px; 
+	padding-left: 7px
+	}
+
+.line1 { 
+	border: 1px #D2D2D2 solid; 
+	padding-right: 8px; 
+	padding-left: 8px; 
+	font-family: arial; 
+	font-size: 11px; 
+	font-weight: bold; 
+	color: #6A6A6A;
+	}
+
+.line2 {
+	border: 1px #D2D2D2 solid; 
+	padding-right: 8px; 
+	padding-left: 8px; 
+	font-family: arial;
+	font-size: 12px;
+	color: #6A6A6A; ; 
+	line-height: 21px;
+	text-align: justify;
+	padding-top: 5px; 
+	padding-bottom: 5px
+	}
+.line2 a{
+	color: #3266CC;
+	text-decoration:none;
+	}
+.line2 a:hover{
+	color: #3266CC; ; 
+	text-decoration:underline;
+	}
+.line31{
+	padding-right: 8px; 
+	padding-left: 8px; 
+	font-family: arial;
+	font-size: 12px;
+	color: #6A6A6A; ; 
+	line-height: 21px;
+	text-align: left;
+	padding-top: 5px;
+	}
+.head {  
+	font-family: arial; 
+	font-size: 14px; 
+	color: #0369B3
+	}
+
+.txt1 { 
+	font-family: arial;
+	font-size: 12px; 
+	color: #6A6A6A
+	}
+
+.links1 {
+	font-family: arial;
+	font-size: 12px;
+	color: #FFFFFF
+	}
+.links1 a{  
+	color: #FFFFFF;
+	text-decoration: none;
+	}
+.links1 a:hover{  
+	color: #ffffff;
+	}
+
+.footer {  
+	font-family: "ms sans serif";
+	font-size: 11px; 
+	line-height: 18px;
+	color: #0369B3;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	padding-left: 5px
+	}
+.footer a{  
+	color: #0369B3;
+	text-decoration:none;
+	}
+.footer a:hover{  
+	color: #0369B3;
+	text-decoration:none;
+	}
+h2 {  
+	font-family: arial; 
+	font-size: 14px;
+	color: #0369B3;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding-bottom: 2px;
+	}
+a { 
+	text-decoration: none;
+	}
+.black {  
+	color: #000000;
+	}
+.blue {
+	font-weight: bold; 
+	color: #3266CC;
+	}
+.blue a{
+	color: #3266CC;
+	text-decoration:none;
+	}
+.blue a:hover{
+	color: #3266CC;
+	text-decoration:underline;
+	}
+.line3 { 
+	padding-right: 8px; 
+	padding-left: 8px; 
+	font-family: arial; 
+	font-size: 12px; 
+	color: #6A6A6A; 
+	line-height: 19px; 
+	padding-top: 5px; 
+	padding-bottom: 5px
+	}
+.in {  
+	font-family: verdana;
+	font-size: 11px; 
+	margin-top: 0px;
+	margin-right: 0px; 
+	margin-bottom: 0px; 
+	margin-left: 0px;
+	}
+.grey {  
+	border-color: black #D2D2D2;
+	border-style: solid; 
+	border-top-width: 0px;
+	border-right-width: 1px; 
+	border-bottom-width: 0px;
+	border-left-width: 1px; 
+	width: 779px; 
+	background-color: #FFFFFF;
+; text-align: center
+	}
+.warea1 { 
+	margin-left: 196px; 
+	padding-right: 7px; 
+	padding-left: 7px;
+	}
+.txt2 { 
+	font-family: verdana;
+	font-size: 11px ; 
+	color: #6A6A6A;
+	}
+.txt3 { 
+	font-family: verdana; 
+	font-size: 10px; 
+	color: #000000;
+	}
+.txt4 { 
+	font-family: arial;
+	font-size: 12px; 
+	color: #666666;
+	line-height: 18px;
+	text-align: justify;
+	}
+.red {  
+	font-family: verdana;
+	font-size: 11px;
+	color: #FF0000; 
+	font-weight: normal; 
+	font-style: italic;
+	}
+
+.txt5 { 
+	font-family: arial;
+	font-size: 12px; 
+	color: #666666;
+	line-height: 18px;
+	text-align: justify ; 
+	padding-top: 5px; 
+	padding-bottom: 5px
+	}
+
+.txt6 { 
+	font-family: verdana; 
+	font-size: 11px;
+	color:#666666;
+	}
+.txt6 a{ 
+	color:#666666;
+	text-decoration:none;
+	}
+.txt6 a:hover{ 
+	color:#000000;
+	text-decoration:underline;
+	}
+.txt7 { 
+	font-family: arial;
+	font-size: 12px; 
+	color: #666666;
+	text-align: justify ;
+	padding-left:10px;
+	}
+.table1 {
+	margin-left:30px;
+	margin-bottom:5px;
+	}
+.line-new { 
+	border: 1px #D2D2D2 solid; 
+	margin-right: 6px; 
+	margin-left: 8px; 
+	padding-top: 4px; 
+	padding-right: 2px; 
+	padding-bottom: 6px; 
+	padding-left: 7px; 
+	font-family: verdana;
+	font-size: 10px; 
+	font-weight: bold; 
+	color: #6A6A6A; 
+	text-align: justify;
+	}
+.warea2 { 
+	padding-right: 10px;
+	padding-left: 10px;
+	}
+.txt7 { 
+	font-family: arial; 
+	font-size: 12px;
+	color: #6A6A6A; ; 
+	line-height: 19px;
+	}
+.txt8 { 
+	font-family: verdana; 
+	font-size: 11px ; 
+	color: #6A6A6A;
+	padding-left: 5px;
+	}
+.white { 
+	font-family: verdana; 
+	font-size: 11px; 
+	font-weight: bold;
+	color: #FFFFFF;
+	}
+.center {  text-align: center}
+.cursor {  cursor: hand}
+.bg-blue {
+	font-family: verdana;
+	font-size: 11px;
+	color: #FFFFFF;
+	background-color: #3266CC;
+	font-weight: bold;
+}
+
+.width1 { 
+	width: 779px;
+	}
+.width2 { 
+	width: 680px;
+	}
+.line3 {
+	border: 1px #D2D2D2 solid; 
+	padding-right: 8px; 
+	padding-left: 8px; 
+	font-family: arial;
+	font-size: 12px;
+	color: #6A6A6A; ; 
+	line-height: 19px;
+	text-align: justify;
+	padding-top: 5px; 
+	padding-bottom: 5px
+	}
+.line3 a{
+	color: #3266CC;
+	text-decoration:none;
+	}
+.line3 a:hover{
+	color: #3266CC; ; 
+	text-decoration:underline;
+	}.hr {
+	margin: 0px;
+}
+.form1 {
+	margin:0px;
+	}
+.table-head {  
+	font-family: arial; font-size: 13px; font-weight: bold; color: #FFFFFF; background-image: url(gifs/bg.gif);
+height: 30px; padding-left: 34px}
+.table-head12 {  font-family: arial; font-size: 13px; font-weight: bold; color: #FFFFFF; background-image: url(gifs/bg.gif);
+height: 30px; padding-left: 34px}
+.table-head12 a{color: #FFFFFF; text-decoration:none;}
+.table-head12 a:hover{color: #993333; text-decoration:none;}
