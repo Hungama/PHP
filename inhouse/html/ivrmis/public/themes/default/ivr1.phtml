@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>IVR</title>
+             <?php 
+        echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/style.css');
+         echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/style1.css');
+        echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/jquery.ui.css');
+         echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/facebox.css');
+          echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/styles_admin.css');
+           echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/960.css');
+        ?>
+	<?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery-1.5.1.js') ?>
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.min.js') ?>
+
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.datepicker.js') ?>
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.widget.js') ?>
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.core.js') ?>
+	<?php echo $this->headScript() ?> 
+        <script type="text/javascript">
+            $(function() {
+              	setTimeout( "$('#errorMessage').hide('slow');",3000 );
+        	setTimeout( "$('#successMessage').hide('slow');",3000 );
+                setTimeout( "$('#successmessage2').hide('slow');",3000 );
+            });
+        </script>     
+    </head>
+    <body>
+        <?php
+         if(isset($this->successMessage)) {
+            echo "<h2 id='successMessage'>".$this->successMessage."</h2>";
+        }
+        if(isset($this->errorMessage)) {
+            echo "<h2 id='errorMessage'>".$this->errorMessage."</h2>";
+        }?>
+ 
+<div id="header" class="clearfix">
+ <div  class="sizer"> <h1 id="logo"><a href="#">IVR</a></h1>
+ <!-- end logo -->
+ <div id="search"> Signed in as <strong><?php echo $_SESSION['name'];?></strong>
+<br/>IVR Reporting Admin</div>
+ <div style="padding-top: 114px;"><span class="topmenu"><a href="">Business Analysis</a></span><span  style="float: right;" class="topmenu"  > <a href="<?=$this->url(array('controller'=>'user','action'=>'logout'))?>">Logout</a></span></div>
+  </div></div>
+        <!-- start control panel -->
+    	
+               <script>  
+        function show(ele,ele1,ele2) {
+         var srcElement = document.getElementById(ele);
+         var srcElement1 = document.getElementById(ele1);
+          var srcElement2 = document.getElementById(ele2);
+          //var srcElement2 = document.getElementById(ele1);
+         if(srcElement != null) {
+              
+	   //if(srcElement.style.display == "block") {
+     		  srcElement.style.display= 'block';
+   	        srcElement1.style.display='none';
+                srcElement2.style.display='none';        
+        } 
+                  
+            else {
+                   srcElement.style.display='none';
+                   srcElement1.style.display='none';
+                    srcElement2.style.display='none'; 
+            }
+        
+          
+            return false;}
+       
+//  }
+              function show1(ele1,ele,ele2) {
+         var srcElement1 = document.getElementById(ele1);
+         var srcElement = document.getElementById(ele);
+         var srcElement2 = document.getElementById(ele2);
+          //var srcElement2 = document.getElementById(ele1);
+         if(srcElement1 != null) {
+	 
+     		  srcElement1.style.display= 'block';
+              srcElement.style.display='none';
+              srcElement2.style.display='none';                                     
+   	   }
+            else {
+                   srcElement1.style.display='none';
+                    srcElement.style.display='none';
+                     srcElement2.style.display='none'; 
+            }
+
+            return false;
+       
+  }
+
+   function show2(ele1,ele,ele2) {
+         var srcElement1 = document.getElementById(ele1);
+         var srcElement = document.getElementById(ele);
+         var srcElement2 = document.getElementById(ele2);
+          //var srcElement2 = document.getElementById(ele1);
+         if(srcElement2 != null) {
+	   //if(srcElement.style.display == "block") {
+     		  srcElement2.style.display= 'block';
+              srcElement.style.display='none';
+              srcElement1.style.display='none';                                      
+   	 }
+            else {
+                   srcElement1.style.display='none';
+                    srcElement.style.display='none';
+                   srcElement2.style.display= 'none';
+            }
+
+            return false;
+       
+  }
+ 
+    </script>
+         <?php
+        //print_r($this->params);
+        if(isset($this->params['errorStatus'])) {
+            echo "<h2 id='errorMessage'>".$this->params['errorStatus']."</h2>";
+        }
+        if(isset($this->params['successMessage'])) {
+            echo "<h2 id='successMessage'>".$this->params['successMessage']."</h2>";
+        }
+        if(isset($this->params['errorMessage'])) {
+            echo "<h2 id='errorMessage'>".$this->params['errorMessage']."</h2>";
+        }
+        if(isset($this->params['successmessage2'])) {
+            echo "<h2 id='successmessage2'>".$this->params['successmessage2']."</h2>";
+        }?>
+        <?php if(isset($_SESSION['User']))
+        { ?>
+   <?php } else {?><?php } ?>
+    
+       <table width="100%">
+	
+<tr><td colspan=
+"2">&nbsp;</td></tr>
+       <tr><td width="20%" valign="top"><?php echo $this->render('common.phtml');?></td><td align="center" width="80%"><?php echo $this->layout()->content ?></td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
+<tr><td colspan="2"><?php echo $this->render('footer.phtml');?></td></tr>
+</table>
+          
+    </body>
+</html>
+

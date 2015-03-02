@@ -1,0 +1,86 @@
+<?php //echo "*********".$this->name."*******"; exit();?>
+
+ <script>
+            function compareData()
+{
+var name = document.myform1.namee.value;
+var users = document.myform1.user.value;
+var mobile = document.myform1.mobilen.value;
+
+   
+   if (name=="" || users=="" || mobile=="")
+  {
+  alert("All  fields are required");
+  return false;
+  }  </script>
+<form name="myform1" id="myform1" align="left" valign="top" Method="post" onsubmit="return compareData();" action="<?=$this->url(array('controller'=>'ivr1','action'=>'createnewuser'))?>" >
+
+    
+    <div class="clear"></div>
+    <div style="width: 780px; padding: 20px">
+        <div style="width: 700px; padding-top: 10px">
+            <div style="width:700px; float: left; font-size: 12px; font-weight: bold">Select circles for services: </div>
+            <div class="clear"></div>
+
+            <div style="width: 700px; padding-top: 10px">
+                <?php //$service= $_POST['ListBox2'];
+//                if($_POST['name']!=NULL)
+//                {
+//                $nam=$_POST['name'];
+//                $use=$_POST['user'];
+//                 $mobiln=$_POST['mobilen'];
+//                }
+//                 echo $nam;
+//                 echo $use;
+             // echo "*********".$this->name."*******"; exit();
+               $service=$this->ListBox2;
+                $nam=$this->name;
+                $nam=urlencode($nam);
+                $use=$this->user;
+                 $mobiln=$this->mobilen;
+//                
+//                echo $nam;
+//                echo $use;
+//                echo $mobiln;
+//               echo $service;
+//             exit();
+//               
+                if( is_array($service)){
+           while (list ($key, $value) = each ($service)) {
+                   
+                    if($value != ''){
+                    ?>
+                 <input type="hidden" name="name" value=<?php echo urlencode($this->name)?>>
+                 <input type="hidden" name="use" value=<?php echo $use?>>
+                 <input type="hidden" name="mobiln" value=<?php echo $mobiln?>>
+                    <div style="width:400px; padding-bottom: 20px;   font-size: 12px; font-weight: bold"><?php echo $value ?>
+                        <!-- <div style="width: 500px; float: right">-->
+                        <select name="circle[<?php echo $value?>][]" size="4" style="float: right; " multiple="multiple" id="ListBox2" style="padding:0 " >
+
+                            <?php
+                            //print_r($resp);
+                            // print_r (explode(",",$this->response));
+                            //  print_r($option1);
+                            foreach ($this->option1 as $value1) {
+                                //echo $value1;
+                                if($value1!=""){ ?>
+                                <option value= <?php 
+                                echo $value1//str_replace(" ", "#", $value1) ?>><?php echo $value1 ?></option><? 
+                            }}?>
+                    </select><div class="clear"></div>
+                </div>
+                <? } 
+                } }
+                
+                ?>
+            </div></div></div>
+                 <div style="width: 700px; padding: 30px 0 0 130px; float: left; "> 
+             <div style="width: 200px;" ><input type="submit" id="b1" name="submit" value="Submit" onclick="return compareData"></input>
+             </div>   </div>
+                
+                                   </form>
+                </html>
+
+
+
+

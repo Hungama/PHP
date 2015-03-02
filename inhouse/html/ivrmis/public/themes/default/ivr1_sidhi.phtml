@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>IVR</title>
+             <?php //print_r($this->layout());
+        echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/style.css');
+         echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/style1.css');
+        echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/jquery.ui.css');
+         echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/facebox.css');
+          echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/styles_admin.css');
+           echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/960.css');
+        ?>
+	<?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery-1.5.1.js') ?>
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.min.js') ?>
+
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.datepicker.js') ?>
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.widget.js') ?>
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.core.js') ?>
+	<?php echo $this->headScript() ?> 
+        <script type="text/javascript">
+            $(function() {
+               
+                //hide a div after 3 seconds
+        	setTimeout( "$('#errorMessage').hide('slow');",3000 );
+        	setTimeout( "$('#successMessage').hide('slow');",3000 );
+                setTimeout( "$('#successmessage2').hide('slow');",3000 );
+            });
+        </script>     
+    </head>
+    <body>
+        <?php
+         if(isset($this->successMessage)) {
+            echo "<h2 id='successMessage'>".$this->successMessage."</h2>";
+        }
+        if(isset($this->errorMessage)) {
+            echo "<h2 id='errorMessage'>".$this->errorMessage."</h2>";
+        }?>
+    
+       
+        
+        <div>   </div>
+<div id="header" class="clearfix">
+
+        <div  class="sizer"> <h1 id="logo"><a href="#">IVR</a></h1>
+           
+        
+        <!-- end logo -->
+
+        <div id="search"> Signed in as <strong><?php echo $_SESSION['name'];?><?php //echo $_SESSION['Username'];?></strong>
+<br/>IVR Reporting Admin</div>
+        <div style="padding-top: 104px"><ul class="main-nav" >
+          <li   id="a" <? if($this->params['controller']=='ivr1' && $this->params['action']=='msisdn' || $this->params['action']=='msisdnp' || $this->params['action']=='service'  || $this->params['action']=='toptencategory'  || $this->params['action']=='time' || $this->params['action']=='toptenshortcode' || $this->params['action']=='msisdnd' || $this->params['action']=='msisdndu'  || $this->params['action']=='msisdns' || $this->params['action']=='msisdnchart'
+                        || $this->params['action']=='servicechart' || $this->params['action']=='servicedu' || $this->params['action']=='servicep' || $this->params['action']=='services' || $this->params['action']=='toptencategoryc' || $this->params['action']=='toptencategorys' || $this->params['action']=='toptencategoryt' || $this->params['action']=='toptencategorydetail' || $this->params['action']=='toptencategorysummary'
+                        || $this->params['action']=='toptenshortcodec' || $this->params['action']=='toptenshortcodet' || $this->params['action']=='toptenshortcodes' || $this->params['action']=='toptenshortcodedetail' || $this->params['action']=='toptenshortcodesummary' || $this->params['action']=='times' || $this->params['action']=='timec' || $this->params['action']=='timep' || $this->params['action']=='timedu' || $this->params['action']=='timed' || $this->params['action']=='timechart')
+                                        echo  " class='main-list1-a1'";?> ><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'msisdn'),null,true)?>"  onClick="show('navigation','navigation1','navigation2')"><span>Business Analysis</span></a></li>
+          <li  id="b" <? if($this->params['controller']=='ivr1' && $this->params['action']=='toptenalbum' || $this->params['action']=='toptenringtone' || $this->params['action']=='toptenalbdetail' || $this->params['action']=='toptenalbsummary' || $this->params['action']=='toptenalbumnamec' || $this->params['action']=='toptenalbumnames' || $this->params['action']=='toptenalbumnamet'
+                                        || $this->params['action']=='toptenringtonec' || $this->params['action']=='toptenringtones' || $this->params['action']=='toptenringtonet' || $this->params['action']=='toptenringtonedetail' || $this->params['action']=='toptenringtonesummary' )   echo "class='main-list2-a2'";?>><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'toptenalbum'),null,true)?>"
+<?// if($this->params['controller']=='ivr1' && $this->params['action']=='toptenalbum' || $this->params['action']=='toptenringtone' ) echo  "class=active";?>
+onClick="show1('navigation1','navigation','navigation2')" ><span>Content Analysis</span></a></li>
+          <li  id="c"id="c"  <? if($this->params['controller']=='ivr1' && $this->params['action']=='chpass' || $this->params['action']=='creater'  || $this->params['action']=='create' || $this->params['action']=='createnewu' || $this->params['action']=='createnewuser'|| $this->params['action']=='updater' || $this->params['action']=='update' || $this->params['action']=='updatenewuser' || $this->params['action']=='updateuser')   echo "class='main-list3-a3'";?>><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'chpass'),null,true)?>"  
+                                        <? //if($this->params['controller']=='ivr1' && $this->params['action']=='chpass' || $this->params['action']=='creater' ) echo  "class=active";?>
+                                    onClick="show2('navigation1','navigation','navigation2')" class="" onmouseover="highlight('c')"><span>User Management</span></a></li>
+
+</ul>
+        </div>
+        </div>
+        <!-- start control panel -->
+    	
+               <script>  
+        function show(ele,ele1,ele2) {
+         var srcElement = document.getElementById(ele);
+         var srcElement1 = document.getElementById(ele1);
+          var srcElement2 = document.getElementById(ele2);
+          //var srcElement2 = document.getElementById(ele1);
+         if(srcElement != null) {
+              
+	   //if(srcElement.style.display == "block") {
+     		  srcElement.style.display= 'block';
+   	        srcElement1.style.display='none';
+                srcElement2.style.display='none';        
+        } 
+                  
+            else {
+                   srcElement.style.display='none';
+                   srcElement1.style.display='none';
+                    srcElement2.style.display='none'; 
+            }
+        
+          
+            return false;}
+       
+//  }
+              function show1(ele1,ele,ele2) {
+         var srcElement1 = document.getElementById(ele1);
+         var srcElement = document.getElementById(ele);
+         var srcElement2 = document.getElementById(ele2);
+          //var srcElement2 = document.getElementById(ele1);
+         if(srcElement1 != null) {
+	 
+     		  srcElement1.style.display= 'block';
+              srcElement.style.display='none';
+              srcElement2.style.display='none';                                     
+   	   }
+            else {
+                   srcElement1.style.display='none';
+                    srcElement.style.display='none';
+                     srcElement2.style.display='none'; 
+            }
+
+            return false;
+       
+  }
+
+   function show2(ele1,ele,ele2) {
+         var srcElement1 = document.getElementById(ele1);
+         var srcElement = document.getElementById(ele);
+         var srcElement2 = document.getElementById(ele2);
+          //var srcElement2 = document.getElementById(ele1);
+         if(srcElement2 != null) {
+	   //if(srcElement.style.display == "block") {
+     		  srcElement2.style.display= 'block';
+              srcElement.style.display='none';
+              srcElement1.style.display='none';                                      
+   	 }
+            else {
+                   srcElement1.style.display='none';
+                    srcElement.style.display='none';
+                   srcElement2.style.display= 'none';
+            }
+
+            return false;
+       
+  }
+ 
+    </script>
+         <?php
+        //print_r($this->params);
+        if(isset($this->params['errorStatus'])) {
+            echo "<h2 id='errorMessage'>".$this->params['errorStatus']."</h2>";
+        }
+        if(isset($this->params['successMessage'])) {
+            echo "<h2 id='successMessage'>".$this->params['successMessage']."</h2>";
+        }
+        if(isset($this->params['errorMessage'])) {
+            echo "<h2 id='errorMessage'>".$this->params['errorMessage']."</h2>";
+        }
+        if(isset($this->params['successmessage2'])) {
+            echo "<h2 id='successmessage2'>".$this->params['successmessage2']."</h2>";
+        }?>
+        <?php if(isset($_SESSION['User']))
+        { ?>
+       
+         <ul id="nav">
+                     <li>
+                 <!--  <a href="<?=$this->url(array('controller'=>'ivr1','action'=>'vlcum'))?>">Home</a></li>
+                    <li><a href="#">User</a>
+                        <ul>
+                          <!--  <li><a href="<?=$this->url(array('controller'=>'user','action'=>'profile'))?>">Edit Profile</a></li>-->
+                            <li> <a href="<?=$this->url(array('controller'=>'user','action'=>'logout'))?>">Logout</a></li>
+                            <li></li>
+                        
+                    </li>
+                   <!-- <li><a href="<?=$this->url(array('controller'=>'index','action'=>'section'))?>">Portal Builder</a></li>-->
+                    <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'msisdn'),null,true)?>">MIS</a></li>
+                   <!-- <li><a href="#">Pack</a>-->
+                        
+                    </li>   
+               
+                     </li>
+            </ul>   
+
+        
+        
+     <?php } else {?>
+        
+
+        <?php } ?>
+     <?php      // if($this->params['controller']=='ivr1'&& $this->params['action']=='msisdn' || $this->params['controller']=='ivr1' && $this->params['action']=='service') 
+//                   echo "hello";  ?>
+            
+       
+           
+            <div style="width: 998px; margin: auto;">  
+              <div id="navigation" class=" grid_12" style="display:<?php echo ($this->params['controller']=='ivr1'&& $this->params['action']=='msisdn' ||  $this->params['action']=='service' ||  $this->params['action']=='short' ||  $this->params['action']=='time'  ||  $this->params['action']=='toptencategory'  ||  $this->params['action']=='toptenshortcode' ||  $this->params['action']=='msisdns' ||  $this->params['action']=='msisdnp'||  $this->params['action']=='msisdndu' ||  $this->params['action']=='msisdnd' 
+                      ||  $this->params['action']=='services' ||  $this->params['action']=='servicep' ||  $this->params['action']=='servicedu' ||  $this->params['action']=='msisdnchart'  ||  $this->params['action']=='servicechart' ||  $this->params['action']=='times' ||  $this->params['action']=='timec' ||  $this->params['action']=='timep' ||  $this->params['action']=='timedu'||  $this->params['action']=='timed'||  $this->params['action']=='timechart' ||  $this->params['action']=='toptencategoryc' ||  $this->params['action']=='toptencategorys' ||  $this->params['action']=='toptencategoryt' ||  $this->params['action']=='toptencategorydetail' ||  $this->params['action']=='toptencategorysummary'
+                      ||  $this->params['action']=='toptenshortcodec' ||  $this->params['action']=='toptenshortcodes' ||  $this->params['action']=='toptenshortcodet' ||  $this->params['action']=='toptenshortcodec' ||  $this->params['action']=='toptenshortcodedetail'  ||  $this->params['action']=='toptenshortcodesummary'  ? 'block' : 'none'); ?>;">
+     
+             
+                    <ul class="nav">
+          
+                <li class="list1"><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'msisdn'),null,true)?>" 
+              <?if ($this->params['controller']=='ivr1' && $this->params['action']=='msisdn' || $this->params['action']=='msisdns' || $this->params['action']=='msisdnp' || $this->params['action']=='msisdnd' || $this->params['action']=='msisdndu'|| $this->params['action']=='msisdnchart' ) echo " class='active'";//if($_GET["controller"]=='ivr1' && $_GET["action"]=='msisdn') echo "<h5 class='selected'></h5>";?>>Circle wise Report</a></li>
+                 <li class="list2"><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'service'),null,true)?>" 
+              <?if ($this->params['controller']=='ivr1' && $this->params['action']=='service' || $this->params['action']=='servicechart' || $this->params['action']=='servicedu' || $this->params['action']=='servicep' || $this->params['action']=='services' ) echo " class='active'";//if($_GET["controller"]=='ivr1' && $_GET["action"]=='msisdn') echo "<h5 class='selected'></h5>";?>>Service wise Report</a></li>
+                <li  class="list3"><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'toptencategory'),null,true)?>"
+                <?if ($this->params['controller']=='ivr1' && $this->params['action']=='toptencategory'   || $this->params['action']=='toptencategoryc' || $this->params['action']=='toptencategorys'  || $this->params['action']=='toptencategoryt' || $this->params['action']=='toptencategorydetail' || $this->params['action']=='toptencategorysummary' ) echo " class='active'";      ?>>Top 10 Categories Report</a></li>
+                <li class="list4"><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'time'),null,true)?>"
+                       <?if($this->params['controller']=='ivr1' && $this->params['action']=='time' || $this->params['action']=='times' || $this->params['action']=='timed' || $this->params['action']=='timec'  || $this->params['action']=='timechart')  echo " class='active'";      ?>>Time Base Report</a></li>
+                <li class="list5"><a href
+                       ="<?=$this->url(array('controller'=>'ivr1','action'=>'toptenshortcode'),null,true)?>" 
+                       <?if($this->params['controller']=='ivr1' && $this->params['action']=='toptenshortcode' || $this->params['action']=='toptenshortcodet' || $this->params['action']=='toptenshortcodec' || $this->params['action']=='toptenshortcodes' || $this->params['action']=='toptenshortcodedetail' || $this->params['action']=='toptenshortcodesummary') echo " class='active'";      ?>>Top 10 Shortcode report</a></li>
+                <?php //if ($_SESSION['role'] == "admin") {?> 
+               <!-- <li><a href="//<?//=$this->url(array('controller'=>'ivr1','action'=>'creater'),null,true)?>"
+                        //<?//if($this->params['controller']=='ivr1' && $this->params['action']=='creater' || $this->params['action']=='createnewu' || $this->params['action']=='creater') echo " class='selected'";      ?>>Create New Users</a></li>
+                <li><a href="//<?//=$this->url(array('controller'=>'ivr1','action'=>'updater'),null,true)?>"
+                       //<?//if($this->params['controller']=='ivr1' && $this->params['action']=='updater' || $this->params['action']=='updateuser' || $this->params['action']=='updater') echo " class='selected'";      ?>> Update Users Rights</a></li>
+         <?//}?>  </ul>-->
+            </ul> 
+        </div>  
+            <!--	<div id="navigation1" class=" grid_12"  style="display:<?php echo ($this->params['controller']=='ivr1'&& $this->params['action']=='toptenalbum' ||  $this->params['action']=='toptenringtone' ||  $this->params['action']=='short' ||  $this->params['action']=='time'  ||  $this->params['action']=='chpass'? 'block' : 'none'); ?>;">
+          
+            <ul>
+            
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'msisdn'),null,true)?>" 
+              <?if($this->params['controller']=='ivr1' && $this->params['action']=='msisdn' || $this->params['action']=='msisdns' || $this->params['action']=='msisdnchart') echo " class='selected'";//if($_GET["controller"]=='ivr1' && $_GET["action"]=='msisdn') echo "<h5 class='selected'></h5>";?>>Circle wise Report</a></li>
+                 <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'service'),null,true)?>" 
+              <?if($this->params['controller']=='ivr1' && $this->params['action']=='service' || $this->params['action']=='services' || $this->params['action']=='servicechart') echo " class='selected'";//if($_GET["controller"]=='ivr1' && $_GET["action"]=='msisdn') echo "<h5 class='selected'></h5>";?>>Service wise Report</a></li>
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'short'),null,true)?>"
+                <?if($this->params['controller']=='ivr1' && $this->params['action']=='short'   || $this->params['action']=='shorts' || $this->params['action']=='shortd') echo " class='selected'";      ?>>Shortcode/ Plan ID wise Report..</a></li>
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'time'),null,true)?>"
+                       <?if($this->params['controller']=='ivr1' && $this->params['action']=='time' || $this->params['action']=='times' || $this->params['action']=='timed')  echo " class='selected'";      ?>>Time Base Report..</a></li>
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'chpass'),null,true)?>" 
+                       <?if($this->params['controller']=='ivr1' && $this->params['action']=='chpass' || $this->params['action']=='chpass' || $this->params['action']=='chpass') echo " class='selected'";      ?>>Change Password..</a></li>
+                <?php if ($_SESSION['role'] == "admin") {?> 
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'creater'),null,true)?>"
+                        <?if($this->params['controller']=='ivr1' && $this->params['action']=='creater' || $this->params['action']=='createnewu' || $this->params['action']=='creater') echo " class='selected'";      ?>>Create New Users..</a></li>
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'updater'),null,true)?>"
+                       <?if($this->params['controller']=='ivr1' && $this->params['action']=='updater' || $this->params['action']=='updateuser' || $this->params['action']=='updater') echo " class='selected'";      ?>> Update Users Rights..</a></li>
+          <?}?>  </ul>-->
+          
+          <div class=" grid_12" id="navigation1" style="display:<?php echo ($this->params['controller']=='ivr1'&& $this->params['action']=='toptenalbum' ||  $this->params['action']=='toptenringtone' ||  $this->params['action']=='toptenringtonec' ||  $this->params['action']=='toptenringtones' ||  $this->params['action']=='toptenringtonet'  ||  $this->params['action']=='toptenringtonedetail' ||  $this->params['action']=='toptenringtonesummary' ||  $this->params['action']=='toptenalbumnamec' ||  $this->params['action']=='toptenalbumnamet'  ||  $this->params['action']=='toptenalbumnamet' ||  $this->params['action']=='toptenalbsummary'  ||  $this->params['action']=='toptenalbdetail'? 'block' : 'none'); ?>;">
+     
+             
+                    <ul>
+          
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'toptenalbum'),null,true)?>" 
+              <?if($this->params['controller']=='ivr1' && $this->params['action']=='toptenalbum' || $this->params['action']=='toptenalbumnamet' || $this->params['action']=='toptenalbumnames' || $this->params['action']=='toptenalbsummary' || $this->params['action']=='toptenalbdetail') echo " class='active'";//if($_GET["controller"]=='ivr1' && $_GET["action"]=='msisdn') echo "<h5 class='selected'></h5>";?>>Top 10 Album Report</a></li>
+                 <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'toptenringtone'),null,true)?>" 
+              <?if($this->params['controller']=='ivr1' && $this->params['action']=='toptenringtone' || $this->params['action']=='toptenringtones' || $this->params['action']=='toptenringtonec'|| $this->params['action']=='toptenringtonet' || $this->params['action']=='toptenringtonedetail' || $this->params['action']=='toptenringtonesummary') echo " class='active'";//if($_GET["controller"]=='ivr1' && $_GET["action"]=='msisdn') echo "<h5 class='selected'></h5>";?>>Top 10 Ringtone download Report </a></li>
+                
+               <!-- <li><a href="//"
+                        //>Create New Users</a></li>
+                <li><a href="//"
+                       //> Update Users Rights</a></li>
+           </ul>-->
+            </ul> 
+        </div>
+          
+          <!--
+            <ul>
+            
+                <li><a href="<?//=$this->url(array('controller'=>'ivr1','action'=>'toptenalbum'),null,true)?>" 
+              <?//if($this->params['controller']=='ivr1' && $this->params['action']=='toptenalbumnamec' || $this->params['action']=='toptenalbumnamet' || $this->params['action']=='toptenalbumnames' || $this->params['action']=='toptenalbsummary' || $this->params['action']=='toptenalbdetail') echo " class='selected'";//if($_GET["controller"]=='ivr1' && $_GET["action"]=='msisdn') echo "<h5 class='selected'></h5>";?>>Top 10 Album Report</a></li>
+                 <li><a href="<?//=$this->url(array('controller'=>'ivr1','action'=>'toptenringtone'),null,true)?>" 
+              <?//if($this->params['controller']=='ivr1' && $this->params['action']=='toptenringtone' || $this->params['action']=='toptenringtones' || $this->params['action']=='toptenringtonec'|| $this->params['action']=='toptenringtonet' || $this->params['action']=='toptenringtonedetail' || $this->params['action']=='toptenringtonesummary') echo " class='selected'";//if($_GET["controller"]=='ivr1' && $_GET["action"]=='msisdn') echo "<h5 class='selected'></h5>";?>>Top 10 Ringtone download Report </a></li>
+                       </ul>-->
+        
+            <div id="navigation2" class=" grid_12"  style="display:<?php echo ($this->params['controller']=='ivr1'&& $this->params['action']=='chpass' ||  $this->params['action']=='creater' ||  $this->params['action']=='updater'    ||  $this->params['action']=='update' ||  $this->params['action']=='updatenewuser' ||  $this->params['action']=='updateuser' ||  $this->params['action']=='create' ||  $this->params['action']=='createnewu' ||  $this->params['action']=='createnewuser' ? 'block' : 'none'); ?>;">
+                <ul>   <?php if ($_SESSION['role'] == "admin") {?> 
+                      <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'chpass'),null,true)?>" 
+                       <?if($this->params['controller']=='ivr1' && $this->params['action']=='chpass')  echo " class='active'";      ?>>Change Password</a></li>
+                         <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'creater'),null,true)?>"
+                        <?if($this->params['controller']=='ivr1' && $this->params['action']=='creater' ) echo " class='active'";      ?>>Create New Users</a></li>
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'updater'),null,true)?>"
+                       <?if($this->params['controller']=='ivr1' && $this->params['action']=='updater' ) echo " class='active'";      ?>> Update Users Rights</a></li>
+          <?}?> 
+                </ul>
+                
+                
+    </div>
+              
+    </div>
+
+</div>
+    </div>
+        
+            
+            <div style="width: 998px; margin: auto;">
+               <!-- <div> <ul class="nav">
+          <li class="list1"><a href="#"><span>a</span></a></li>
+          <li class="list2"><a href="#"><span>b</span></a></li>
+          <li class="list3"><a href="#"><span>c</span></a></li>
+          <li class="list4"><a href="#"><span>d</span></a></li>
+          <li class="list5"><a href="#"><span>e</span></a></li>
+        </ul></div>-->
+                
+             <div id="maincontainer">
+           
+        <div id="contentinner"><?php echo $this->layout()->content ?></div>
+        </div></div></div>
+           <div class="top">
+<p>Copyright © 2011 Hungama Digital Media Entertainment Pvt. Ltd. All Rights Reserved</p><!--<div class="getintouch"><a href="contact.html">Get in Touch <img src="images/icon-getintouch.jpg" /></a></div>--><div class="sweep"></div></div>
+<div style="padding-top: 102px"><ul id="nav">
+                <li id="a"<? if($this->params['controller']=='ivr1' && $this->params['action']=='msisdn' || $this->params['action']=='msisdnp' || $this->params['action']=='service'  || $this->params['action']=='toptencategory'  || $this->params['action']=='time' || $this->params['action']=='toptenshortcode' || $this->params['action']=='msisdnd' || $this->params['action']=='msisdndu'  || $this->params['action']=='msisdns' || $this->params['action']=='msisdnchart'
+                        || $this->params['action']=='servicechart' || $this->params['action']=='servicedu' || $this->params['action']=='servicep' || $this->params['action']=='services' || $this->params['action']=='toptencategoryc' || $this->params['action']=='toptencategorys' || $this->params['action']=='toptencategoryt' || $this->params['action']=='toptencategorydetail' || $this->params['action']=='toptencategorysummary'
+                        || $this->params['action']=='toptenshortcodec' || $this->params['action']=='toptenshortcodet' || $this->params['action']=='toptenshortcodes' || $this->params['action']=='toptenshortcodedetail' || $this->params['action']=='toptenshortcodesummary' || $this->params['action']=='times' || $this->params['action']=='timec' || $this->params['action']=='timep' || $this->params['action']=='timedu' || $this->params['action']=='timed' || $this->params['action']=='timechart')
+                                        echo  " class='active'";?>><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'msisdn'),null,true)?>"  onClick="show('navigation','navigation1','navigation2')">
+                                       
+                                      
+                                       Business Analysis</a></li>
+				<li id="b" <? if($this->params['controller']=='ivr1' && $this->params['action']=='toptenalbum' || $this->params['action']=='toptenringtone' || $this->params['action']=='toptenalbdetail' || $this->params['action']=='toptenalbsummary' || $this->params['action']=='toptenalbumnamec' || $this->params['action']=='toptenalbumnames' || $this->params['action']=='toptenalbumnamet'
+                                        || $this->params['action']=='toptenringtonec' || $this->params['action']=='toptenringtones' || $this->params['action']=='toptenringtonet' || $this->params['action']=='toptenringtonedetail' || $this->params['action']=='toptenringtonesummary' )   echo "class='active'";?>><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'toptenalbum'),null,true)?>"
+                                                      <?// if($this->params['controller']=='ivr1' && $this->params['action']=='toptenalbum' || $this->params['action']=='toptenringtone' ) echo  "class=active";?>
+                                               onClick="show1('navigation1','navigation','navigation2')" >Content Analysis</a></li>
+				<li id="c"  <? if($this->params['controller']=='ivr1' && $this->params['action']=='chpass' || $this->params['action']=='creater'  || $this->params['action']=='create' || $this->params['action']=='createnewu' || $this->params['action']=='createnewuser'|| $this->params['action']=='updater' || $this->params['action']=='update' || $this->params['action']=='updatenewuser' || $this->params['action']=='updateuser')   echo "class='active'";?>><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'chpass'),null,true)?>"  
+                                        <? //if($this->params['controller']=='ivr1' && $this->params['action']=='chpass' || $this->params['action']=='creater' ) echo  "class=active";?>
+                                       onClick="show2('navigation1','navigation','navigation2')" class="" onmouseover="highlight('c')">User Management</a></li>
+				<li class="sign-up"><a href="<?=$this->url(array('controller'=>'user','action'=>'logout'))?>">Log Out</a></li>
+			</ul>
+        </div>
+    </body>
+</html>
+

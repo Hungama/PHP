@@ -1,0 +1,166 @@
+/* ------------------Mega menu--------------------*/
+	/* Position of menu */
+	.mega-menu .dropdown-menu{
+		position: fixed;
+		left: 234px;
+		top: 70px;
+		z-index: 999999;
+	}
+	.mega-menu .dropdown-menu .menu {
+		background: url(../images/patterns/2.png) repeat;
+		padding: 0;
+		margin-left: 0;
+		width: 100%;
+		z-index: 999999;
+	}
+
+	.mega-menu.hidesub li.menu {
+		height: auto;
+		overflow-y: inherit;
+	}	
+
+	.mega-menu.hidesub li.menu.shrink {
+		height: 29px;
+		overflow-y: hidden;
+	}	
+
+	/* Heading for menu */
+	.mega-menu .nav-header {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		padding-top: 10px !important;
+		padding-bottom: 5px !important;
+		background: none !important;
+	}
+	/* Icon color and margin for menu */
+	.mega-menu ul li ul.menu-column li a .icon16 {margin-right: 5px !important; margin-left: 0;}
+	
+	/* Size of links */
+	.mega-menu .menu li {
+		padding: 6px 0; /* Here change the first value to control height of links */
+		margin-left: 15px;
+		margin-right: 15px;
+		width: auto !important;
+	}
+	.mega-menu .menu li a {
+		padding: 5px 1px; /* Here change the first value to control height of links */
+	}
+	.mega-menu .menu li.open {background: #f2f2f2;}
+	.mega-menu .menu li:last-child {padding-bottom: 3px;}
+
+	.mega-menu .menu li a:hover {
+		background: rgb(255,255,255);
+		background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+		background: -moz-linear-gradient(top, rgba(255,255,255,1) 1%, rgba(243,243,243,1) 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(255,255,255,1)), color-stop(100%,rgba(243,243,243,1)));
+		background: -webkit-linear-gradient(top, rgba(255,255,255,1) 1%,rgba(243,243,243,1) 100%);
+		background: -o-linear-gradient(top, rgba(255,255,255,1) 1%,rgba(243,243,243,1) 100%);
+		background: -ms-linear-gradient(top, rgba(255,255,255,1) 1%,rgba(243,243,243,1) 100%);
+		background: linear-gradient(top, rgba(255,255,255,1) 1%,rgba(243,243,243,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f3f3f3',GradientType=0 );
+	}
+
+	.mega-menu .dropdown-menu:before, .mega-menu .dropdown-menu:after {display: none !important;}
+
+	.mega-menu .dropdown-carret {
+		display: none;
+		position: absolute;
+		top:41px;
+		left: 15px;
+		background: url(../images/arrowup.png) no-repeat !important;
+		width:15px;
+		height:14px;
+		z-index: 9999999;;
+	}
+
+	/* sub menu */
+
+	.mega-menu .submenu {display: none;}
+	.mega-menu .submenu.open {display: block;}
+	.mega-menu .submenu li {margin-left: 0;}
+	.mega-menu .hasDrop {float: right;margin-top: 0px;}
+
+	/* ------------------ Responsive styles --------------*/
+	a.resBtnMegaMenu {
+		display: none;
+		float: left;
+		line-height: 16px;
+		font-size: 12px;
+		color: #555;
+		padding: 9px 10px;
+		border: 1px solid;
+		border-radius: 2px;
+		-webkit-border-radius: 2px;
+		-moz-border-radius: 2px;
+		position: relative;
+		-webkit-text-shadow: 0 1px 0 white;
+		-moz-text-shadow: 0 1px 0 white;
+		text-shadow: 0 1px 0 white;
+		border-color: #CCC #CCC #AAA;
+		background-color: #E0E0E0;
+		-moz-panel-shadow: inset 0 0 1px #fff;
+		-ms-panel-shadow: inset 0 0 1px #fff;
+		-webkit-panel-shadow: inset 0 0 1px white;
+		panel-shadow: inset 0 0 1px white;
+		filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#fffafafa,EndColorStr=#ffdcdcdc);
+		background-image: -moz-linear-gradient(top,#FAFAFA 0,#DCDCDC 100%);
+		background-image: -ms-linear-gradient(top,#FAFAFA 0,#DCDCDC 100%);
+		background-image: -o-linear-gradient(top,#FAFAFA 0,#DCDCDC 100%);
+		background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#FAFAFA),color-stop(100%,#DCDCDC));
+		background-image: -webkit-linear-gradient(top,#FAFAFA 0,#DCDCDC 100%);
+		background-image: linear-gradient(to bottom,#FAFAFA 0,#DCDCDC 100%);
+		text-decoration: none;
+		cursor: pointer;
+	}
+	
+	@media (max-width: 1200px) {
+		.nav-collapse, .nav-collapse.collapse {
+			height: 0;
+			overflow: hidden;
+		}
+	}
+	@media only screen and (max-width: 1600px) {
+		.navbar .nav > .mega-menu {margin-right: 20px;}
+	}
+	@media only screen and (max-width: 1400px) {
+		.navbar .nav > .mega-menu {margin-right: 15px;}
+	}
+	@media only screen and (max-width: 1300px) {
+		.navbar .nav > .mega-menu {margin-right: 10px;} 
+		.navbar .usernav > li {margin-right: 10px;}
+	}
+	@media only screen and (max-width: 1200px) {
+		.navbar .nav {margin-left: 0;}
+		.navbar .nav > .mega-menu {margin-right: -1px;}
+		.navbar .usernav > li {margin-right: -1px;}
+		.navbar .usernav {margin-left: 0; margin-right: 10px !important;}
+		.navbar .usernav .notification {left: 50%;right: auto;margin-left: -10px;}
+		#header .navbar .nav li a {min-height: 16px;}
+		.mega-menu .dropdown-menu {left: 10px;}
+		.collapseBtn {z-index: 999;}
+	}
+	@media only screen and (max-width: 979px) {
+		a.resBtnMegaMenu{display: block;position: absolute; top: 15px; right: 10px;}
+		.navbar .nav {float: left; width: 100%; margin-right: 0; margin-top: 0;}
+		.navbar .usernav {/* position: absolute; left: auto;right: 0; width: inherit; */}
+		.mega-menu {}
+		.mega-menu .dropdown-menu {
+			display: block;
+			position: relative;
+			left: auto;
+			top: auto;
+			margin-left: 0px;
+			margin-top: 5px;
+		}
+		.mega-menu .dropdown-menu ul[class ^="span"] {
+			width: 100%;
+		}
+	}
+
+	@media only screen and (max-width: 572px) {
+		.resBtn {top: 15px;	left: 20px;	}
+		#wrapper {padding-top: 0;}
+		#header {height: 66px;}
+	}
+
+	/* ------------------End mega menu--------------------*/

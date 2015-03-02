@@ -1,0 +1,81 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.clear{ clear:both}
+img{ border:none}
+a{ color:#000; text-decoration:none}
+
+/* sign in page start*/
+
+.header{ padding-top:20px}
+.wrap {
+    margin: 0 auto;
+    padding: 0;
+    width: 998px;
+}
+
+.cont{ padding:80px 0 20px 310px; width:680px;  background:url("http://192.168.4.65/gdp/public/themes/custom/img/bg.jpg") no-repeat center ; min-height:340px }
+
+.left_cont{ font-size:24px; float:left; width:180px}
+.right_cont{ font-size:24px; float:left; width:180px;  border:#999 solid 1px}
+.gap{ padding-top:30px}
+.button_gap{ padding-top:10px}
+.button{padding-left:180px}
+
+.ui-state-error{
+    background: url("http://192.168.4.65/gdp/public/themes/custom/img/button.png") repeat scroll 50% 50% #D34D17;
+    border: 1px solid #FFB73D;
+    color: #FFFFFF;
+	width:200px; font-size: 24px;
+}
+
+/*header*/
+
+#logo1{ height:55px; width:305px; background:url("http://192.168.4.65/gdp/public/themes/custom/img/logo_white.png") no-repeat; float:left; margin:20px 0 0 20px  }
+#logo2{ height:57px; width:341px; background:url("http://192.168.4.65/ivrproject/public/themes/custom/img/logo.jpg") no-repeat; float:left; margin:9px 0 0 20px  }
+
+
+/*side menu*/
+
+#ddblueblockmenu{
+border-right: 1px solid black;
+border-bottom-width: 0;
+width: 285px;
+float:left
+
+}
+
+#ddblueblockmenu ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+#ddblueblockmenu li a{
+display: block;
+padding: 3px 0;
+padding-left: 9px;
+width: 269px; /*185px minus all left/right paddings and margins*/
+text-decoration: none;
+color: #000;
+background: #E5E5E5;
+border-bottom: 2px solid #fff;
+border-left: 7px solid #5a5a5a;
+}
+
+* html #ddblueblockmenu li a{ /*IE only */
+width: 187px; /*IE 5*/
+width: 269px; /*185px minus all left/right paddings and margins*/
+}
+
+#ddblueblockmenu li a:hover {
+background-color: #d7e7f0;
+border-left-color: #0062a6;
+}
+
+
+/*Side Menu ends*/
+
+
+.login_time{ color:#970000; font-size:12px; padding-top:10px}

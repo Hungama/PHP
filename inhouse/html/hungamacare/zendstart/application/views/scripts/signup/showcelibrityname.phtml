@@ -1,0 +1,11 @@
+<form name="frm" action="" method="post"> 
+<table>
+<tr align='center'>
+<td>Celebrity Name:<select name='cName'>
+<?php foreach($this->response as $row){?>
+	<option><?php echo $row['Celeb_Name'];?></option>
+<?php }?>
+</select></td>
+</tr>
+</table>
+</form>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Hungama Web - Sign In</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="../../assets/css/bootstrap.css" rel="stylesheet" />
+<link href="../../assets/css/bootstrap-responsive.css" rel="stylesheet">
+<script type="text/javascript" src="../../assets/js/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="http://119.82.69.212/kmis/services/hungamacare/quickstart/public/datetimepicker.js">
+</script>
+    </head>
+<body>
+    <div class="container" id="container">
+
+ <div class="content">
+<table class="txt" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr> 
+    <td style="padding-left:20px">
+    <img src="http://119.82.69.212/kmis/services/hungamacare/images/logo.png" alt="Hungama" align="left" border="0" hspace="0" vspace="15"></td>
+   
+  </tr>
+</tbody></table>
+
+<table class="table table-condensed table-bordered">
+<tr> 
+    <td><strong><a href='<?php echo $this->url(array('controller'=>'signup','action'=>'showcontentmanager'))?>'><font size='2'>Content History</font></a></strong></td>
+<td><strong><a href='<?php echo $this->url(array('controller'=>'celibrity','action'=>'index'))?>'><font size='2'>Show Celibrity Details</font></a></strong></td>
+<td align="right" bgcolor="#ffffff" height="25"><strong><a href='<?php echo $this->url(array('controller'=>'celibrity','action'=>'uploadindex'))?>'><font size='2'>Upload SMS Verbiage</font></a></strong> </td> 
+<td align="right" bgcolor="#ffffff" height="25"><strong><a href='<?php echo $this->url(array('controller'=>'celibrity','action'=>'pushedmsghistory'))?>'><font size='2'>Follower History</font></a></strong></td>
+<td align="right" bgcolor="#ffffff" height="25"><strong><a href='<?php echo $this->url(array('controller'=>'celibrity','action'=>'showmsgstatus'))?>'><font size='2'>Show Message History</font></a></strong></td>
+<td align="right" bgcolor="#ffffff" height="25"><strong><a href='<?php echo $this->url(array('controller'=>'signup','action'=>'index'))?>'><font size=4>Logout</font></a></strong></td>
+</tr>
+</table>
+<!--div width="85%" align="left" class="txt">
+<div class="alert alert" ><a href="javascript:void(0)") id="Refresh"><i class="icon-refresh"></i></a>
+</div></div-->
+<form name="frm" enctype="multipart/form-data" action="<?php echo $this->url(array('controller'=>'Celibrity','action'=>'uploadindex'))?>" method="post"> 
+<table class="table table-condensed table-bordered">
+    <tbody>
+    <tr> 
+	<td colspan="2" align="center" bgcolor="#ffffff" height="25"><strong>SMS Verbiage</strong> </td>
+    </tr>
+     
+<tr>
+<td align="left" width="16%" height="32"><span>Browse File To Upload </span></td>
+<td><INPUT name="uploadedfile" id='uploadedfile' type="file" class="in">
+<button class="btn btn-primary" style="float:right">Submit</button>						  
+<!--input type='submit' name='submit' value='submit'-->
+</td>
+</tr>
+ </tbody></table>
+</form> 
+     <div class="well well-small">
+         <?php if($this->response){?>
+	<font size='2'><?php echo $this->response;?></font> 
+      <?php } ?>
+
+         
+     </div>
+</body> 
+ </div>
+    </div>
+</html>

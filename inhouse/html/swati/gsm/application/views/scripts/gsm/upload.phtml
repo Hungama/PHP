@@ -1,0 +1,41 @@
+<html>
+<title>  upload page </title>
+<body>
+<?php $type=array(Gsm=>Gsm,Service=>Service);?>
+<form name='upload'  action="<?php echo $this->url(array('controller'=>'Gsm','action'=>'upload'))?>" method="post" > 
+
+<table align='center' border='4'>
+	
+	<tr>	
+		<input type="hidden" name="MAX_FILE_SIZE" value="100" />
+		<input name="file" type="file" />
+
+	</tr>
+	<tr>
+                <td>
+                    Select Type<select name="type">
+                         <?php
+                         foreach($type as $key=>$value)
+                         { ?>
+                          <option value='<?php echo $value?>'><?phpecho $key?></option>
+                               <? } ?></select>
+                </td>
+                </tr>
+		
+	
+	
+	<tr>
+		<td colspan='2' align='center'><input type="submit" name="submit" value='submit'></td>
+	</tr>
+			
+</table>
+</form>
+</body>
+</html>
+
+	
+
+
+
+	
+

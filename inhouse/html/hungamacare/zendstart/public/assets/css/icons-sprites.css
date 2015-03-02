@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.telcologos{
+	background-image:url(../ico/sprite-telcologos.png);
+	background-repeat:no-repeat;
+	display:block;
+	text-indent:-99999px;
+	overflow:hidden;
+}
+
+.aircel{height:64px;width:64px;background-position:0 0;}
+.airtel{height:64px;width:64px;background-position:-64px 0;}
+.banglalink{height:64px;width:64px;background-position:-128px 0;}
+.bsnl{height:64px;width:64px;background-position:-192px 0;}
+.digi{height:64px;width:64px;background-position:0 -64px;}
+.idea{height:64px;width:64px;background-position:0 -128px;}
+.international{height:64px;width:64px;background-position:0 -192px;}
+.loopmobile{height:64px;width:64px;background-position:-64px -64px;}
+.mts{height:64px;width:64px;background-position:-128px -64px;}
+.reliance{height:64px;width:64px;background-position:-192px -64px;}
+.tatadocomo{height:64px;width:64px;background-position:-64px -128px;}
+.tataindicom{height:64px;width:64px;background-position:-64px -192px;}
+.uninor{height:64px;width:64px;background-position:-128px -128px;}
+.videocon{height:64px;width:64px;background-position:-192px -128px;}
+.vodafone{height:64px;width:64px;background-position:-128px -192px;}

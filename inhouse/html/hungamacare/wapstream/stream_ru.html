@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)http://192.168.10.154/vodafonemusic_sb/index.php/promo -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="http://192.168.10.154/vodafonemusic_sb/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="http://180.179.85.19/vodafonemusic_sb/css/jquery-ui.css?1234">
+<script src="./promowidplayer_files/jquery.js"></script>
+<script src="./promowidplayer_files/jquery-ui-1.10.4.custom.min.js"></script>
+
+			<link href="./promowidplayer_files/style.css" media="screen" rel="stylesheet" type="text/css">
+		<style>
+       .ui-autocomplete {
+            max-height: 150px;
+            overflow-y: auto;
+            /* prevent horizontal scrollbar */
+            overflow-x: hidden;
+            /* add padding to account for vertical scrollbar */
+            padding-right: 20px;
+        } 
+</style>
+<script type="text/javascript">
+function validate_stream(url,token)
+{
+	   var urlresponse="";
+	   url= 'http://192.168.10.154/vodafonemusic_sb/index.php/get_streaming_handle/?'+url+'&token='+token;
+	   //alert('token'+url); 
+	   $.ajax({
+                    url: url,
+                    async: false,
+					beforeSend: function( xhr ) {
+		 			  if(!isNaN(currentIndex)){
+							$('a.thumb_icon_img2').show();
+							$('a.thumb_icon_img3').hide();
+							$('#homeplay'+currentIndex).hide();
+							$('#homepause'+currentIndex).show();
+						}	
+					},
+                    success: function(response) {
+					  //urlresponse= response.trim();
+					  urlresponse1 = JSON.parse(response.trim());
+					  //alert(urlresponse1.status);
+					  //alert(urlresponse1.url);
+					  if(urlresponse1.status==1){
+						urlresponse	= urlresponse1.url;
+					  }else{
+						urlresponse="";
+					  }					
+					  
+					  if(urlresponse.indexOf("aks3dlre") == -1){
+						  window.location.href = 'http://192.168.10.154/invaliduser.php?usernotfound_plyr_2';
+
+					  }
+                    },
+					error: function(XMLHttpRequest, textStatus, errorThrown) { 
+						//window.location.href = 'http://192.168.10.154/invaliduser.php?usernotfound_plyr_3';
+					}       
+            });
+			return urlresponse;
+}
+
+function validate_stream_gprs(url)
+{
+	   var urlresponse="";
+	   $.ajax({
+                    url: url,
+                    async: true,
+					beforeSend: function( xhr ) {
+		 			  if(!isNaN(currentIndex)){
+							$('a.thumb_icon_img2').show();
+							$('a.thumb_icon_img3').hide();
+							$('#homeplay'+currentIndex).hide();
+							$('#homepause'+currentIndex).show();
+						}	
+					},
+                    success: function(response) {
+					  urlresponse= response.trim();
+					 //alert(urlresponse);
+					  if(urlresponse != 'success'){
+						  window.location.href = 'http://192.168.10.154/invaliduser.php?usernotfound_plyr_2';
+					  }			
+                    },
+					error: function(XMLHttpRequest, textStatus, errorThrown) { 
+						//window.location.href = 'http://192.168.10.154/invaliduser.php?usernotfound_plyr_3';
+					}       
+            });
+			return urlresponse;
+}
+
+function fav_add(n)
+{
+	$.ajax({
+		url: "http://192.168.10.154/vodafonemusic_sb/index.php/addfavourite?id="+n,
+		async: true,
+		success: function(response) {  
+		  $('#fav_id'+n).attr("src",response);
+		  $('#afav_id'+n).css( 'cursor', 'default' );
+		  $('#afav_id'+n).attr('href', '#');
+		 // $('#icons_div').html(iconarray[1]);  
+		  
+		}
+	});
+}
+
+
+function ajaxCall(url){
+	$.ajax({
+		url: url,
+		async: true,
+		success: function(response) {  }
+	});					
+}
+
+$(function() {
+		$("#search_text").autocomplete({
+		//source: availableTags
+		source: "http://192.168.10.154/vodafonemusic_sb/index.php/predictive_search",
+		minLength: 3,//search after two characters
+		wrapper: '<ul class="jq-ui-autocomplete scrollbardemo"></ul>',
+		select: function(event,ui){
+			$("#search_text").val(ui.item.value);
+			document.searchform.submit();
+		}
+	});
+});
+
+</script>
+<title>Vodafone Music</title>
+</head>
+<body>
+	<div>
+		<!-- Header Logo Starts-->
+
+<!-- Header Logo End-->
+
+				<script src="./promowidplayer_files/hungama-audio.js"></script>
+<audio id="hplayer"></audio>
+<!--script>if(!hungama.isMP3Supported){location.href='/vodafonemusic_sb/index.php/promowpl';}</script-->
+<!-- Player Script Starts-->
+
+<script type="text/javascript">
+
+var tracks = ["90 Super Hits","Romantic Hits"];var albums = ["90 Super Hits","Romantic Hits"];var trackid = ["1","2"];var turl = ["http://123.176.41.8:8556/;stream.nsv","http://123.176.41.8:8032/;stream.nsv"];
+var html5 = false;
+var current = null;
+var currentIndex = 0;
+	
+function playSong(songId) {
+	$('div.hplayer').hide();
+	$('#icons_div'+songId).show();
+	$('#download_div'+songId).show();
+	
+	if(!isNaN(songId)){
+		$('a.thumb_icon_img2').show();
+		$('a.thumb_icon_img3').hide();
+		$('#homeplay'+songId).hide();
+		$('#homepause'+songId).show();
+	}
+	
+    if(current) {
+        played_sec = Math.round(current.elapsed);
+		validate_stream_gprs('http://192.168.10.154/vodafonemusic_sb/index.php/cm_record_stream/index?place=playsong&content_id='+trackid[currentIndex]+'&duration='+played_sec+'&query_id=0&complete=true&token=2368266604&qty=l');
+		
+    }    
+	var played_sec = 0;
+	if(current && (currentIndex != songId)) {
+		played_sec = Math.round(current.elapsed);
+		current.pause();
+		current = null;
+	}else if(current){
+		played_sec = Math.round(current.elapsed);
+	}
+	currentIndex = songId;
+	play();		
+}
+
+
+function play() {
+	$('.play').hide();
+	$('.pause').show();
+	$('#length')[0].innerHTML="00:00";
+	$('#elapsed')[0].innerHTML="00:00";
+	$('a.playbutton').hide();
+	$('.menuCont3z').show();
+	
+	if(!isNaN(currentIndex)){
+		$('a.thumb_icon_img2').show();
+		$('a.thumb_icon_img3').hide();
+		$('#homeplay'+currentIndex).hide();
+		$('#homepause'+currentIndex).show();
+	}
+
+	if(!current) {
+		
+		$('.bar').width('0%');
+		//var url=validate_stream(turl[currentIndex],2368266604);
+		var url = turl[currentIndex];
+		current = new hungama.Audio(url); 
+		validate_stream_gprs('http://192.168.10.154/vodafonemusic_sb/index.php/record_stream/index?content_id='+trackid[currentIndex]+'&query_id=0&token=2368266604&qty=l');
+		current.play();
+		var firsttime=1;
+		
+		current.onPlaying = function(elapsedTime) {
+		if(current){
+			if(firsttime==0 && elapsedTime> 0){
+				var min = Math.floor(current.duration/60);
+				var sec = Math.round(current.duration%60);
+				$('#length')[0].innerHTML=(min<10?'0'+min:min)+'.'+(sec<10?'0'+sec:sec);
+				
+				var min = Math.floor(elapsedTime/60);
+				var sec = Math.round(elapsedTime%60);					
+				$('#elapsed')[0].innerHTML=(min<10?'0'+min:min)+'.'+(sec<10?'0'+sec:sec);
+				$('.bar').width(elapsedTime/current.duration*100+'%');
+			}else{
+				$('#length')[0].innerHTML="00:00";
+				$('#elapsed')[0].innerHTML="00:00";
+			}
+			firsttime=0;
+		}	
+		};
+		current.onEnd = function(elapsedTime) {
+		//if(elapsedTime> 0){ 
+		if(1){
+			var played_sec = Math.round(current.elapsed);
+			current = null;
+			//alert('onEnd'+currentIndex);
+			//alert('elapsedTime-' + elapsedTime);
+			if(currentIndex >= (tracks.length - 1)) {
+				currentIndex = 0;
+			} else {
+				currentIndex++;
+			}
+			$('div.hplayer').hide();
+			$('#icons_div'+currentIndex).show();
+			$('#download_div'+currentIndex).show();
+			play();
+		 }
+		};			
+		$('#trackName').html(tracks[currentIndex]);
+		$('#album').html(albums[currentIndex]);
+	} else {
+	
+		current.play();
+	}
+	$('.play').hide();
+	$('.pause').show();
+}
+		
+function pause() {
+	if(current) current.pause();
+	
+	if(!isNaN(currentIndex)){
+		$('a.thumb_icon_img2').show();
+		$('a.thumb_icon_img3').hide();
+		$('#homeplay'+currentIndex).show();
+		$('#homepause'+currentIndex).hide();
+	}
+
+	var played_sec = Math.round(current.elapsed);
+	
+	$('.play').show();
+	$('.pause').hide();
+}
+		
+$(function() {
+		$('a.play').click(function (){
+			playSong(currentIndex);			
+		});	
+		$('a.pause').click(function (){
+			pause();			
+		});
+		$('a.next').click(function (){
+			playlim = turl.length - 1;
+			if(currentIndex >= playlim) return;
+			
+			played_sec = Math.round(current.elapsed);
+             
+			ajaxCall('http://192.168.10.154/vodafonemusic_sb/index.php/cm_record_stream/index?place=playsong&content_id='+trackid[currentIndex]+'&duration='+played_sec+'&query_id=0&complete=true&token=2368266604&qty=l');
+				    pause();
+					current = null;
+					currentIndex++;
+					play();	
+					$('div.hplayer').hide();
+					$('#icons_div'+currentIndex).show();
+					$('#download_div'+currentIndex).show();
+				});		
+				$('a.previous').click(function (){
+					if(currentIndex <= 0) return;
+					played_sec = Math.round(current.elapsed);
+					ajaxCall('http://192.168.10.154/vodafonemusic_sb/index.php/cm_record_stream/index?place=playsong&content_id='+trackid[currentIndex]+'&duration='+played_sec+'&query_id=0&complete=true&token=2368266604&qty=l');
+										
+					pause();
+					current = null;
+					currentIndex--;
+					play();
+					$('div.hplayer').hide();
+					$('#icons_div'+currentIndex).show();
+					$('#download_div'+currentIndex).show();
+					
+				});
+
+				$('a.playbutton').click(function (){
+					$(this).hide();
+					$('.menuCont3z').show();
+				});	
+				
+			});
+		
+$(window).on('beforeunload', function() {
+	if(current){
+		played_sec = Math.round(current.elapsed);
+		//return (played_sec+'|'+trackid[currentIndex]);
+		ajaxCall('http://192.168.10.154/vodafonemusic_sb/index.php/cm_record_stream/index?place=playsong&content_id='+trackid[currentIndex]+'&duration='+played_sec+'&query_id=0&complete=true&token=2368266604&qty=l');
+		//return (played_sec+'|'+trackid[currentIndex]);
+	}
+});
+	
+</script>
+	<!-- Player Script Ends-->	
+
+	<!--Player Code Start-->
+			
+	<div class="menuCont3z newplayer disnone" style="display: block;">	
+		<div class="songDetails1" style="width:49%;padding-left:0px; float:right;">
+			<a id="trackName" href="http://192.168.10.154/vodafonemusic_sb/index.php/promo#" style="padding:0; color:#000;">90 Super Hits</a><br>
+			<span id="album" class="fnt11GryDrk" style="padding:0"></span>
+			      
+		</div>
+		
+		<div style="width:49%; float:right;">
+		
+				</div>
+		
+		
+
+		<div class="fl" style="width:49%;">
+			<a class="previous" href="javascript:void(0)"><img width="33" height="33" src="./promowidplayer_files/reverseIcon1.png" class="valign"></a> 
+			<a href="javascript:void(0)" class="play">&nbsp;</a> 
+			<a href="javascript:void(0)" class="pause" style="display: none;">&nbsp;</a> 
+			<a class="next" href="javascript:void(0)"><img width="33" height="33" src="./promowidplayer_files/forwordIcon1.png" class="valign"></a>
+		</div>
+						  
+								  
+		<div class="cl"></div>
+		<div class="pt5">
+			  <div style="width:20%; font-size:0.9000em; color:#666; float:left; text-align:center;" class="fl" id="elapsed">00:00</div> 
+			  <div style="background:#333; height:2px; float:left; width:59%; margin:7px 0px 0 0">
+				<div class="bar" style="width: 0%;">&nbsp;</div>
+			  </div>
+			  <div style="width:20%; font-size:0.9000em; color:#666; float:left; text-align:center;" class="fl" id="length">00:00</div> 
+			  <div class="cl"></div>
+		</div>		
+					</div>
+		
+				<script type="text/javascript">
+			//play();
+			//pause()
+			$('a.playbutton').hide();
+			$('.menuCont3z').show();
+            $('#trackName').html(tracks[0]);
+            $('#album').html(albums[0]);
+
+			</script>
+			<noscript>
+				&lt;meta http-equiv="refresh" content="0;url=/vodafonemusic_sb/index.php/promowpl"&gt;
+		</noscript><div class="subNavContBox">
+        <div class="subNavCont">            	
+		      <div class="albumthumb-col26"><a href="http://192.168.10.154/vodafonemusic_sb/index.php/album_detail/player/?id=2467532&catid=0&subcatid=0&token=2368266604&query_id=0" class="thumb_icon_img1"><img src="./promowidplayer_files/81208735.jpg"></a><div class="thumb_icon_txt1">
+			<a href="javascript:playSong(0)">90 Super Hits</a>
+			<p class="fnt11Gry pb15"><a href="http://192.168.10.154/vodafonemusic_sb/index.php/album_detail/player/?id=2467532&catid=0&subcatid=0&token=2368266604&query_id=0"></a></p></div><a id="homeplay0" href="javascript:playSong(0)" class="thumb_icon_img2"><img src="./promowidplayer_files/playIcon8.png"></a>
+			
+			<a id="homepause0" href="javascript:pause()" class="thumb_icon_img3" style="display:none"><img src="./promowidplayer_files/pause7.png"></a>
+		</div>
+		<div class="cl"></div>
+		</div>
+		<div class="spacer1"></div><div class="subNavCont">            	
+		      <div class="albumthumb-col26"><a href="http://192.168.10.154/vodafonemusic_sb/index.php/album_detail/player/?id=2485841&catid=0&subcatid=0&token=2368266604&query_id=0" class="thumb_icon_img1"><img src="./promowidplayer_files/82332123.jpg"></a><div class="thumb_icon_txt1">
+			<a href="javascript:playSong(1)">Romantic Hits</a>
+			<p class="fnt11Gry pb15"><a href="http://192.168.10.154/vodafonemusic_sb/index.php/album_detail/player/?id=2485841&catid=0&subcatid=0&token=2368266604&query_id=0"></a></p></div><a id="homeplay1" href="javascript:playSong(1)" class="thumb_icon_img2"><img src="./promowidplayer_files/playIcon8.png"></a>
+			
+			<a id="homepause1" href="javascript:pause()" class="thumb_icon_img3" style="display:none"><img src="./promowidplayer_files/pause7.png"></a>
+		</div>
+		<div class="cl"></div>
+		</div>
+		
+			
+		<!-- Footer Start-->
+
+<!-- Footer End-->	
+	</div>
+
+
+</div></body></html>

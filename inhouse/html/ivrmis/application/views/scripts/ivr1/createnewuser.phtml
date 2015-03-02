@@ -1,0 +1,46 @@
+<form name="myform1" id="myform1" align="left" valign="top" Method="post"  >
+
+   
+    <div class="clear"></div>
+    <div style="width: 780px; padding: 20px">
+        <div style="width: 700px; padding-top: 10px">
+          <!--  <div style="width:130px; float: left; font-size: 12px; font-weight: bold">Select circles for services: </div> -->
+            <div class="clear"></div>
+
+            <div style="width: 700px; padding-top: 10px">
+                <?php @$service= $_POST['ListBox2'];
+               
+                if( is_array($service)){
+           while (list ($key, $value) = each ($service)) {
+                   
+                    if($value != ''){
+                    ?>
+                    <div style="width:130px;   font-size: 12px; font-weight: bold"><?php echo $value ?>
+                        <!-- <div style="width: 500px; float: right">-->
+                        <select name="circle[<?php echo $value?>]" size="4" multiple="multiple" id="ListBox2"style="padding:0 " >
+
+                            <?php
+                            //print_r($resp);
+                            // print_r (explode(",",$this->response));
+                            //  print_r($option1);
+                            foreach ($_SESSION['circle'] as $value1) {
+                                echo $value1;
+                                ?>
+                                <option value= <?php 
+                                echo str_replace(" ", "#", $value1) ?>><?php echo $value1 ?></option><? 
+                            }?>
+                    </select>
+                </div>
+                <? } 
+                } }
+                ?><h2>Thanks for registering. 
+                     Please check your e-mail id.</h2>
+                 <div style="width: 700px; padding: 30px 0 0 130px; float: left; "> 
+             <div style="width: 200px;" ><INPUT TYPE="button" id="b1" VALUE="Back" onClick="history.go(-1);"> </input>
+             </div>   </div>
+                </form>
+                </html>
+
+
+
+

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html><head>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="http://103.16.47.38/vodafonemusic_cm/favicon.ico" type="image/x-icon">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="promowpl_files/jquery-ui.css">
+<script src="promowpl_files/jquery.js"></script>
+<script src="promowpl_files/jquery-ui-1.js"></script>
+
+			<link href="promowpl_files/style.css" media="screen" rel="stylesheet" type="text/css">
+		<style>
+       .ui-autocomplete {
+            max-height: 150px;
+            overflow-y: auto;
+            /* prevent horizontal scrollbar */
+            overflow-x: hidden;
+            /* add padding to account for vertical scrollbar */
+            padding-right: 20px;
+        } 
+</style>
+<script type="text/javascript">
+function validate_stream(url,token)
+{
+	   var urlresponse="";
+	   url= 'http://103.16.47.38/vodafonemusic_cm/index.php/get_streaming_handle/?'+url+'&token='+token;
+	   //alert('token'+url); 
+	   $.ajax({
+                    url: url,
+                    async: false,
+					beforeSend: function( xhr ) {
+		 			  if(!isNaN(currentIndex)){
+							$('a.thumb_icon_img2').show();
+							$('a.thumb_icon_img3').hide();
+							$('#homeplay'+currentIndex).hide();
+							$('#homepause'+currentIndex).show();
+						}	
+					},
+                    success: function(response) {
+					  //urlresponse= response.trim();
+					  urlresponse1 = JSON.parse(response.trim());
+					  //alert(urlresponse1.status);
+					  //alert(urlresponse1.url);
+					  if(urlresponse1.status==1){
+						urlresponse	= urlresponse1.url;
+					  }else{
+						urlresponse="";
+					  }					
+					  
+					  if(urlresponse.indexOf("aks3dlre") == -1){
+						  window.location.href = 'http://103.16.47.38/invaliduser.php?usernotfound_plyr_2';
+
+					  }
+                    },
+					error: function(XMLHttpRequest, textStatus, errorThrown) { 
+						//window.location.href = 'http://103.16.47.38/invaliduser.php?usernotfound_plyr_3';
+					}       
+            });
+			return urlresponse;
+}
+
+function validate_stream_gprs(url)
+{
+	   var urlresponse="";
+	   $.ajax({
+                    url: url,
+                    async: true,
+					beforeSend: function( xhr ) {
+		 			  if(!isNaN(currentIndex)){
+							$('a.thumb_icon_img2').show();
+							$('a.thumb_icon_img3').hide();
+							$('#homeplay'+currentIndex).hide();
+							$('#homepause'+currentIndex).show();
+						}	
+					},
+                    success: function(response) {
+					  urlresponse= response.trim();
+					 //alert(urlresponse);
+					  if(urlresponse != 'success'){
+						  window.location.href = 'http://103.16.47.38/invaliduser.php?usernotfound_plyr_2';
+					  }			
+                    },
+					error: function(XMLHttpRequest, textStatus, errorThrown) { 
+						//window.location.href = 'http://103.16.47.38/invaliduser.php?usernotfound_plyr_3';
+					}       
+            });
+			return urlresponse;
+}
+
+function fav_add(n)
+{
+	$.ajax({
+		url: "http://103.16.47.38/vodafonemusic_cm/index.php/addfavourite?id="+n,
+		async: true,
+		success: function(response) {  
+		  $('#fav_id'+n).attr("src",response);
+		  $('#afav_id'+n).css( 'cursor', 'default' );
+		  $('#afav_id'+n).attr('href', '#');
+		 // $('#icons_div').html(iconarray[1]);  
+		  
+		}
+	});
+}
+
+
+function ajaxCall(url){
+	$.ajax({
+		url: url,
+		async: true,
+		success: function(response) {  }
+	});					
+}
+
+$(function() {
+		$("#search_text").autocomplete({
+		//source: availableTags
+		source: "http://103.16.47.38/vodafonemusic_cm/index.php/predictive_search",
+		minLength: 3,//search after two characters
+		wrapper: '<ul class="jq-ui-autocomplete scrollbardemo"></ul>',
+		select: function(event,ui){
+			$("#search_text").val(ui.item.value);
+			document.searchform.submit();
+		}
+	});
+});
+
+</script>
+<title>Vodafone Music</title>
+</head>
+<body>
+	<div>
+		<!-- Header Logo Starts-->
+<a name="top"></a>
+<div class="toparea1">   
+            <a href="http://103.16.47.38/vodafonemusic_cm/index.php?token=564127707"><div class="logoArea">
+			<div class="clr"></div>
+               <center> <div class="logo"><img src="promowpl_files/logo.png" width="160"></div></center>
+				<div class="clr"></div>
+            </div></a> 
+</div>
+<!-- Header Logo End-->
+
+				<div class="subNavContBox">
+        <div class="subNavCont">            	
+		  <div class="albumthumb-col26"><a href="http://103.16.47.38/vodafonemusic_cm/index.php/album_detail/player/?id=2467532&amp;catid=0&amp;subcatid=0&amp;token=564127707&amp;query_id=27874" class="thumb_icon_img1"><img src="promowpl_files/81208735.jpg"></a><div class="thumb_icon_txt2">
+		    <a href="http://103.16.47.38/vodafonemusic_cm/index.php/download/index?val=U3wyNDY3NTMzfHRyYWNrfHxsfDI3ODc0">Ice Cream</a>
+		    <p class="fnt11Gry pb15"><a href="http://103.16.47.38/vodafonemusic_cm/index.php/album_detail/player/?id=2467532&amp;catid=0&amp;subcatid=0&amp;token=564127707&amp;query_id=27874">The Xpose</a></p></div>
+			
+		<a id="homeplay0" href="http://103.16.47.38/vodafonemusic_cm/index.php/download/index?val=U3wyNDY3NTMzfHRyYWNrfHxsfDI3ODc0" class="thumb_icon_img2"><img src="promowpl_files/playIcon8.png" alt="Play"></a>
+			
+			<!--a id="homepause0" href="javascript:pause()" class="thumb_icon_img3" style="display:none"><img src="http://images.vodafonemusic.in/pause7.png" /></a-->	
+		
+		  </div>
+		  <div class="cl"></div>
+	      </div>
+	      <div class="spacer1"></div><div class="subNavCont">            	
+		  <div class="albumthumb-col26"><a href="http://103.16.47.38/vodafonemusic_cm/index.php/album_detail/player/?id=2405464&amp;catid=0&amp;subcatid=0&amp;token=564127707&amp;query_id=27874" class="thumb_icon_img1"><img src="promowpl_files/79818907.jpg"></a><div class="thumb_icon_txt2">
+		    <a href="http://103.16.47.38/vodafonemusic_cm/index.php/download/index?val=U3wyNDE3MTY3fHRyYWNrfHxsfDI3ODc0">Chaar Botal Vodka</a>
+		    <p class="fnt11Gry pb15"><a href="http://103.16.47.38/vodafonemusic_cm/index.php/album_detail/player/?id=2405464&amp;catid=0&amp;subcatid=0&amp;token=564127707&amp;query_id=27874">Ragini MMS 2</a></p></div>
+			
+		<a id="homeplay1" href="http://103.16.47.38/vodafonemusic_cm/index.php/download/index?val=U3wyNDE3MTY3fHRyYWNrfHxsfDI3ODc0" class="thumb_icon_img2"><img src="promowpl_files/playIcon8.png" alt="Play"></a>
+			
+			<!--a id="homepause1" href="javascript:pause()" class="thumb_icon_img3" style="display:none"><img src="http://images.vodafonemusic.in/pause7.png" /></a-->	
+		
+		  </div>
+		  <div class="cl"></div>
+	      </div>
+	      <div class="spacer1"></div><div class="subNavCont">            	
+		  <div class="albumthumb-col26"><a href="http://103.16.47.38/vodafonemusic_cm/index.php/album_detail/player/?id=2417135&amp;catid=0&amp;subcatid=0&amp;token=564127707&amp;query_id=27874" class="thumb_icon_img1"><img src="promowpl_files/80650672.jpg"></a><div class="thumb_icon_txt2">
+		    <a href="http://103.16.47.38/vodafonemusic_cm/index.php/download/index?val=U3wyNDQ5MTc0fHRyYWNrfHxsfDI3ODc0">Party With The Bhoothn...</a>
+		    <p class="fnt11Gry pb15"><a href="http://103.16.47.38/vodafonemusic_cm/index.php/album_detail/player/?id=2417135&amp;catid=0&amp;subcatid=0&amp;token=564127707&amp;query_id=27874">Bhoothnath Returns</a></p></div>
+			
+		<a id="homeplay2" href="http://103.16.47.38/vodafonemusic_cm/index.php/download/index?val=U3wyNDQ5MTc0fHRyYWNrfHxsfDI3ODc0" class="thumb_icon_img2"><img src="promowpl_files/playIcon8.png" alt="Play"></a>
+			
+			<!--a id="homepause2" href="javascript:pause()" class="thumb_icon_img3" style="display:none"><img src="http://images.vodafonemusic.in/pause7.png" /></a-->	
+		
+		  </div>
+		  <div class="cl"></div>
+	      </div>
+	      <div class="spacer1"></div><div class="subNavCont">            	
+		  <div class="albumthumb-col26"><a href="http://103.16.47.38/vodafonemusic_cm/index.php/album_detail/player/?id=2229437&amp;catid=0&amp;subcatid=0&amp;token=564127707&amp;query_id=27874" class="thumb_icon_img1"><img src="promowpl_files/75453860.jpg"></a><div class="thumb_icon_txt2">
+		    <a href="http://103.16.47.38/vodafonemusic_cm/index.php/download/index?val=U3wyMjUyNTExfHRyYWNrfHxsfDI3ODc0">Sunny Sunny</a>
+		    <p class="fnt11Gry pb15"><a href="http://103.16.47.38/vodafonemusic_cm/index.php/album_detail/player/?id=2229437&amp;catid=0&amp;subcatid=0&amp;token=564127707&amp;query_id=27874">Yaariyan</a></p></div>
+			
+		<a id="homeplay3" href="http://103.16.47.38/vodafonemusic_cm/index.php/download/index?val=U3wyMjUyNTExfHRyYWNrfHxsfDI3ODc0" class="thumb_icon_img2"><img src="promowpl_files/playIcon8.png" alt="Play"></a>
+			
+			<!--a id="homepause3" href="javascript:pause()" class="thumb_icon_img3" style="display:none"><img src="http://images.vodafonemusic.in/pause7.png" /></a-->	
+		
+		  </div>
+		  <div class="cl"></div>
+	      </div>
+	      <div class="spacer1"></div><div class="subNavCont">            	
+		  <div class="albumthumb-col26"><a href="http://103.16.47.38/vodafonemusic_cm/index.php/album_detail/player/?id=1921064&amp;catid=0&amp;subcatid=0&amp;token=564127707&amp;query_id=27874" class="thumb_icon_img1"><img src="promowpl_files/74130098.jpg"></a><div class="thumb_icon_txt2">
+		    <a href="http://103.16.47.38/vodafonemusic_cm/index.php/download/index?val=U3wxOTIxMDY2fHRyYWNrfHxsfDI3ODc0">Lungi Dance</a>
+		    <p class="fnt11Gry pb15"><a href="http://103.16.47.38/vodafonemusic_cm/index.php/album_detail/player/?id=1921064&amp;catid=0&amp;subcatid=0&amp;token=564127707&amp;query_id=27874">Lungi Dance</a></p></div>
+			
+		<a id="homeplay4" href="http://103.16.47.38/vodafonemusic_cm/index.php/download/index?val=U3wxOTIxMDY2fHRyYWNrfHxsfDI3ODc0" class="thumb_icon_img2"><img src="promowpl_files/playIcon8.png" alt="Play"></a>
+			
+			<!--a id="homepause4" href="javascript:pause()" class="thumb_icon_img3" style="display:none"><img src="http://images.vodafonemusic.in/pause7.png" /></a-->	
+		
+		  </div>
+		  <div class="cl"></div>
+	      </div>
+	      <div class="spacer1"></div><div class="subNavCont"><div class="cl"></div></div>	
+			
+		<!-- Footer Start-->
+<div class="footerBg">
+            <div class="footerLink">
+				
+			    <a href="http://180.179.149.11/vodafone/210202/promo.php3">All at Re 1</a><span style="color:#ccc">|</span>
+				<a href="http://65.49.33.29:8080/vctv?sn=2612&amp;src=footer_crosspromotion_vodaproducts">TV Shows</a><span style="color:#ccc">|</span>
+				<a href="http://10.11.233.100:8080/Promotions/PromoAction.action?type=CORP1">Live TV</a><span style="color:#ccc">|</span>
+				<a href="http://subscribe.starcricket.tv/AdModule/tracking.aspx?p=3&amp;c=9">Sports</a><span style="color:#ccc">
+				<br><br>
+				<a href="http://live.vodafone.in/">Home</a><span style="color:#ccc">|</span>
+				<a href="http://bit.ly/vodafonem">Music</a><span style="color:#ccc">|</span>
+				<a href="http://103.16.47.38/vodafonemusic_cm/index.php/myaccount/?token=564127707">My Account</a>|</span>
+				<a href="http://live.vodafone.in/Defaultx.aspx?typxm=TnC">T &amp; C</a><span style="color:#ccc">
+			</span></div>
+</div>
+
+<div class="footerBg">
+			<div class="copyright">
+                    <span>©2014 Vodafone India.</span>
+              <img src="promowpl_files/vodafone-logo.png" alt="">
+             </div>
+</div>
+<!-- Footer End-->	
+	</div>
+
+
+</div></body></html>

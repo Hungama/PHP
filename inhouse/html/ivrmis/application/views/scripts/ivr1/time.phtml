@@ -1,0 +1,227 @@
+<?php
+To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Trebuchet%20MS,%20Tahoma,%20Verdana,%20Arial,%20sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=273b4e&bgTextureHeader=12_gloss_wave.png&bgImgOpacityHeader=35&borderColorHeader=406ca5&fcHeader=ffffff&iconColorHeader=ffffff&bgColorContent=eeeeee&bgTextureContent=03_highlight_soft.png&bgImgOpacityContent=100&borderColorContent=dddddd&fcContent=333333&iconColorContent=222222&bgColorDefault=224c77&bgTextureDefault=03_highlight_soft.png&bgImgOpacityDefault=100&borderColorDefault=cccccc&fcDefault=e8f3f7&iconColorDefault=dce4ea&bgColorHover=fdf5ce&bgTextureHover=02_glass.png&bgImgOpacityHover=100&borderColorHover=7c8bbb&fcHover=3a4e83&iconColorHover=545e87&bgColorActive=ffffff&bgTextureActive=02_glass.png&bgImgOpacityActive=65&borderColorActive=1c588d&fcActive=97aec3&iconColorActive=4a587d&bgColorHighlight=ffe45c&bgTextureHighlight=03_highlight_soft.png&bgImgOpacityHighlight=75&borderColorHighlight=fed22f&fcHighlight=363636&iconColorHighlight=228ef1&bgColorError=b81900&bgTextureError=08_diagonals_thick.png&bgImgOpacityError=18&borderColorError=cd0a0a&fcError=ffffff&iconColorError=ffd27a&bgColorOverlay=666666&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=20&opacityOverlay=50&bgColorShadow=ffffff&bgTextureShadow=01_flat.png&bgImgOpacityShadow=10&opacityShadow=20&thicknessShadow=5px&offsetTopShadow=-5px&offsetLeftShadow=-5px&cornerRadiusShadow=5px
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+?>
+<!--<div align="center">
+    <h2>MSISDN WISE REPORT</h2> <br></br>
+</div>-->
+<?php //print_r($this->layout());
+        //echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/jquery.ui.css') ?>
+<script>
+	$(function() {
+		$( "#startdatepicker" ).datepicker();
+                $( "#enddatepicker" ).datepicker();
+	});
+	</script>
+        <?php
+       // print_r (explode(",",$this->response));
+      //  print_r ($_REQUEST);
+        ?>
+ <html>
+     
+          <script language="javascript" type="text/javascript">
+function compareDate()
+{
+var start = document.myform1.startdate.value;
+var end = document.myform1.enddate.value;
+
+   var startDate = Date.parse(start);
+   var endDate = Date.parse(end);
+   if (start=="" || end=="")
+  {
+  alert("Start date and End date is required");
+  return false;
+  }
+
+
+// alert(a1);
+// alert(a1.length);
+
+ var difference = (endDate - startDate)/(86400000 * 7);
+   if (difference < 0) {
+       alert("The start date must come before the end date.");
+       return false;
+   
+
+}
+return true;
+}
+</script>
+     
+        
+      
+<body><form name="myform1" id="myform1" align="left" valign="top" Method="post">
+        
+      
+        <div class="clear"></div>
+        <div style="width: 980px; padding: 20px">
+        
+            
+            <div style="width: 700px; padding-top: 10px">
+            <div style="width:130px; float: left; font-size: 14px; font-weight: bold ">Start Date</div>
+            <div style="width:230px; float: left "><input type=text id="startdatepicker" name="startdate" readonly="readonly" size="15" ></input></div>
+            <div style="width:100px; float: left; font-size: 14px; font-weight: bold; padding-left: 20px "> End Date</div>
+            <div style="width:210px; float: left "><input type="text" name="enddate" id="enddatepicker" readonly="readonly" size="15" ></input></div>
+            </div>
+             <div style="width: 700px; padding-top: 30px; float: left "> <div style="width: 130px; float: left; font-size: 14px; font-weight: bold">Select Service</div>
+             <div style="width: 500px; float: left ">
+            <select name="ListBox1[]" size="4" multiple="multiple" style="width: 180px"  id="ListBox1" >
+        <?php
+  // print_r($this->response);
+   // print_r($resp);
+   $option=explode("#-*",$this->response);
+    $option1=explode(",",$option[1]);
+    print_r($option1);
+    foreach($option1 as $v){echo $v;
+    if($v!=""){?>
+  <option value=<?php echo str_replace(" ","#",$v)?>><?php echo $v?></option><?}}?>
+ <!-- <option value="Item 1"><?php echo("$v")?></option>--></select>
+             </div>
+             </div>
+                 
+                     <div class="clear"></div>
+                    <div style="width: 700px; padding-top: 30px; float: left "> <div style="width: 130px; float: left; font-size: 14px; font-weight: bold">Select Circle</div>
+             <div style="width: 500px; float: left ">
+            <select name="ListBox2[]" size="4" multiple="multiple" style="width: 180px"  id="ListBox2">
+         <?php
+   
+   // print_r($resp);
+    print_r (explode(",",$this->response));
+  //  $option=explode("#-*",$this->response);
+    $option2=explode(",",$option[0]);
+    print_r($option2);
+    foreach($option2 as $v1){echo $v1;
+    if($v1!=""){?>
+  <option value=<?php echo str_replace(" ","#",$v1)?>><?php echo $v1?></option><?}}?>
+  </select></div>
+                      
+                        
+                         <div class="clear"></div>
+                    <div style="width: 700px; padding-top: 30px; float: left "> <div style="width: 130px; float: left; font-size: 14px; font-weight: bold">Select Shortcode</div>
+             <div style="width: 500px; float: left ">
+         <select name="ListBox3[]" size="4" multiple="multiple" style="width: 180px"  id="ListBox3">
+         <?php
+   
+   // print_r($resp);
+    print_r (explode(",",$this->response));
+  //  $option=explode("#-*",$this->response);
+    $option3=explode(",",$option[2]);
+    print_r($option3);
+    foreach($option3 as $v2){echo $v2;
+    if($v2!=""){?>
+  <option value=<?php echo str_replace(" ","#",$v2)?>><?php echo $v2?></option><?}}?>
+  </select></div>
+                
+                        
+                                   <div class="clear"></div>
+                    <div style="width: 700px; padding-top: 30px; float: left "> <div style="width: 130px; float: left; font-size: 14px; font-weight: bold">Select Plan ID</div>
+             <div style="width: 500px; float: left ">
+         <select name="ListBox4[]" size="4" multiple="multiple" style="width: 180px"  id="ListBox4">
+         <?php
+   
+   // print_r($resp);
+    print_r (explode(",",$this->response));
+  //  $option=explode("#-*",$this->response);
+    $option4=explode(",",$option[3]);
+    print_r($option4);
+    foreach($option4 as $v3){echo $v3;
+    if($v3!=""){?>
+  <option value=<?php echo str_replace(" ","#",$v3)?>><?php echo $v3?></option><?}}?>
+  </select></div>
+            
+                      <div class="clear"></div>
+                    <div style="width: 700px; padding: 30px 0; float: left "> 
+             <div style="width: 130px; float: left; padding-left: 130px" ><input class="submit" type="submit" id="b1" name="submit" value="Total Calls" onclick="return compareDate();"></input></div>
+ <div style="width: 130px; float: left; padding-left: 30px" ><input class="submit" type="submit" id="b2" name="submit" value="Total Pulses" onclick="return compareDate();"></input></div>
+  <div style="width: 130px; float: left; padding-left: 30px" ><input class="submit" type="submit" id="b3" name="submit" value="Total Duration" onclick="return compareDate();"></input></div>
+  <!-- <div style="width: 350px; float: left; "><input type="submit" id="b2" name="submit" value="Detailed Report" onclick="return compareDate();" ></input></div>-->
+                  </div>   
+                     <div class="clear"></div>  
+                    </div>
+                    </div>
+                    </div>
+         
+            </div>        
+                     
+           <script>
+                 $(document).ready(function() {  
+
+               $("#b1").click(
+               function() {
+  $("#myform1").attr('action','/ivrproject/public/index.php/ivr1/timec/startdate/enddate/ListBox1/ListBox2/ListBox3/ListBox4/group<?php echo $this->startdate , $this->enddate ?>'); //alert($("#misform").attr('action'));
+  
+           
+               });
+              
+           });
+            </script>     
+        
+        
+
+
+
+
+  <script>
+                 $(document).ready(function() {  
+
+               $("#b2").click(
+               function() {
+  $("#myform1").attr('action','/ivrproject/public/index.php/ivr1/timep/startdate/enddate/ListBox1/ListBox2/ListBox3/ListBox4<?php echo $this->startdate , $this->enddate ?>'); //alert($("#misform").attr('action'));
+  
+           
+               });
+              
+           });
+            </script>
+             <script>
+                 $(document).ready(function() {  
+
+               $("#b3").click(
+               function() {
+  $("#myform1").attr('action','/ivrproject/public/index.php/ivr1/timedu/startdate/enddate/ListBox1/ListBox2/ListBox3/ListBox4<?php echo $this->startdate , $this->enddate ?>'); //alert($("#misform").attr('action'));
+  
+           
+               });
+              
+           });
+            </script>
+            
+          <!--  <script>
+                 $(document).ready(function() {  
+
+               $("#pack2").click(
+               function() {
+  $("#misform").attr('action','/gdp/public/index.php/mis/pack/startdate/enddate/comboname/<?php echo $this->startdate , $this->enddate,$this->comboname;?>');
+  
+  
+           
+               });
+           });
+            </script> 
+ <script>
+                 $(document).ready(function() {  
+
+               $("#pack4").click(
+               function() {
+  $("#misform").attr('action','/gdp/public/index.php/mis/pack4/startdate/enddate/comboname/<?php echo $this->startdate , $this->enddate,$this->comboname;?>');
+  
+  
+           
+               });
+           });
+            </script> -->
+           
+            
+    </form>
+</body>
+</html>
+
+        
+        <div style="display: none;" class="demo-description">
+<p>The datepicker is tied to a standard form input field.  Focus on the input (click, or use the tab key) to open an interactive calendar in a small overlay.  Choose a date, click elsewhere on the page (blur the input), or hit the Esc key to close. If a date is chosen, feedback is shown as the input's value.</p>
+</div><!-- End demo-description -->
+<div class="clear"></div>

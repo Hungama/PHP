@@ -1,0 +1,2 @@
+RewriteEngine On
+RedirectMatch ^/index.php?id=([0-9]*)$  http://mydomain.site/index/$1

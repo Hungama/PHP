@@ -1,0 +1,304 @@
+function validate_login_form( )
+{
+if(document.getElementById("hul_form_uname").value=='')
+{
+   alert ( "Please enter username." );
+   document.getElementById("hul_form_uname").focus();
+   return false;
+}
+else if(document.getElementById("hul_form_pwd").value=='')
+{
+   alert ( "Please enter password." );
+   document.getElementById("hul_form_pwd").focus();
+   return false;
+}
+return true;
+}
+
+function validate_hul_form( )
+{
+if(document.getElementById("hul_form_confg_file").value=='')
+{
+   alert ( "Please choose a file to upload." );
+   document.getElementById("hul_form_confg_file").focus();
+   return false;
+}
+return true;
+}
+function confirmation(str,type) {
+	var answer = confirm("Do you want to delete this file ");
+	if (answer){
+if(type=='group')
+{
+deactiveGroup(str);
+}
+else
+{
+deactiveCfgfile(str);
+}
+//alert("File has beed saved in inactive mode.")
+		}
+	else{
+	//	alert("No action taken")
+	}
+}
+
+function validate_adgroup_form( )
+{
+if(document.getElementById("hul_gp_cfile").value=='')
+{
+   alert ( "Please select config file for this group." );
+   document.getElementById("hul_gp_cfile").focus();
+   return false;
+}
+else if(document.getElementById("hul_gp_name").value=='')
+{
+   alert ( "Please enter group name." );
+   document.getElementById("hul_gp_name").focus();
+   return false;
+}
+
+return true;
+}
+function getMsisdnInfo( )
+{
+if(document.getElementById("hul_gp_msisdn").value=='')
+{
+   alert ( "Please enter mobile number." );
+   document.getElementById("hul_gp_msisdn").focus();
+
+}
+else 
+{
+	str=document.getElementById("hul_gp_msisdn").value;
+   getMsisdnDetail(str);	
+}
+
+
+}
+
+
+function deactiveCfgfile(str)
+{
+var xmlhttp;    
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	document.getElementById("txtHint").display='inline';
+   document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+  alert(xmlhttp.responseText);
+    }
+  }
+xmlhttp.open("GET","delete-confg.php?cfid="+str,true);
+xmlhttp.send();
+}
+function deactiveGroup(str)
+{
+	
+var xmlhttp;    
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+/*
+document.getElementById("txtHint").display='inline';
+document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+*/
+alert(xmlhttp.responseText);
+    }
+  }
+xmlhttp.open("GET","delete-group.php?gpid="+str,true);
+xmlhttp.send();
+}
+
+function getMsisdnDetail(str)
+{
+	
+var xmlhttp;    
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+/*
+document.getElementById("txtHint").display='inline';
+*/
+document.getElementById("showinfo").innerHTML=xmlhttp.responseText;
+//alert(xmlhttp.responseText);
+    }
+  }
+xmlhttp.open("GET","get-msisdninfo.php?msisdn="+str,true);
+xmlhttp.send();
+}
+
+//check all msisdn no to assign a group
+function checkAll()
+{//alert('hi')
+var boxes = document.getElementsByTagName("input");
+for (var i = 0; i < boxes.length; i++) {
+myType = boxes[i].getAttribute("type");
+if ( myType == "checkbox") {
+if(boxes[i].checked=='0')
+{
+boxes[i].checked=1;
+}else
+{
+boxes[i].checked=0;
+}
+}
+}
+}
+
+function assigntogroup(gpid) {
+	var answer = confirm("Do you want to assign to this group");
+	if (answer){
+			//alert("Entry Deleted.")
+			var boxes = document.getElementsByTagName("input");
+			for (var i = 0; i < boxes.length; i++) {
+			myType = boxes[i].getAttribute("type");
+			if ( myType == "checkbox") {
+			if(boxes[i].checked=='1')
+			{
+			setgroupofmsisdn(boxes[i].value,gpid);
+			}
+			}
+			}
+
+	}
+	else{
+		alert("No action taken.")
+	}
+}
+
+
+
+function setgroupofmsisdn(str,gpid)
+{
+/*
+alert("MSISDN id "+str+"Group id id "+gpid);
+return false;
+*/
+var xmlhttp;    
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	//alert(xmlhttp.responseText);
+	if(xmlhttp.responseText==1)
+	{
+	window.location.reload();
+	}
+    }
+  }
+xmlhttp.open("GET","setgrouptomsisdn.php?p="+str+"&q="+gpid,true);
+xmlhttp.send();
+
+}
+//for password check
+function chk_password()
+{ 
+if(document.hul_group_pwdchange_form.hul_old_pwd.value=="" || document.hul_group_pwdchange_form.hul_old_pwd.value==null)
+{
+	alert("Please fill old password.");
+	document.hul_group_pwdchange_form.hul_old_pwd.value="";
+	document.hul_group_pwdchange_form.hul_old_pwd.focus();
+	return false;
+}
+if(document.hul_group_pwdchange_form.hul_new_pwd.value=="" || document.hul_group_pwdchange_form.hul_new_pwd.value==null)
+{	
+	alert("Please fill new password.");
+	document.hul_group_pwdchange_form.hul_new_pwd.value="";
+	document.hul_group_pwdchange_form.hul_new_pwd.focus();
+	return false;
+}
+var str=document.hul_group_pwdchange_form.hul_new_pwd.value;
+var strln=str.length;
+if(strln<4)
+{
+	alert("Please Fill atlest 4 digit password.");
+	document.hul_group_pwdchange_form.hul_new_pwd.value="";
+	document.hul_group_pwdchange_form.hul_new_pwd.focus();
+	return false;
+}
+
+if(document.hul_group_pwdchange_form.hul_rnew_pwd.value=="" || document.hul_group_pwdchange_form.hul_rnew_pwd.value==null)
+{
+	alert("Please re enter new password.");
+	document.hul_group_pwdchange_form.hul_rnew_pwd.value="";
+	document.hul_group_pwdchange_form.hul_rnew_pwd.focus();
+	return false;
+}
+if(document.hul_group_pwdchange_form.hul_new_pwd.value!=document.hul_group_pwdchange_form.hul_rnew_pwd.value)
+{
+	alert("Please fill passowrd as entered in new password field.");
+	document.hul_group_pwdchange_form.hul_rnew_pwd.value="";
+	document.hul_group_pwdchange_form.hul_rnew_pwd.focus();
+	return false;
+}
+
+return true;
+  }
+  
+  
+/* added for simulator mode start here */
+function setsimulatortext(str)
+{
+
+/*
+alert("Button id "+str);
+return false;
+*/
+var xmlhttp;    
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	//alert(xmlhttp.responseText);
+	document.getElementById("mobi66_1").innerHTML=xmlhttp.responseText;
+	}
+  }
+xmlhttp.open("GET","setsimulatortext.php?p="+str,true);
+xmlhttp.send();
+
+}
+/* added for simulator mode end here */

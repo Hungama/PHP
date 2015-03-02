@@ -1,0 +1,43 @@
+<html> 
+<body>  
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" link="#000000" alink="#000000" bgcolor="#ffffff" text="#000000" marginheight="0" marginwidth="0" vlink="#000000">
+<table class="txt" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr> 
+    <td style="padding-left:20px">
+    <img src="http://119.82.69.212/kmis/services/hungamacare/images/logo.png" alt="Hungama" align="left" border="0" hspace="0" vspace="15"></td>
+  </tr>
+  <tr align='right'><td><a href='<?php echo $this->url(array('controller'=>'signup','action'=>'index'))?>'><font size=4>Logout</font></a></td></tr>
+  <tr>
+    <td height="2"></td>
+  </tr>
+  <tr>
+    <td bgcolor="#0369b3" height="1"></td>
+  </tr>
+  
+  <tr align='right'>
+	<td><a href='<?php echo $this->url(array('controller'=>'signup','action'=>'showcontentmanager'))?>'>Back</td>
+  </tr>
+  </tbody>
+  </table>
+<table align="center" border="1" cellpadding="1" cellspacing="1">
+
+<?php if($this->responseMsg){?>
+<tr align='center'><td colspan='2'><font color='red' size='2'><?php echo $this->responseMsg ;?></font></td></tr>
+<?php }?>
+
+<form name="frm" action="<?php echo $this->url(array('controller'=>'Celibrity','action'=>'deletecelebrity'))?>" method="post"> 
+
+<tr>
+	<td valign='middle'>Select Celebrity Name:</td>
+	<td><select name='CId[]' multiple>
+	<?php foreach($this->response as $row){?>
+	<option value='<?php echo $row['Celeb_Id']; ?>'><?php echo $row['Celeb_Name'];?></option>
+	<?php }?>
+	</select>
+</td>
+</tr>
+<tr colspan='2' align='right'><td><input type='submit' value='Delete' name='submit'></td></tr>
+</form>
+</table>
+</body>  
+</html>

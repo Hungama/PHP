@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href=""?>
+
+<plugin>
+    <name>oxLogVast</name>
+    <displayName>IAB VAST Logging Plugin</displayName>
+    <creationDate>2009-03-10</creationDate>
+    <author>Revive Adserver</author>
+    <authorEmail>revive@revive-adserver.com</authorEmail>
+    <authorUrl>http://www.revive-adserver.com</authorUrl>
+    <license>GNU Gneral Public License v2</license>
+    <description>Plugin that provides IAB VAST video ad support.</description>
+    <version>1.9.1</version>
+    <oxversion>2.7.30-beta-rc11</oxversion>
+    <extends>deliveryLog</extends>
+
+    <install>
+        <syscheck>
+        </syscheck>
+
+        <files>
+	        <file path="{MODULEPATH}deliveryLog/oxLogVast/">logImpressionVast.class.php</file>
+            <file path="{MODULEPATH}deliveryLog/oxLogVast/">logImpressionVast.delivery.php</file>
+        </files>
+
+        <components>
+           <component>
+                <name>logImpressionVast</name>
+                <hook>logImpressionVast</hook>
+           </component>
+        </components>
+
+    </install>
+
+
+</plugin>

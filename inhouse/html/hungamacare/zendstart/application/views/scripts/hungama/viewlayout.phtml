@@ -1,0 +1,30 @@
+<div align="center">
+    <h3>DATE WISE REPORT</h3>
+</div>
+<?php 
+//echo "<pre>";print_r($this->layout());
+echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/jquery.ui.css') ?>
+<script>
+	$(function()
+	{
+	alert('test');
+		$( "#startdatepicker" ).datepicker();
+                $( "#enddatepicker" ).datepicker();
+	});
+</script>
+<br></br>
+<form name="misform" method="post" action="" >
+
+<div align="center" class="demo">
+
+Start Date: <input name="startdate" id="startdatepicker" type="text">
+End Date: <input name="enddate" id="enddatepicker" type="text"><br></br><br></br><br></br><br></br><br></br><br></br>
+<input type="submit" name="submit" value="Date Wise Report" ></input>
+
+</div><!-- End demo -->
+
+
+        </form>
+<div style="display: none;" class="demo-description">
+<p>The datepicker is tied to a standard form input field.  Focus on the input (click, or use the tab key) to open an interactive calendar in a small overlay.  Choose a date, click elsewhere on the page (blur the input), or hit the Esc key to close. If a date is chosen, feedback is shown as the input's value.</p>
+</div><!-- End demo-description -->

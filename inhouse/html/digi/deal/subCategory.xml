@@ -1,0 +1,18 @@
+<deal>
+	<subcategory>
+		<attr name='subCatId'>1</attr>
+		<attr name='catId'>1</attr>
+		<attr name='type'>subCat</attr>
+		<attr name='getType'>deal</attr>
+		<attr name='catName'>For Domestic Holidays</attr>
+	</subcategory>
+	<subcategory>
+		<attr name='subCatId'>2</attr>
+		<attr name='catId'>2</attr>
+		<attr name='type'>subCat</attr>
+		<attr name='getType'>deal</attr>
+		<attr name='catName'>For bjbdcb</attr>
+	</subcategory>
+	
+</deal>
+

@@ -1,0 +1,19 @@
+<!--
+<table width="60%" style="margin-left:20px;">
+<tr><td width="50%">
+<div style="overflow: scroll; height:250px;"  id="reportshow" ><?php echo $this->statsreport?></div></td>
+<td width="10%" valign="top"><div id="graphical"><a href="http://192.168.4.41:8081/IVRReport1/UtilizationChart?startdate=<?php echo $this->startdate?>&operator=<?php echo $this->operator?>" style="border:1px outset #0000ff;padding:4px;width:200px;background-color:#fcfcfc;">Graphical&nbsp;Report</a></div></td><tr>
+<tr><td width="60%" align="center"><div id="reportinterval" width="250px"></div></td></tr>
+</table> -->
+
+
+<html><head></head><body><div id="scrollToHere">
+<table width="60%" style="margin-left:20px;">
+<tr><td width="50%">
+<div style="overflow: scroll; height:550px;" id="reportshow" ><?php echo $this->statsreport?></div></td>
+<td width="10%" valign="top"><div id="graphical"><iframe src="http://119.82.69.212:1111/IVRMIS/UtilizationChart?startdate=<?php echo $this->startdate?>&operator=<?php echo $this->operator?>" height="550"  width="550"></iframe></div></td><tr></table>
+<table id="intervalfocus">
+<tr ><td width="60%" align="center"><div id="reportinterval" width="250px"></div></td></tr>
+</table></div>
+</body></html>
+

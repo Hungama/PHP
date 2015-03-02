@@ -1,0 +1,104 @@
+<?php //print_r($this->layout());
+        //echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/jquery.ui.css') ?>
+<script>
+	$(function() {
+		$( "#startdatepicker" ).datepicker();
+                $( "#enddatepicker" ).datepicker();
+	});
+	</script>
+        <?php
+      //  print_r (explode(",",$this->response));
+      //  print_r ($_REQUEST);
+        ?>
+      
+        
+       <html>
+           <script language="javascript" type="text/javascript">
+function compareDate()
+{
+var start = document.myform1.startdate.value;
+var end = document.myform1.enddate.value;
+
+   var startDate = Date.parse(start);
+   var endDate = Date.parse(end);
+   if (start=="" || end=="")
+  {
+  alert("Start date and End date is required");
+  return false;
+  }
+
+
+// alert(a1);
+// alert(a1.length);
+
+ var difference = (endDate - startDate)/(86400000 * 7);
+   if (difference < 0) {
+       alert("The start date must come before the end date.");
+       return false;
+   
+
+}
+return true;
+}
+</script>
+
+
+<body style="font-family:Arial, Helvetica, sans-serif ">
+    
+    <form name="myform1"  id="myform1" align="left" valign="top" method="post">
+       
+        <!--<div class="clear"></div>-->
+        <div style="width: 980px; padding: 20px">
+            <div style="width: 700px; padding-top: 10px">
+            <div style="width:130px; float: left; font-size: 14px; font-weight: bold ">Start Date</div>
+            <div style="width:230px; float: left "><input name="startdate" id="startdatepicker" readonly="readonly" type=text size="15"  ></input></div>
+            <div style="width:100px; float: left; font-size: 14px; font-weight: bold; padding-left: 20px "> End Date</div>
+            <div style="width:210px; float: left "><input name="enddate" id="enddatepicker" readonly="readonly" type="text" size="15" ></input></div>
+            </div>
+            <div style="width: 998px; padding-top: 30px; float: left "> 
+             <div style="width: 121px; float: left; padding-left: 130px" ><input class="submit" type="submit" id="b1" name="submit" value="Play Time" onclick="return compareDate();"  ></input></div>
+             <div style="width: 121px; float: left; "><input class="submit" type="submit" id="b2" name="submit" value="Play Count" onclick="return compareDate();" ></input></div>
+             <div style="width: 121px; float: left; "><input class="submit" type="submit" id="b3" name="submit" value="Play Songs" onclick="return compareDate();" ></input></div>
+             </div>   
+                   <div class="clear"></div>
+                   </div>
+                    <script>
+                 $(document).ready(function() {  
+
+               $("#b1").click(
+               function() {//alert("sunnary report");
+  $("#myform1").attr('action','/ivrproject/public/index.php/ivr1/toptencategoryt/startdate/enddate'); //alert($("#misform").attr('action'));
+  
+           
+               });
+              
+           });
+            </script>  
+             <script>
+                 $(document).ready(function() {  
+
+               $("#b2").click(
+               function() {//alert("detailed report");
+  $("#myform1").attr('action','/ivrproject/public/index.php/ivr1/toptencategoryc/startdate/enddate'); //alert($("#misform").attr('action'));
+  
+           
+               });
+              
+           });
+            </script> 
+              <script>
+                 $(document).ready(function() {  
+
+               $("#b3").click(
+               function() {//alert("detailed report");
+  $("#myform1").attr('action','/ivrproject/public/index.php/ivr1/toptencategorys/startdate/enddate/ListBox2<?php echo $this->startdate , $this->enddate ?>'); //alert($("#misform").attr('action'));
+  
+           
+               });
+              
+           });
+            </script> 
+        
+    </form>
+  </div>
+ 

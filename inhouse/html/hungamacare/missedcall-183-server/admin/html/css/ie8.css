@@ -1,0 +1,6 @@
+.navbar-inner {filter:none;}
+.navbar .nav>li>.dropdown-menu:after {border:none;}
+* {outline: none !important;}
+input.text, input.email, input.password, textarea.uniform {padding-top:0;padding-bottom: 0;}
+.input-append .input-group-addon, .input-prepend .input-group-addon {padding: 5px;}
+.input-append .btn, .input-prepend .btn {padding: 5px 12px;}

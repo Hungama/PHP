@@ -1,0 +1,336 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<?php
+error_reporting(1);
+include ("/var/www/html/kmis/services/hungamacare/config/dbConnect212.php");
+$curdate = date("Y-m-d");
+$prevdate_email = date("Y-m-d", time() - 60 * 60 * 24);
+//total count
+
+
+$serviceArray=array('AircelMC'=>'Aircel - Music Connect','AircelMU'=>'Aircel - Limitless Music','AircelStore'=>'Aircel Store', 'BSNL'=>'BSNL Store', 'TataDoCoMoADT'=>'Docomo Store', 'TataDoCoMoMND'=>'Tata DoCoMo - Pyaar Ke Panne','TataDoCoMoMX'=>'Tata DoCoMo - Endless Music','VodafoneMU'=>'Vodafone - Radio Unlimited'
+        ,'TataDoCoMoCrbt'=>'Docomo Crbt','TataDoCoMo54646'=>'Tata DoCoMo 54646');
+
+$vendorarray=array('1010'=>'Adiquity','1020'=>'Google','1030'=>'Reporo','1040'=>'Tyro','1050'=>'Vserve',
+    '1060'=>'Adtriva','1070'=>'BuzzCity','1080'=>'The kratos','1090'=>'Collectcent','1100'=>'Aircel WAP',
+    '1101'=>'Wats App','1102'=>'Komli','1000'=>'Hungama','1103'=>'Airtel Live',
+	'33'=>'NewMedia_Adiquity','34'=>'NewMedia_Google','35'=>'NewMedia_Reporo','36'=>'NewMedia_Tyro',
+	'37'=>'NewMedia_Vserv','38'=>'NewMedia_Adtriva','39'=>'NewMedia_BuzzCity','40'=>'NewMedia_kratos','41'=>'NewMedia_Collectcent');
+
+
+$gettotalcountdatasql=mysql_query("select count(1) as total,DATE_FORMAT(datetime,'%H'),service,affiliateid from mis_db.tbl_browsing_wap nolock where date(datetime)='2014-11-10' and service not in('AirtelDevo','UninorMyMusic','UninorSU','WAP','WAPAirtelLDR') and affiliateid!=0
+and (char_length(affiliateid) = 4 or  char_length(affiliateid) = 2) and datetime >= '2014-11-10 00:00:00' AND datetime < '2014-11-10 23:59:59' group by service,affiliateid,HOUR(datetime) order by service",$dbConn212);
+//begin of HTML message
+$AircelMC=array();
+$AircelMU=array();
+$AircelStore=array();
+$BSNL=array();
+$TataDoCoMoADT=array();
+$TataDoCoMoMND=array();
+$TataDoCoMoMX=array();
+$VodafoneMU=array();
+$TataDoCoMoCrbt=array();
+$TataDoCoMo54646=array();
+
+
+
+while($result=mysql_fetch_array($gettotalcountdatasql))
+{
+ $sname=$result['service'];
+if($sname=='AircelMC')
+{
+    $AircelMC[$result['affiliateid']]=$result[total];
+}
+
+elseif($sname=='AircelMU')
+{
+    $AircelMU[$result['affiliateid']]=$result[total];
+}
+ elseif($sname=='AircelStore')
+{
+    $AircelStore[$result['affiliateid']]=$result[total];
+}  
+elseif($sname=='BSNL')
+{
+    $BSNL[$result['affiliateid']]=$result[total];
+}
+elseif($sname=='TataDoCoMoADT')
+{
+    $TataDoCoMoADT[$result['affiliateid']]=$result[total];
+}
+elseif($sname=='TataDoCoMoMND')
+{
+    $TataDoCoMoMND[$result['affiliateid']]=$result[total];
+}
+elseif($sname=='TataDoCoMoMX')
+{
+    $TataDoCoMoMX[$result['affiliateid']]=$result[total];
+}
+
+elseif($sname=='VodafoneMU')
+{
+    $VodafoneMU[$result['affiliateid']]=$result[total];
+}
+
+elseif($sname=='TataDoCoMoCrbt')
+{
+    $TataDoCoMoCrbt[$result['affiliateid']]=$result[total];
+}
+elseif($sname=='TataDoCoMo54646')
+{
+    $TataDoCoMo54646[$result['affiliateid']]=$result[total];
+}
+
+
+
+}
+
+
+$message = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">';
+$message .= "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">
+			</head><body>";
+$message .= '<table border="1" cellspacing="0" cellpadding="2" style="font-family: Century Gothic, Arial">';
+ $message .= "<tr><td colspan='30' align='center' >Waplog Report Affilaited Id Count Hourly</td></tr>";
+ 
+$message .= '<tr><td  valign="middle" bgcolor="#FFFFFF" style="border-bottom: 1px solid #666; border-right: 1px solid #666; border-top: 1px solid #666;border-left: 1px solid #666"><strong>Service Name</strong> </td><td valign="middle" bgcolor="#FFFFFF" style="border-bottom: 1px solid #666; border-right: 1px solid #666; border-top: 1px solid #666;border-left: 1px solid #666"><strong>Affiliated Id</strong> </td><td valign="middle" bgcolor="#FFFFFF" style="border-bottom: 1px solid #666; border-right: 1px solid #666; border-top: 1px solid #666;border-left: 1px solid #666"><strong>Vendor Name</strong> </td><td valign="middle" bgcolor="#FFFFFF" style="border-bottom: 1px solid #666; border-right: 1px solid #666; border-top: 1px solid #666;border-left: 1px solid #666"><strong>Total Count</strong> </td>
+'; for($i=1; $i<=24 ; $i++) {
+$message .='<td ><strong>'. $i.'</strong> </td>';
+ } 
+
+$message .='</tr>';
+
+$count=count($AircelMC);
+if($count>1)
+{
+    $message .= "<tr style='background: #f2f2f2;'> <td   ><strong>".$serviceArray['AircelMC']."</strong> </td><td ><table style='border-color: #fffff;' border='0' width='100%' cellpadding='2' >";
+    foreach($AircelMC as $key=>$value)
+    {
+$message .= "<tr><td ><strong>".$key."</strong> </td><td style='text-align:right' ><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right' ><strong>".$value."</strong> </td></tr>";
+        
+    }
+for($i=1; $i<=24 ; $i++) { 
+$message .="<td  ><strong>1441</strong> </td>";
+ }
+	
+	
+$message .="</table></td></tr>";
+}
+else
+{
+foreach($AircelMC as $key=>$value)
+    {
+$message .= "<tr style='background: #f2f2f2;'><td><strong>".$serviceArray['AircelMC']."</strong></td><td><strong>".$key."</strong> </td><td><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right'><strong>".$value."</strong> </td></tr>";
+        
+    }
+}
+
+//aircelimu
+
+$count=count($AircelMU);
+if($count>1)
+{
+    $message .= "<tr style='background: #ADD8E6;'> <td ><strong>".$serviceArray['AircelMU']."</strong> </td><td colspan='6'><table style='border-color: #fffff;' border='0' width='100%' cellpadding='10'>";
+    foreach($AircelMU as $key=>$value)
+    {
+$message .= "<tr><td><strong>".$key."</strong> </td><td style='text-align:right'><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right'><strong>".$value."</strong> </td></tr>";
+        
+    }
+    $message .="</table></td></tr>";
+}
+else
+{
+foreach($AircelMU as $key=>$value)
+    {
+$message .= "<tr style='background: #ADD8E6;'><td><strong>".$serviceArray['AircelMU']."</strong></td><td><strong>".$key."</strong> </td><td><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right'><strong>".$value."</strong> </td></tr>";
+        
+    }
+}
+//$AircelStore
+$count=count($AircelStore);
+if($count>1)
+{
+    $message .= "<tr style='background: #f2f2f2;'> <td ><strong>".$serviceArray['AircelStore']."</strong> </td><td colspan='6'><table style='border-color: #fffff;' border='0' width='100%' cellpadding='10'>";
+    foreach($AircelStore as $key=>$value)
+    {
+$message .= "<tr><td><strong>".$key."</strong> </td><td style='text-align:right'><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right'><strong>".$value."</strong> </td></tr>";
+        
+    }
+    $message .="</table></td></tr>";
+}
+else
+{
+foreach($AircelStore as $key=>$value)
+    {
+$message .= "<tr style='background: #f2f2f2;'><td><strong>".$serviceArray['AircelStore']."</strong></td><td><strong>".$key."</strong> </td><td><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right'><strong>".$value."</strong> </td></tr>";
+        
+    }
+}
+
+
+//BSNL
+$count=count($BSNL);
+if($count>1)
+{
+    $message .= "<tr style='background: #ADD8E6;'> <td ><strong>".$serviceArray['BSNL']."</strong> </td><td colspan='6'><table style='border-color: #fffff;' border='0' width='100%' cellpadding='10'>";
+    foreach($BSNL as $key=>$value)
+    {
+$message .= "<tr><td><strong>".$key."</strong> </td><td style='text-align:right'><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right'><strong>".$value."</strong> </td></tr>";
+        
+    }
+    $message .="</table></td></tr>";
+}
+
+else
+{
+foreach($BSNL as $key=>$value)
+    {
+$message .= "<tr style='background: #ADD8E6;'><td><strong>".$serviceArray['BSNL']."</strong></td><td><strong>".$key."</strong> </td><td><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right'><strong>".$value."</strong> </td></tr>";
+        
+    }
+}
+
+//
+
+//TataDoCoMoMND
+$count=count($TataDoCoMoMND);
+if($count>1)
+{
+    $message .= "<tr style='background: #f2f2f2;'> <td ><strong>".$serviceArray['TataDoCoMoMND']."</strong> </td><td colspan='6'><table style='border-color: #fffff;' border='0' width='100%' cellpadding='10'>";
+    foreach($TataDoCoMoMND as $key=>$value)
+    {
+$message .= "<tr><td><strong>".$key."</strong> </td><td style='text-align:right'><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right'><strong>".$value."</strong> </td></tr>";
+        
+    }
+    $message .="</table></td></tr>";
+}
+else
+{
+foreach($TataDoCoMoMND as $key=>$value)
+    {
+$message .= "<tr style='background: #f2f2f2;'><td><strong>".$serviceArray['TataDoCoMoMND']."</strong></td><td><strong>".$key."</strong> </td><td><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right'><strong>".$value."</strong> </td></tr>";
+        
+    }
+}
+
+//TataDoCoMoADT
+$count=count($TataDoCoMoADT);
+if($count>1)
+{
+    $message .= "<tr style='background: #ADD8E6;'> <td ><strong>".$serviceArray['TataDoCoMoADT']."</strong> </td><td colspan='6'><table style='border-color: #fffff;' border='0' width='100%' cellpadding='10'>";
+    foreach($TataDoCoMoADT as $key=>$value)
+    {
+$message .= "<tr><td><strong>".$key."</strong> </td><td style='text-align:right'><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right'><strong>".$value."</strong> </td></tr>";
+        
+    }
+    $message .="</table></td></tr>";
+}
+else
+{
+foreach($TataDoCoMoADT as $key=>$value)
+    {
+$message .= "<tr style='background: #ADD8E6;'><td><strong>".$serviceArray['TataDoCoMoADT']."</strong></td><td><strong>".$key."</strong> </td><td><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right'><strong>".$value."</strong> </td></tr>";
+        
+    }
+}
+
+//TataDoCoMoMx
+$count=count($TataDoCoMoMX);
+if($count>1)
+{
+    $message .= "<tr style='background: #f2f2f2;'> <td ><strong>".$serviceArray['TataDoCoMoMX']."</strong> </td><td colspan='6'><table style='border-color: #fffff;' border='0' width='100%' cellpadding='10'>";
+    foreach($TataDoCoMoMX as $key=>$value)
+    {
+$message .= "<tr><td><strong>".$key."</strong> </td><td style='text-align:right'><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right'><strong>".$value."</strong> </td></tr>";
+        
+    }
+    $message .="</table></td></tr>";
+}
+else
+{
+foreach($TataDoCoMoMX as $key=>$value)
+    {
+$message .= "<tr style='background: #f2f2f2;'><td><strong>".$serviceArray['TataDoCoMoMX']."</strong></td><td><strong>".$key."</strong> </td><td><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right'><strong>".$value."</strong> </td></tr>";
+        
+    }
+}
+
+
+//VodaphoneMu
+$count=count($VodafoneMU);
+if($count>1)
+{
+    $message .= "<tr style='background: #ADD8E6;'> <td ><strong>".$serviceArray['VodafoneMU']."</strong> </td><td colspan='6'><table style='border-color: #fffff;' border='0' width='100%' cellpadding='10'>";
+    foreach($VodafoneMU as $key=>$value)
+    {
+$message .= "<tr><td><strong>".$key."</strong> </td><td style='text-align:right'><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right'><strong>".$value."</strong> </td></tr>";
+        
+    }
+    $message .="</table></td></tr>";
+}
+else
+{
+foreach($VodafoneMU as $key=>$value)
+    {
+$message .= "<tr style='background: #ADD8E6;'><td><strong>".$serviceArray['VodafoneMU']."</strong></td><td><strong>".$key."</strong> </td><td><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right'><strong>".$value."</strong> </td></tr>";
+        
+    }
+}
+
+
+
+// Tatadocomo Crbt
+$count=count($TataDoCoMoCrbt);
+if($count>1)
+{
+    $message .= "<tr style='background: #ADD8E6;'> <td ><strong>".$serviceArray['TataDoCoMoCrbt']."</strong> </td><td colspan='6'><table style='border-color: #fffff;' border='0' width='100%' cellpadding='10'>";
+    foreach($TataDoCoMoCrbt as $key=>$value)
+    {
+$message .= "<tr><td><strong>".$key."</strong> </td><td style='text-align:right'><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right'><strong>".$value."</strong> </td></tr>";
+        
+    }
+    $message .="</table></td></tr>";
+}
+else
+{
+foreach($TataDoCoMoCrbt as $key=>$value)
+    {
+$message .= "<tr style='background: #ADD8E6;'><td><strong>".$serviceArray['TataDoCoMoCrbt']."</strong></td><td><strong>".$key."</strong> </td><td><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right'><strong>".$value."</strong> </td></tr>";
+        
+    }
+}
+
+
+
+// TataDoCoMo54646
+$count=count($TataDoCoMo54646);
+if($count>1)
+{
+    $message .= "<tr style='background: #ADD8E6;'> <td ><strong>".$serviceArray['TataDoCoMo54646']."</strong> </td><td colspan='6'><table style='border-color: #fffff;' border='0' width='100%' cellpadding='10'>";
+    foreach($TataDoCoMo54646 as $key=>$value)
+    {
+$message .= "<tr><td><strong>".$key."</strong> </td><td style='text-align:right'><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right'><strong>".$value."</strong> </td></tr>";
+        
+    }
+    $message .="</table></td></tr>";
+}
+else
+{
+foreach($TataDoCoMo54646 as $key=>$value)
+    {
+$message .= "<tr style='background: #ADD8E6;'><td><strong>".$serviceArray['TataDoCoMo54646']."</strong></td><td><strong>".$key."</strong> </td><td><strong>".$vendorarray[$key]."</strong> </td><td style='text-align:right'><strong>".$value."</strong> </td></tr>";
+        
+    }
+}
+
+
+
+
+$message .= "</table>";
+
+$message .= "</body></html>";
+echo $message;
+$htmlfilename = 'emailcontentafid_' . date('Y_m_d') . '.html';
+$file = fopen($htmlfilename, "w");
+fwrite($file, $message);
+fclose($file);
+mysql_close($dbConn212);
+?>

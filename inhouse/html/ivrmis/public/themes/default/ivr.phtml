@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>IVR</title>
+             <?php //print_r($this->layout());
+        echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/style.css');
+        echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/style1.css');
+        echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/jquery.ui.css');
+        ?>
+	<?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery-1.5.1.js') ?>
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.min.js') ?>
+
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.datepicker.js') ?>
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.widget.js') ?>
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.core.js') ?>
+	<?php echo $this->headScript() ?> 
+        <script type="text/javascript">
+            $(function() {
+               
+                //hide a div after 3 seconds
+        	setTimeout( "$('#errorMessage').hide('slow');",3000 );
+        	setTimeout( "$('#successMessage').hide('slow');",3000 );
+                setTimeout( "$('#successmessage2').hide('slow');",3000 );
+            });
+        </script>     
+    </head>
+          
+        
+    <body>       
+<div id="header" class="clearfix">
+        <div  class="sizer"> <h1 id="logo"><a href="#">IVR</a></h1>
+           
+        
+        <!-- end logo -->
+       
+        
+        </div>
+        <!-- start control panel -->
+    	
+
+        
+       
+       
+           
+            
+
+</div>
+            <div style="width: 998px; margin: auto;">
+               <!-- <div> <ul class="nav">
+          <li class="list1"><a href="#"><span>a</span></a></li>
+          <li class="list2"><a href="#"><span>b</span></a></li>
+          <li class="list3"><a href="#"><span>c</span></a></li>
+          <li class="list4"><a href="#"><span>d</span></a></li>
+          <li class="list5"><a href="#"><span>e</span></a></li>
+        </ul></div>-->
+                 <?php if(isset($this->errorStatus)) {
+            echo "<h2 id='errorMessage'>".$this->errorStatus."</h2>";
+        }
+        if(isset($this->successStatus)) {
+            echo "<h2 id='successMessage'>".$this->successStatus."</h2>";
+        }
+        if(isset($this->errorMessage)) {
+            echo "<h2 id='errorMessage'>".$this->errorMessage."</h2>";
+        }
+          
+        if(isset($this->params['successmessage2'])) {
+            echo "<h2 id='successmessage2'>".$this->params['successmessage2']."</h2>";
+        }?>
+      <?php
+        //print_r($this->params);
+        //if(isset($this->params['successmessage2'])) {
+          //  echo "<h2 id='successmessage2'>".$this->params['successmessage2']."</h2>";
+        //}?>
+        <?php if(isset($_SESSION['User']))
+        { ?>
+       
+
+        
+        
+     <?php } else {?>
+         
+
+        <?php } ?>
+             <div id="maincontainer">
+           
+        <div id="contentinner2"><?php echo $this->layout()->content ?>
+    
+               
+       
+        </div>
+        </div></div>
+    </body>
+</html>
+

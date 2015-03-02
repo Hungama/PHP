@@ -1,0 +1,171 @@
+   <head>
+        <?php //print_r($this->layout());
+        echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/style.css');
+        echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/jquery.ui.css'); ?>
+	<?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.js') ?>
+	<?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.min.js') ?>
+     	<?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.portal.js') ?>
+        <?php echo $this->headScript() ?> 
+     
+      <script type="text/javascript">
+         $(document).ready(function() {  
+            
+            /*
+            $("#container4").portal("myPortlet4", {
+                title: "My Portlet 4",
+                content: "<div class='loader'><div>This is also my portlet!</div></div>"
+            });
+            $.ajax({
+                url: "www.google.co.in",  
+                success: function(data) {
+                    //$('.result').html(data);
+                    //alert(data);
+                    $("#myPortlet3 .portlet-content").html(data);
+                }
+            });
+            */   
+            $("#showListBtn").click(function() {
+                    $( "#dialog:ui-dialog" ).dialog( "destroy" );
+                    $( "#dialog-modal" ).dialog({
+                            height: 400,
+                            width: 700,
+                            modal: true
+                    });
+
+            });
+        
+            $(".portletLink").click(function() {
+                var ajaxHtml = 
+                    $.ajax({
+                          url: "http://localhost/gdp/public/index.php/topsong/",
+                          context: document.body,
+                          success: function(data){
+                             // alert(data);
+                                $("#container1").portal(this.id, {
+                                   title:      this.id,
+                                   content:    data
+                                });
+                          }
+                        });
+            });	
+         });
+      </script>
+
+   </head>
+   <body>
+       <?php 
+       
+        if(isset($this->params['layoutId'])){
+
+        $style = '';$i = 0 ;
+        foreach($this->containers as $key=>$value){
+            //print_r($value);
+            if($i == 0){
+                $containerBody = 'body';
+            }
+            else{
+                $containerBody = '#containerId'.$value->containerId;
+            }
+            $i++;
+
+                $style.=$containerBody.' { 
+                    display: block;
+                    position: absolute;';
+                    $style.='height:'.$value->containerHeight.'px;';
+                    $style.='width:'.$value->containerWidth.'px;';
+                    $style.='left:'.$value->containerXaxis.'px;';
+                    $newHeight = $value->containerYaxis - 160;
+                    $style.='top:'.$newHeight.'px;';
+                    $style.='font-family:'.$value->font.';';
+                    $style.='text-alignment:'.$value->fontAlignment.';';
+                    $style.='color:'.$value->fontColor.';';
+                    $style.='size:'.$value->fontSize.';';
+                    $style.='background-color:'.$value->backgroundColor.';';
+                    $style.='border-bottom:'.$value->borderBottom.$value->borderBottomUnit.';';
+                    $style.='border-bottom-color:'.$value->borderBottomColor.';';
+                    $style.='border-bottom-style:'.$value->borderBottomStyle.';';
+                    $style.='borderLeft:'.$value->borderLeft.$value->borderLeftUnit.';';
+                    $style.='border-left-color:'.$value->borderLeftColor.';';
+                    $style.='borderl-left-style:'.$value->borderLeftStyle.';';
+                    $style.='border-right:'.$value->borderRight.$value->borderRightUnit.';';
+                    $style.='border-right-color:'.$value->borderRightColor.';';
+                    $style.='border-right-style:'.$value->borderRightStyle.';';
+                    $style.='border-top:'.$value->borderTop.$value->borderTopUnit.';';
+                    $style.='border-topColor:'.$value->borderTopColor.';';
+                    $style.='border-topStyle:'.$value->borderTopStyle.';';    
+                    $style.='bottom-margin:'.$value->bottomMargin.$value->bottomMarginUnit.';';
+                    $style.='bottom-padding:'.$value->bottomPadding.$value->bottomPaddingUnit.';';
+
+                    if($value->isBold == 1){
+                        $style.='font-weight:'.$value->isBold.';';
+                    }
+
+                    //$style.='isBorderColorSameForAll:'.$value->isBorderColorSameForAll.';'; 
+                    //$style.='isBorderStyleSameForAll:'.$value->isBorderStyleSameForAll.';'; 
+                    //$style.='isBorderWidthSameForAll:'.$value->isBorderWidthSameForAll.';'; 
+
+                    $style.='font-style:'.$value->isItalic.';';
+                    //$style.='isMargineSameForAll:'.$value->isMargineSameForAll.';';                                             //$style.='isPaddingSameForAll:'.$value->.';';                             
+                    $style.='leftMargin:'.$value->leftMargin.$value->leftMarginUnit.';';
+                    $style.='leftPadding:'.$value->leftPadding.$value->leftPaddingUnit.';';
+                    $style.='letter-spacing:'.$value->letterSpacing.';';
+                    $style.='line-height:'.$value->lineHeight.';';   
+                    $style.='rightMargin:'.$value->rightMargin.$value->rightMarginUnit.';';             
+                    $style.='rightPadding:'.$value->rightPadding.$value->rightPaddingUnit.';';               
+                    $style.='text-decoration:'.$value->textDecoration.';';                          
+                    $style.='top-margin:'.$value->topMargin.$value->topMarginUnit.';';         
+                    $style.='top-padding:'.$value->topPadding.$value->topPaddingUnit.';';
+                    $style.='word-spacing:'.$value->wordSpacing.';';
+                    $style.=$value->borderBottom;
+                    //$style.=$value->css;
+                $style.=' }';
+            //echo '<a href="#" class="portletLink" id="portlet'.$key.'">'.$value.'</a>';
+        } 
+        echo '<style>'.$style.'</style>'    ;
+
+        if($value->css != ''){
+            echo '<style>'.$value->css.'</style>';
+        }
+
+        $i=0;
+        foreach($this->containers as $key=>$value){
+           if($i != 0) {
+               echo '<div id="containerId'.$value->containerId.'">';
+               //echo $mappingsArray[$i]['portletId'];
+               echo '</div>';
+           }
+           $i++;
+        }
+        ?>
+      <script type="text/javascript">
+         $(document).ready(function() {  
+           <?php
+            $i=0;
+            foreach($this->containers as $key=>$value){
+               if($i != 0) {
+                   $thisPortlet = explode('#',$this->mappings[$i]['portletName']);
+                   ?>/*
+                    $.ajax({
+                        url: "http://192.168.4.48/gdp/public/index.php/<?php echo $thisPortlet[0];?>/<?php echo $thisPortlet[1];?>",  
+                        success: function(data) {
+                            //$('.result').html(data);
+                            alert(data);                            
+                            $("#containerId<?php echo $value->containerId;?>").html(data);
+                        }
+                    });
+                    */
+                     $("#containerId<?php echo $value->containerId;?>").load("<?php echo 'http://'.$_SERVER['SERVER_ADDR'];?>/gdp/public/index.php/<?php echo $thisPortlet[0];?>/<?php echo $thisPortlet[1];?>");
+                   <?php 
+               }
+               $i++;
+            }
+            ?>
+            });
+      </script>
+      <?php
+       
+        }else{
+            echo 'Please select a layout from menu !!';
+        }
+        ?>
+   </body>

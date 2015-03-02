@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Hungama Web - Sign In</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="../../assets/css/bootstrap.css" rel="stylesheet" />
+<link href="../../assets/css/bootstrap-responsive.css" rel="stylesheet">
+<script type="text/javascript" src="../../assets/js/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="http://119.82.69.212/kmis/services/hungamacare/quickstart/public/datetimepicker.js">
+</script>
+    </head>
+<body>
+    <div class="container" id="container">
+
+ <div class="content">
+<table class="txt" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr> 
+    <td style="padding-left:20px">
+    <img src="http://119.82.69.212/kmis/services/hungamacare/images/logo.png" alt="Hungama" align="left" border="0" hspace="0" vspace="15"></td>
+   
+  </tr>
+</tbody></table>
+
+<table class="table table-condensed table-bordered">
+<tr> 
+    <td><strong><a href='<?php echo $this->url(array('controller'=>'signup','action'=>'showcontentmanager'))?>'><font size='2'>Content History</font></a></strong></td>
+<td><strong><a href='<?php echo $this->url(array('controller'=>'celibrity','action'=>'index'))?>'><font size='2'>Show Celibrity Details</font></a></strong></td>
+<td align="right" bgcolor="#ffffff" height="25"><strong><a href='<?php echo $this->url(array('controller'=>'celibrity','action'=>'uploadindex'))?>'><font size='2'>Upload SMS Verbiage</font></a></strong> </td> 
+<td align="right" bgcolor="#ffffff" height="25"><strong><a href='<?php echo $this->url(array('controller'=>'celibrity','action'=>'pushedmsghistory'))?>'><font size='2'>Follower History</font></a></strong></td>
+<td align="right" bgcolor="#ffffff" height="25"><strong><a href='<?php echo $this->url(array('controller'=>'celibrity','action'=>'showmsgstatus'))?>'><font size='2'>Show Message History</font></a></strong></td>
+<td align="right" bgcolor="#ffffff" height="25"><strong><a href='<?php echo $this->url(array('controller'=>'signup','action'=>'index'))?>'><font size=4>Logout</font></a></strong></td>
+</tr>
+</table>
+<div width="85%" align="left" class="txt">
+<div class="alert alert" ><a href="javascript:void(0)") id="Refresh"><i class="icon-refresh"></i></a>
+<?php 
+echo " Message History";
+?>
+</i>
+</div></div>
+<table class="table table-condensed table-bordered">
+    <tbody>
+    <tr>
+	<th><font size='2'>Celeb Name<font></th>
+	<th><font size='2'>Message Send<font></th>
+	<th><font size='2'>Remaining Content<font></th>
+</tr>
+    
+    <?php foreach($this->response as $row){?>
+    <tr> 
+	<td align='center'><font size='2'><?php echo $row['Celeb_Name']; ?></font></td>
+	<td align='center'><font size='2'>
+	<a href='<?php echo $this->url(array('controller'=>'Celibrity','action'=>'downloadsendmsg','Celeb_id'=>$row['Celeb_id']))?>'>
+	<?php echo $row['send_count'];?></a></font></td>
+	<?php
+	if($row['count']>3)
+		$fontcolor="green";
+	else
+		$fontcolor="red";
+	?>
+	<td align='center' bgcolor="<?php echo $fontcolor; ?>"><font size='2'">
+	<a href='<?php echo $this->url(array('controller'=>'Celibrity','action'=>'downloadmsg','Celeb_id'=>$row['Celeb_id']))?>'>
+	<?php echo $row['count'];?></a></font></td>
+	
+</tr>
+    <?php
+    }
+    ?>
+    
+</tbody>
+  </table>
+ </div>
+ </div>
+</body>  
+</html>

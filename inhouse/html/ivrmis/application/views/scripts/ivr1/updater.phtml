@@ -1,0 +1,115 @@
+
+
+
+
+
+
+<form name="myform1" id="myform1" align="left" valign="top" Method="post"  action="<?=$this->url(array('controller'=>'ivr1','action'=>'updateuser'))?>">
+        
+         
+        <div class="clear"></div>
+        <div style="width: 780px; padding: 20px">
+         
+            <div style="width: 700px; padding-top: 10px">
+            <div style="width:130px; float: left; font-size: 12px; font-weight: bold">Select User</div>
+            <div style="width:230px; float: left "><select name="id">
+                     <?php
+   
+   // print_r($resp);
+   // print_r (explode(",",$this->response));
+    $option4=explode("#-*",$this->response);
+    $option5=explode(",",$option4[4]);
+   // print_r($option2);
+    foreach($option5 as $v){//echo $v1;?>
+  <option value=<?php echo str_replace(" ","#",$v)?>><?php echo $v?></option><?}?>
+</select></div></div>
+            <div class="clear"></div>
+            <div style="width: 700px; padding-top: 15px">
+            <div style="width:130px; float: left; font-size: 12px; font-weight: bold">Name</div>
+              <div style="width:230px; float: left "><input type="text" name="username"  size="15" ></input></div>
+            </div>
+          <div class="clear"></div>
+          
+          <div style="width: 700px; padding-top: 5px">
+            <div style="width:130px; float: left; font-size: 12px; font-weight: bold">Mobile No.</div>
+              <div style="width:230px; float: left "><input type="text" name="Usermobile"   size="15" ></input></div>
+            </div>
+            <div class="clear"></div>
+            
+            <div style="width: 700px; padding-top: 30px; float: left "> 
+                    <div style="width: 130px; float: left; font-size: 12px; font-weight: bold">Select Service</div>
+             <div style="width: 500px; float: left ">
+            <select name="ListBox2[]" size="4" multiple="multiple" style="width: 180px"
+id="ListBox2">
+         <?php
+   
+   // print_r($resp);
+   // print_r (explode(",",$this->response));
+    $option=explode("#-*",$this->response);
+    $option2=explode(",",$option[1]);
+   // print_r($option2);
+    foreach($option2 as $v1){//echo $v1;
+         if($v1!=""){?>
+  <option value=<?php echo str_replace(" ","#",$v1)?>><?php echo $v1?></option><?}}?>
+  </select></div></div>
+  
+  <div class="clear"></div>
+            
+                    <div style="width: 700px; padding: 30px 0 10px 130px; float: left; "> 
+             <div style="width: 200px;" ><input class="submit" type="submit" id="b1" name="submit" value="Continue" onclick="return compareData();"></input>
+             </div>   </div>
+          </div>
+        <div class="clear"></div>
+<script>
+            function compareData()
+{
+var name = document.myform1.username.value;
+var users = document.myform1.Usermobile.value;
+
+
+   
+   if (name=="" || users=="" )
+  {
+  alert("All  fields are required");
+  return false;
+  if ( myform1.ListBox2.selectedIndex == 0 ) 
+      alert ( "Select service." );
+  return false;
+  }
+  if(isNaN(users))
+{
+alert("Enter the valid Mobile Number");
+//document.myform1.mobile.focus();
+return false;
+}
+//if((users.length < 1) || (users.length > 10))
+if((users.length < 10) || (users.length > 10))
+{
+alert("Mobile no. should consists of 10 digits");
+//document.myform1.mobile.select();
+return false;
+}
+ if (users.charAt(0)=="0")
+           {
+                alert("Mobile no. should not start with 0 ");
+                return false
+           }
+  
+re = /^[A-Za-z\s]+$/;
+if(re.test(name))
+{
+return true;
+}
+else
+{
+alert('Invalid Name.');
+return false;
+
+}  
+  
+  
+  
+  
+  return true;}
+</script>
+</form>

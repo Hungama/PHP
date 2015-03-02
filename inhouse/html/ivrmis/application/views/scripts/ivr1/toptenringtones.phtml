@@ -1,0 +1,86 @@
+
+
+
+    <form name="myform1" id="myform1" align="left" valign="top" method="post">
+       
+       <?php
+       
+        
+         $startdate=$this->startdate;
+         $enddate=$this->enddate;
+      
+         ?>
+        
+         <input type="hidden" name="startdate" value=<?php echo $startdate;?>>
+                 <input type="hidden" name="enddate" value=<?php echo $enddate;?>>
+<!--                  <input type="hidden" name="ListBox2" value=<?php echo  $str;?>>-->
+        <select name="group1">
+  <option value="E">Excel</option>
+  <option value="P">PDF</option>
+  <option value="H">HTML</option>
+</select>
+        
+                
+                        
+<!--                        <div class="clear"></div>
+                    <div style="width: 700px; padding-top: 30px; float: left "> <div style="width: 130px; float: left; font-size: 14px; font-weight: bold">Output</div>
+             <div style="width: 120px; float: left; font-size: 12px "><input type="radio" name="group1" value="E" id="group" checked> Excel</div>
+             <div style="width: 120px; float: left; font-size: 12px "><input type="radio" name="group1" value="P" id="group" > Pdf</div>
+             <div style="width: 330px; float: left; font-size: 12px "><input type="radio" name="group1" value="H" id="group" > Html</div>
+             </div>-->
+ 
+                      <div class="clear"></div>
+                    <div style="width: 700px; padding-top: 30px; float: left "> 
+             <div style="width: 160px; float: left; padding-left: 130px" ><input class="submit" type="submit" id="b1" name="submit" value="Summary Report" onclick="return compareDate();"  ></input></div>
+             <div style="width: 160px; float: left; "><input class="submit" type="submit" id="b2" name="submit" value="Detailed Report" onclick="return compareDate();" ></input></div>
+           <INPUT class="submit" TYPE="button" VALUE="Back" onClick="history.go(-1);return true;">
+                    </div>   
+                       <div class="clear"></div>
+           <script>
+                 $(document).ready(function() {  
+
+               $("#b1").click(
+               function() {
+  $("#myform1").attr('action','/ivrproject/public/index.php/ivr1/toptenringtonesummary'); 
+  //alert($("#myform1").attr('action'));
+           
+               });
+              
+           });
+            </script>  
+             <script>
+                 $(document).ready(function() {  
+
+               $("#b2").click(
+               function() {
+  $("#myform1").attr('action','/ivrproject/public/index.php/ivr1/toptenringtonedetail'); //alert($("#misform").attr('action'));
+   // alert($("#myform1").attr('action'));
+  
+           
+               });
+              
+           });
+            </script>
+           
+            </form>
+  
+    
+
+</body>
+</html>
+
+
+
+
+</div>
+        
+        <div style="display: none;" class="demo-description">
+<p>The datepicker is tied to a standard form input field.  Focus on the input (click, or use the tab key) to open an interactive calendar in a small overlay.  Choose a date, click elsewhere on the page (blur the input), or hit the Esc key to close. If a date is chosen, feedback is shown as the input's value.</p>
+</div><!-- End demo-description -->
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+?>

@@ -1,0 +1,157 @@
+<script>
+    $(function() {
+		$("#startdate").datepicker({
+   onSelect: function(dateText, inst) { 
+	var operatorvalue=$("#operator").val();
+	var datevalue=dateText;
+	$("#reportinterval").html("");
+	//var url ="http://192.168.4.41:8081/IVRReport1/UtilizationChart?startdate=";
+	//var url = url + datevalue + "&operator=" + operatorvalue;
+	//var url = "<a href='" + url + "' style='border:1px outset #0000ff;padding:4px;width:200px;background-color:#fcfcfc;' >" ;
+	//var url = url + "Graphical&nbsp;Report</a>"; 
+	var url ="http://119.82.69.212:1111/IVRMIS/UtilizationChart?startdate=";
+	var url = url + datevalue + "&operator=" + operatorvalue;
+	var url = "<iframe src='" + url + "' height='" + 550 + "' width='" + 550 + "' >" ;
+	var url = url +  "</iframe>"; 	
+	var data = 'startdate=' + datevalue + '&operator=' + operatorvalue;
+
+	       //start the ajax
+		$.ajax({
+			//this is the php file that processes the data and send mail
+			url: "http://119.82.69.212/ivrmis/public/index.php/ivr1/reportajax",	
+			
+			//GET method is used
+			type: "GET",
+
+			//pass the data			
+			data: data,		
+			
+			//Do not cache the page
+			cache: false,
+			
+			//success
+			success: function (res) {				
+			$("#graphical").html(url);           
+			$("#reportshow").html(res);
+
+			}		
+		});
+		
+
+
+ }
+});
+               
+ });   
+//-----------------------
+ $(document).ready(function(){
+	$('#operator').change(function () {	
+		var datevalue=$("#startdate").val();
+		var operatorvalue=$("#operator").val();
+			$("#reportinterval").html("");
+		var data = 'startdate=' + datevalue + '&operator=' + operatorvalue;
+	//var url ="http://192.168.4.41:8081/IVRReport1/UtilizationChart?startdate=";
+	//var url = url + datevalue + "&operator=" + operatorvalue;
+	//var url = "<a href='" + url + "' style='border:1px outset #0000ff;padding:4px;width:200px;background-color:#fcfcfc;' >" ;
+	//var url = url + "Graphical&nbsp;Report</a>"; 
+	var url ="http://119.82.69.212:1111/IVRMIS/UtilizationChart?startdate=";
+	var url = url + datevalue + "&operator=" + operatorvalue;
+	var url = "<iframe src='" + url + "' height='" + 550 + "' width='" + 550 + "' >" ;
+	var url = url +  "</iframe>"; 
+ //$("#graphical").html(url);
+	var data = 'startdate=' + datevalue + '&operator=' + operatorvalue;
+		 //start the ajax
+		$.ajax({
+			//this is the php file that processes the data and send mail
+			url: "http://119.82.69.212/ivrmis/public/index.php/ivr1/reportajax",	
+			
+			//GET method is used
+			type: "GET",
+
+			//pass the data			
+			data: data,		
+			
+			//Do not cache the page
+			cache: false,
+			
+			success: function (res) {
+			$("#graphical").html(url);
+			$("#reportshow").html(res);
+
+			}		
+		});
+//		$("#reportshow").load("http://192.168.4.142/ivrproject/public/index.php/ivr1/reportajax");
+		
+		
+		//cancel the submit button default behaviours
+		return false;
+	});	
+    //-------------------------------
+  }); 	
+    //-------------------------------
+    </script>
+
+
+
+<script>
+
+function callAjax(hrefvalue){
+	//$("intervalfocus").focus();	
+	 $('html,body').animate({
+	scrollTop: $("#intervalfocus").offset().top
+	}, 1500);
+    	var selected = hrefvalue.split("reportinterval");
+	var urlvalue =selected['1'].split('/');
+	var datevalue=urlvalue['6'];
+	var operatorvalue=$("#operator").val();
+	var hourvalue = urlvalue['2'];
+	var data = 'startdate=' + datevalue + '&operator=' + operatorvalue +'&hour=' + hourvalue;
+	 $(document).ready(function(){	
+	$.ajax({
+		//this is the php file that processes the data and send mail
+		url: "http://119.82.69.212/ivrmis/public/index.php/ivr1/reportinterval",	
+		
+		//GET method is used
+		type: "GET",
+
+		//pass the data			
+		data: data,		
+		
+		//Do not cache the page
+		cache: false,
+		
+		//success
+		success: function (res) {	
+		$("#reportinterval").html(res);
+
+		}		
+	});
+	return false;
+});
+}
+
+
+function dataexport(){
+var exporttype=$("#export").val();
+var operatorvalue=$("#operator").val();
+var datevalue=$("#startdate").val();
+window.location = "http://119.82.69.212:1111/IVRMIS/DownloadReport?startdate="+ datevalue +'&operator=' + operatorvalue + '&group='+ exporttype;
+ 
+}
+
+</script>
+<table width="100%">
+<tr><td>&nbsp;</td><td>Export Type:</td><td><select onchange="dataexport();" name="export" id="export">
+<option>Select one</option>
+<option value="E">Excel</option>
+</select></td></tr>
+<tr><td>&nbsp;</td>
+<td>Date:</td><td><input type="text" name="startdate" id="startdate" style="width:145px;" value="<?php  echo date("m/d/Y", mktime(0, 0, 0, date("m"),date("d")-1,date("Y")));?>" /></td></tr>
+<tr><td>&nbsp;</td>
+<td>Operator:</td><td><select  name="operator" id="operator" style="width:150px;">
+<?php foreach($this->response as $key =>$value){?>
+<option value="<?php echo $value?>" <?php if($value=='Reliance'){?>selected="selected"<?php }?>><?php echo $value;?></option>
+<?php }?>
+</select></td></tr>
+</table>
+

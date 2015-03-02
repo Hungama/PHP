@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>  
+  <script type="text/javascript">
+  window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {
+      title:{
+      text: "Multi-Series Line Chart"  
+      },
+      data: [
+      {        
+        type: "line",
+        dataPoints: [
+        { x: new Date(2012, 01, 7), y: 21 },
+        { x: new Date(2012, 01, 8), y: 25},
+        { x: new Date(2012, 01, 9), y: 20 },
+       /* { x: new Date(2012, 01, 10), y: 25 },
+        { x: new Date(2012, 01, 11), y: 27 },
+        { x: new Date(2012, 01, 12), y: 28 },
+        { x: new Date(2012, 01, 13), y: 28 },
+        { x: new Date(2012, 01, 14), y: 24 },
+        { x: new Date(2012, 01, 15), y: 26}
+      */
+        ]
+      },
+        
+        {        
+        type: "line",
+        dataPoints: [
+        { x: new Date(2012, 01, 7), y: 11 },
+        { x: new Date(2012, 01, 8), y: 24},
+        { x: new Date(2012, 01, 9), y: 45 },
+       /* { x: new Date(2012, 01, 10), y: 5 },
+        { x: new Date(2012, 01, 11), y: 77 },
+        { x: new Date(2012, 01, 12), y: 38 },
+        { x: new Date(2012, 01, 13), y: 68 },
+        { x: new Date(2012, 01, 14), y: 94 },
+        { x: new Date(2012, 01, 15), y: 126}
+      */
+        ]
+      }
+        
+      ]
+    });
+
+    chart.render();
+  }
+  </script>
+ <script type="text/javascript" src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+ </head>
+<body>
+  <div id="chartContainer" style="height: 300px; width: 100%;">
+  </div>
+</body>
+</html>

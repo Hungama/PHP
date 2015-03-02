@@ -1,0 +1,32 @@
+<deal>
+<category>
+<attr name='catId'>1</attr>
+<attr name='type'>cat</attr>
+<attr name='getType'>subcat</attr>
+<attr name='catName'>Restaurants</attr>
+</category>
+<category>
+<attr name='catId'>2</attr>
+<attr name='type'>cat</attr>
+<attr name='getType'>subcat</attr>
+<attr name='catName'>Health & Beauty</attr>
+</category>
+<category>
+<attr name='catId'>3</attr>
+<attr name='type'>cat</attr>
+<attr name='getType'>subcat</attr>
+<attr name='catName'>Miscellaneous</attr>
+</category>
+<category>
+<attr name='catId'>4</attr>
+<attr name='type'>cat</attr>
+<attr name='getType'>subcat</attr>
+<attr name='catName'>Activities & Hobbies</attr>
+</category>
+<category>
+<attr name='catId'>5</attr>
+<attr name='type'>cat</attr>
+<attr name='getType'>subcat</attr>
+<attr name='catName'>Travel</attr>
+</category>
+</deal>

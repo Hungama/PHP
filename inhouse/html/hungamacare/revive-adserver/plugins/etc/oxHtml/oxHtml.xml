@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href=""?>
+
+<plugin>
+    <name>oxHtml</name>
+    <displayName>HTML Banner Type Plugin</displayName>
+    <creationDate>2008-02-19</creationDate>
+    <author>Revive Adserver</author>
+    <authorEmail>revive@revive-adserver.com</authorEmail>
+    <authorUrl>http://www.revive-adserver.com</authorUrl>
+    <license>GNU Gneral Public License v2</license>
+    <description>Plugin that provides the HTML banner type.</description>
+    <version>1.1.0</version>
+    <oxversion>2.7.30-beta-rc11</oxversion>
+    <extends>bannerTypeHtml</extends>
+
+    <install>
+        <files>
+            <file path="{MODULEPATH}bannerTypeHtml/oxHtml/">genericHtml.class.php</file>
+            <file path="{MODULEPATH}bannerTypeHtml/oxHtml/">genericHtml.delivery.php</file>
+
+            <file path="{GROUPPATH}/_lang/">en.mo</file>
+            <file path="{GROUPPATH}/_lang/po/">en.po</file>
+        </files>
+
+        <components>
+           <component>
+                <name>genericHtml</name>
+           </component>
+        </components>
+
+    </install>
+
+</plugin>

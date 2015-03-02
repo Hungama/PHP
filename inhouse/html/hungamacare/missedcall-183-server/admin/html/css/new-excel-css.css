@@ -1,0 +1,61 @@
+ html { font-family:Calibri, Arial, Helvetica, sans-serif; font-size:11pt; background-color:white }
+	  table { border-collapse:collapse; page-break-after:always }
+	  .gridlines td { border:1px dotted black }
+	  .b { text-align:center }
+	  .e { text-align:center }
+	  .f { text-align:right }
+	  .inlineStr { text-align:left }
+	  .n { text-align:right }
+	  .s { text-align:left }
+	  td.style0 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+	  td.style1 { vertical-align:middle; text-align:center; border-bottom:none #000000; border-top:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+	  td.style2 { vertical-align:middle; text-align:center; border-bottom:none #000000; border-top:none #000000; border-left:1px solid #000000; border-right:1px solid #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+	  td.style3 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000; border-top:none #000000; border-left:1px solid #000000; border-right:1px solid #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+	  td.style4 { vertical-align:bottom; border-bottom:1px solid #000000; border-top:1px solid #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+	  td.style5 { vertical-align:bottom; border-bottom:1px solid #000000; border-top:1px solid #000000; border-left:none #000000; border-right:1px solid #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+	  td.style6 { vertical-align:bottom; text-align:center; border-bottom:1px solid #000000; border-top:1px solid #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+	  td.style7 { vertical-align:bottom; text-align:center; border-bottom:1px solid #000000; border-top:1px solid #000000; border-left:none #000000; border-right:1px solid #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+	  td.style8 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000; border-top:1px solid #000000; border-left:1px solid #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:#8BDEF2 }
+	  td.style9 { vertical-align:middle; text-align:center; border-bottom:none #000000; border-top:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:#91C4D3 }
+	  td.style10 { vertical-align:middle; border-bottom:1px solid #000000; border-top:1px solid #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+	  td.style11 { vertical-align:bottom; text-align:center; border-bottom:1px solid #000000; border-top:1px solid #000000; border-left:1px solid #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:#8BDEF2 }
+	  td.style12 { vertical-align:bottom; border-bottom:1px solid #000000; border-top:1px solid #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+	  td.style13 { vertical-align:bottom; border-bottom:1px solid #000000; border-top:1px solid #000000; border-left:none #000000; border-right:1px solid #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+	  td.style14 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000; border-top:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+	  td.style15 { vertical-align:middle; text-align:center; border-bottom:1px solid #FF04; border-top:1px solid #FF04; border-left:1px solid #FF04; border-right:1px solid #FF04; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+	  td.style16 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000; border-top:1px solid #000000; border-left:1px solid #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:#F3FF04 }
+	  td.style17 { vertical-align:middle; text-align:center; border-bottom:none #000000; border-top:1px solid #F3FF04; border-left:1px solid #F3FF04; border-right:1px solid #F3FF04; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:#91C4D3 }
+	  td.style18 { vertical-align:middle; text-align:center; border-bottom:1px solid #F3FF04; border-top:none #000000; border-left:1px solid #F3FF04; border-right:1px solid #F3FF04; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+	  td.style19 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000; border-top:1px solid #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+	  td.style20 { vertical-align:middle; text-align:center; border-bottom:none #000000; border-top:1px solid #FF04; border-left:1px solid #FF04; border-right:1px solid #FF04; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:#91C4D3 }
+	  td.style21 { vertical-align:middle; text-align:center; border-bottom:1px solid #FF04; border-top:none #000000; border-left:1px solid #FF04; border-right:1px solid #FF04; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+	  td.style22 { vertical-align:bottom; border-bottom:1px solid #FF04; border-top:1px solid #FF04; border-left:1px solid #FF04; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:#8BDEF2 }
+	  td.style23 { vertical-align:bottom; border-bottom:1px solid #FF04; border-top:1px solid #FF04; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+	  td.style24 { vertical-align:bottom; text-align:center; border-bottom:1px solid #FF04; border-top:1px solid #FF04; border-left:none #000000; border-right:1px solid #FF04; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+	  table.sheet0 col.col0 { width:56.93333268pt }
+	  table.sheet0 col.col1 { width:56.93333268pt }
+	  table.sheet0 col.col2 { width:56.93333268pt }
+	  table.sheet0 col.col3 { width:56.93333268pt }
+	  table.sheet0 col.col4 { width:56.93333268pt }
+	  table.sheet0 col.col5 { width:56.93333268pt }
+	  table.sheet0 col.col6 { width:56.93333268pt }
+	  table.sheet0 col.col7 { width:56.93333268pt }
+	  table.sheet0 col.col8 { width:56.93333268pt }
+	  table.sheet0 col.col9 { width:56.93333268pt }
+	  table.sheet0 col.col10 { width:56.93333268pt }
+	  table.sheet0 col.col11 { width:42pt }
+	  table.sheet0 col.col12 { width:42pt }
+	  table.sheet0 col.col13 { width:42pt }
+	  table.sheet0 col.col14 { width:42pt }
+	  table.sheet0 col.col15 { width:56.93333268pt }
+	  table.sheet0 col.col16 { width:56.93333268pt }
+	  table.sheet0 col.col17 { width:56.93333268pt }
+	  table.sheet0 col.col18 { width:56.93333268pt }
+	  table.sheet0 col.col19 { width:56.93333268pt }
+	  table.sheet0 col.col20 { width:56.93333268pt }
+	  table.sheet0 col.col21 { width:56.93333268pt }
+	  table.sheet0 col.col22 { width:42pt }
+	  table.sheet0 col.col23 { width:42pt }
+	  table.sheet0 col.col24 { width:42pt }
+	  table.sheet0 col.col25 { width:42pt }
+	  table.sheet0 tr { height:15pt }

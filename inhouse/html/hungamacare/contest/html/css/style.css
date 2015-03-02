@@ -1,0 +1,79 @@
+
+Body{font-family: "Telenor", arial; font-size:12px; color:#636363}
+*{padding:0; margin:0}
+@font-face
+{
+    font-family: "Telenor";
+    src: url('fonts/Telenor.otf'),
+}
+
+.fl{float:left}
+.fr{float:right}
+.cl{clear:both}
+
+.pt10{padding-top:10px}
+.ml10{margin-left:10px}
+.mb10{margin-bottom:10px}
+.mt7{margin-top:7px}
+.mt10{margin-top:10px}
+.mt25{margin-top:25px}
+.mt47{margin-top:47px}
+.mr10{margin-right:10px}
+.fnt13{font-size:14px}
+.fnt14{font-size:14px}
+.fnt20{font-size:20px}
+.vrtAlgnMid{vertical-align:middle}
+
+.header{background:#a179af}
+.logo{float:left; width:45%}
+.welcUser{float:right; width:54%; font-size:10px; color:#fff; line-height:11px}
+
+.constName{font-size:26px; color:#fff; background:#ee358a; padding-left:5px}
+.srch{border:1px solid #f15f22;}
+.cont{padding:10px 5px}
+.srch img{vertical-align:middle; float:right }
+.srch input{background:none; border:none; padding:8px 5px 7px; width:84%; float:left}
+.topCont{border:1px solid #1c9dd9; padding:1px; margin:10px 0}
+.topContDtls{background:#ee348a;  font-size:14px; color:#fff; line-height:17px; border:1px solid #be1e65; margin-top:10px}
+.cntstNo{float:left; width:23%; border-right:1px solid #fff; text-align:center; padding:6px 0;}
+.cntstNm{float:left; width:51%; border-right:1px solid #fff; text-align:center; padding:6px 0;}
+.cntstQno{float:left; width:23%; text-align:center; padding:6px 0;}
+.quesArea{background:#f1f0f0; padding:10px; margin-top:10px; color:#636363}
+.vdoNm{padding-bottom:7px; border-bottom:1px solid #636363; color:#636363}
+.badgesArea{background:#ee348a;  margin:10px 0;}
+.badges a{text-align:center; border-right:1px solid #fff; float:left; color:#fff; width:49%; text-decoration:none; display:block; padding:6px 0}
+.ldrBord a{text-align:center;float:right; color:#fff; width:49%; text-decoration:none; display:block; padding:6px 0}
+.socialIcons{background:url(../images/bg2.gif) repeat-x; margin:15px 0 20px}
+.redTxt{color:#ed1c24}
+.blueTxt{font-size:12px; color:#a179af; text-decoration:none; font-weight:normal}
+.blueTxt1{color:#ee348a}
+.bluBg{background:#ee348a; padding:6px; color:#fff; font-size:11px; border:1px solid #be1e65}
+.confMessage{padding:7px 10px 0}
+.topUp{padding-bottom:7px; border-bottom:1px solid #fff; color:#636363; font-size:13px}
+.sep{width:10%; display:inline-block}
+.profBdge{float:left; width:50%;}
+.Bdge{padding:5px 0;width:99%; margin:0 auto; background:#ee348a}
+.Bdge a{text-decoration:none; color:#fff}
+.Bdge1{padding:5px 0;width:99%; margin:0 auto;}
+.Bdge1 a{text-decoration:none; color:#333}
+.Bdges{float:left; width:33.333%;}
+.BdgesArea{background:#f1f0f0; padding:10px 0; margin-top:10px; color:#636363}
+.ledrBord{float:right; width:50%; background:#f15f22}
+.lstNo{font-size:30px; line-height:38px; color:#fff}
+.bannerArea{background:#f1f0f0; padding:15px 0; margin-top:10px; color:#363636; text-align:center}
+.back2Cont{background:#ee348a; padding:3px 5px; color:#fff; font-size:13px; width:40%; text-align:center; display:inline-block}
+.back2Cont a{text-decoration:none; color:#fff}
+.footer{background:#a179af; text-align:center; color:#fff; padding:10px 0}
+.footerLnks{margin-bottom:5px;}
+.footerLnks a{font:12px arial;text-decoration:none; color:#fff}
+.poweredBy{font:11px arial}
+
+/* 2 June 2014*/
+.topUpNew{padding-bottom:7px; border-bottom:1px solid #fff; color:#636363; font-size:15px; font-weight:bold}
+.badgeBanner{background:#f1f0f0; padding:16px; margin-top:10px; color:#636363; font-size:18px; font-weight:bold}
+.wtTxt{font-size:12px; color:#fff}
+.leadBoardTble{text-align:center; font-weight:bold}
+.brdRght{border-right:1px solid #FFF}
+.topUpPlnBtn{border-radius:3px; background:#ee348a; padding:3px 5px; color:#fff; font-size:13px; width:23.5%; text-align:center; display:inline-block}
+.topUpPlnBtnNew{border-radius:3px; background:#ee348a; padding:3px 5px; color:#fff; font-size:13px; width:27.5%; text-align:center; margin-top:10px}
+.mt20{margin-top:20px}

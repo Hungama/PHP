@@ -1,0 +1,47 @@
+<form name="myform1" id="myform1" align="left" valign="top" Method="post"  action="<?=$this->url(array('controller'=>'ivr1','action'=>'updateuser'))?>">
+        
+        <div class="clear"></div>
+        <div style="width: 780px; padding: 20px">
+         
+            <div style="width: 700px; padding-top: 10px">
+            <div style="width:130px; float: left; font-size: 12px; font-weight: bold">Select User</div>
+            <div style="width:230px; float: left "><select>
+  <option value="volvo">Volvo</option>
+</select></div></div>
+            <div class="clear"></div>
+            <div style="width: 700px; padding-top: 15px">
+            <div style="width:130px; float: left; font-size: 12px; font-weight: bold">Name</div>
+              <div style="width:230px; float: left "><input type="text" name="username"  size="15" ></input></div>
+            </div>
+          <div class="clear"></div>
+          
+          <div style="width: 700px; padding-top: 5px">
+            <div style="width:130px; float: left; font-size: 12px; font-weight: bold">Mobile No.</div>
+              <div style="width:230px; float: left "><input type="text" name="Usermobile"   size="15" ></input></div>
+            </div>
+            <div class="clear"></div>
+            
+            <div style="width: 700px; padding-top: 30px; float: left "> 
+                    <div style="width: 130px; float: left; font-size: 12px; font-weight: bold">Select Service</div>
+             <div style="width: 500px; float: left ">
+            <select name="ListBox2[]" size="4" multiple="multiple" style="width: 180px"
+id="ListBox2">
+         <?php
+   
+   // print_r($resp);
+  //  print_r (explode(",",$this->response));
+    $option=explode("#-*",$this->response);
+    $option2=explode(",",$option[1]);
+    print_r($option2);
+    foreach($option2 as $v1){echo $v1;?>
+  <option value=<?php echo str_replace(" ","#",$v1)?>><?php echo $v1?></option><?}?>
+  </select></div></div>
+  
+  <div class="clear"></div>
+            
+                    <div style="width: 700px; padding: 30px 0 0 130px; float: left; "> 
+             <div style="width: 200px;" ><input  class="submit" type="submit" id="b1" name="submit" value="Continue" onclick="return compareDate();"></input>
+             </div>   </div>
+          </div>
+          
+</form>

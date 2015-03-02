@@ -1,0 +1,58 @@
+/* CSS Document */
+*{padding:0; margin:0}
+body{font:11px Arial, Helvetica, sans-serif; color:#fff; text-decoration:none;}
+
+/* Common Css Properties */
+.fl{float:left}
+.fr{float:right}
+.cl{clear:both}
+
+.pt5{padding-top:0.365em}
+.pt20{padding-top:1.818em}
+.pr10{padding-right:0.909em}
+.pl16{padding-left:1.000em}
+.pa5Home{padding:5px}
+.pa5{padding:5px 9px}
+.pa12{padding:12px}
+.pa9{padding:0 9px}
+.pa2{padding:2px}
+.mr2{margin-right:0.182em}
+.space120{height:120px;line-height:120px;font-size:120px}
+.space1{height:1px;line-height:1px;font-size:1px; background:#715548}
+.space6{height:6px;line-height:6px;font-size:6px}
+.space14{height:14px;line-height:14px;font-size:14px}
+.space9{height:9px;line-height:9px;font-size:9px}
+
+
+#wrapper{width:100%}
+.topImg{ margin:0 auto; width:320px;background:#f6e9e9}
+.mainCont{margin:0 auto; background:#f6e9e9;padding-top:5px; width:320px}
+.homeIcon{background:url(../images/home-icon.gif) no-repeat; width:19px; height:19px; float:left; margin:11px 10px;}
+.homeIcon a{display:block; width:100%; height:100%}
+.topSearchBox{height:auto;padding:6px}
+.topSearchBox .srchBox{background:#fff !important;border-radius:5px 5px 5px 5px;width: 270px;}
+.topSearchBox .srchBox .input {border: medium none;color: #878585;float: left;font-size: 10px; height: auto;padding: 6px;width: 168px; margin:0 0 0 5px}
+.topSearchBox .srchBox .btn {background: url(../images/search-icon.gif) no-repeat;border: medium none;float: right;height:12px;width:12px; margin:5px 5px 0 0}
+.downlTxt{background:#000; text-align:center; padding:8px}
+.contBox{padding:10px}
+.moreTxt a{padding-top:5px; color:#666; text-decoration:underline; float:right; margin-bottom:10px}
+.regionalTxt a{padding:11px; color:#333; text-decoration:underline; text-align:center}
+.songThumb{display:block; position:relative; top:2px; left:0; color:#F00; text-align:center;}
+.footerBg{background:#000; height:74px}
+.footerBg .footerCont{padding:8px}
+.footerBg .footerCont a{color:#f08018; text-decoration:none; padding:5px 0 0 0}
+.footerBg .footerCont p{color:#fff; line-height:18px; padding:5px 0 0 0}
+
+.titleCont{background:url(../images/title_bg.gif) repeat-x; margin:1px 11px 9px 8px}
+.titleCont h2{font: bold 12px Arial, Helvetica, sans-serif; color:#fff; text-decoration:none; padding:4px 10px}
+.titleContMore{background:url(../images/title_bg.gif) repeat-x; margin:1px 15px 9px 8px}
+.titleContMore h2{font: bold 12px Arial, Helvetica, sans-serif; color:#fff; text-decoration:none; padding:4px 7px}
+.arltxt10{font:bold 10px Arial, Helvetica, sans-serif; color:#000; text-decoration:none}
+.wallpaperCont{margin:6px 10px; width:300px;}
+.thumbAlbum{margin:18px 2px 4px 0; float:left;}
+.thumbAlbum5{margin:18px 2px 4px 0; float:left; padding-left:3px; text-align:center;}
+.thumbAlbum a{font:9px Arial, Helvetica, sans-serif; color:#58595b; text-decoration:none; text-align:center; display:block; margin-top:-18px}
+.ringtoneAlbum{margin:15px 18px 0 0; float:left}
+.ringtoneAlbum a{font:9px Arial, Helvetica, sans-serif; color:#58595b; text-decoration:none; text-align:center; display:block; margin-top:-18px}
+.more a{font:10px Arial, Helvetica, sans-serif; color:#58595b; text-decoration:underline; padding-right:12px}
+.moreDetites{margin:0 8px 1px; position:relative; top:-9px}

@@ -1,0 +1,84 @@
+          .demo{
+		height:100%;
+		color:#010101;
+            }
+	    .demo .newimage {
+		margin-top:40px;
+		padding-right:10px;
+		float:left;
+   	    }
+	    .demo .position2 {
+		margin-top:35px;
+		margin-right:10px;
+		width:20px;
+		font-size:25px;
+		font-weight:bold;
+		padding:2px;
+		color:#DBB537;
+		float:left;
+   	    }
+	    .demo .songlistfirst {
+		margin-top:10px;
+		background:#F5F5F5;
+		min-height:150px;
+		max-width:100%;
+   	    }
+	    .demo .songlist {
+		min-height:120px;
+		border:1px solid #EDEDED;
+		background:#F5F5F5;
+		margin-bottom:2px;
+		max-width:100%;
+   	    }
+	    .demo .songlist:hover {
+		background:#F2E6EA;
+   	    }
+
+ 	    .demo .songdesc {
+		float:left;
+   	    }
+	    .demo .bigtitle {
+		font-weight:bold;
+		font-size:18px;
+	    }
+	    .demo .thisweek {
+		float:left;
+	    }
+	    .demo .position {
+		float:left;
+		font-size:25px;
+		font-weight:bold;
+		padding:2px;
+		color:#DBB537;
+	    }
+	    .demo .artist {
+		color:#0463C9;
+		font-weight:bold;
+	    }
+	    .demo .details {
+		float:left;
+		width:300px;
+		background-color:#fcfcfc;
+		margin-top:5px;
+	    }
+	    .demo .forshowhide{
+		float:left;
+		height:150px;
+		width:300px;
+   	    }
+	    .demo a img{
+                border:10px solid #D1D1D1;
+		margin-right:20px;
+		float:left;
+                outline:none;
+            }
+	    .more {
+		color:#0C8EEB;
+		font-size:15px;
+		font-weight:bold;
+	    }
+
+.top {
+    background-color: #FFFFFF;
+    border-bottom: 1px dotted #333333;
+}

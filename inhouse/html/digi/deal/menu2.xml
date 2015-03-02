@@ -1,0 +1,18 @@
+<deal>
+	<Menu2>
+		<attr name='id'>1</attr>	
+		<attr name='name'>Get 50% off at Nirula's.</attr>
+	</Menu2>
+	<Menu2>
+		<attr name='id'>2</attr>	
+		<attr name='name'>Pay Rs 99 for 70% discount at Looks (Saket Market)</attr>
+	</Menu2>
+	<Menu2>
+		<attr name='id'>3</attr>	
+		<attr name='name'>Pay Rs. 549 for 5 IMFL, 1 main course, 1 starter and 1 desert worth Rs. 2400 at Buzz (saket)</attr>
+	</Menu2>
+	<Menu2>
+		<attr name='id'>#</attr>	
+		<attr name='name'> to go back to the Main Menu.</attr>
+	</Menu2>
+</deal>

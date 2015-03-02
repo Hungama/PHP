@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<script language="javascript" type="text/javascript">
+	
+	function getMsisdnInfo()
+{
+if(document.getElementById("mob_operator").value=='--')
+{
+   alert ( "Please select operator." );
+   document.getElementById("mob_operator").focus();
+
+}
+else if(document.getElementById("hul_gp_msisdn").value=='')
+{
+   alert ( "Please enter mobile number." );
+   document.getElementById("hul_gp_msisdn").focus();
+
+}
+else 
+{
+str=document.getElementById("hul_gp_msisdn").value;
+operator=document.getElementById("mob_operator").value;
+   getMsisdnDetail(str,operator);	
+}
+
+
+}
+
+function getMsisdnDetail(str,operator)
+{
+//$subscription_path="http://192.168.100.210/billing/uninor_billing/UninorWap.php?msisdn=".$msisdn;
+
+document.getElementById("button_submit").disabled = true;
+document.getElementById("showinfo").innerHTML='<img src="loading.gif" border="0"/>';
+var xmlhttp;    
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+document.getElementById("showinfo").innerHTML='';
+if(xmlhttp.responseText=='SUCCESS')
+	{
+	var response= 'Thank you for submitting your request! We are processing your request , you will be informed shortly via SMS.';
+	}
+	else if(xmlhttp.responseText=='FAILURE')
+	{
+	//echo 'Invalid operator/MDN';
+	var response= 'Subscription failed. Please try again';
+	}
+	else
+	{
+	var response= 'ALREADY SUBSCRIBED';
+	}
+
+document.getElementById("button_submit").disabled = false;
+//document.getElementById("showinfo").innerHTML=xmlhttp.responseText;
+document.getElementById("showinfo").innerHTML=response;
+//alert(xmlhttp.responseText);
+    }
+  }
+xmlhttp.open("GET","aavService.php?msisdn="+str+"&operator="+operator,true);
+xmlhttp.send();
+
+//
+}
+
+	</script>
+	<style type="text/css">
+.gradientBoxesWithOuterShadows { 
+height: 160px;
+width: 320px; 
+padding: 20px;
+background-color: white; 
+
+/* outer shadows  (note the rgba is red, green, blue, alpha) */
+-webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4); 
+-moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+
+/* rounded corners */
+-webkit-border-radius: 12px;
+-moz-border-radius: 7px; 
+border-radius: 7px;
+
+/* gradients */
+background: -webkit-gradient(linear, left top, left bottom, 
+color-stop(0%, white), color-stop(15%, white), color-stop(100%, #D7E9F5)); 
+background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3 130%); 
+}
+	</style>
+	</head>
+<body>
+ <div class="gradientBoxesWithOuterShadows">
+			<table class="listing form" cellpadding="0" cellspacing="0" style="width:340px">
+				<tr><td colspan="2">
+				<p>Hi! you can now listen Artist aloud on your mobile by just entering your mobile number.</p>
+				</td></tr>		
+					<tr class="bg">
+					<td class="last" colspan="2">
+						<select name="mob_operator" id="mob_operator">
+
+<option value="--">Select operator</option>
+  <option value="UNIM">Uninor</option>
+  <option value="MTSM">MTS</option>
+  <option value="VODM">Vodafone</option>
+  </select>
+	 <input type="text" placeholder="+91" size="2" style="width:23px;" value="+91"/><input type="text" class="text" name="hul_gp_msisdn" id="hul_gp_msisdn" placeholder="Mobile Number" size="12" maxlength="10"/>
+	<input type="button" name="getinfo" value="Submit" onclick="getMsisdnInfo(2)" id="button_submit"/>
+						</td>
+					</tr>
+				
+					
+					
+										</table>
+										
+					<div id="showinfo" style="text-align:center;width:100%;font-weight:normal;color:red;"></div>
+					<div id="priceinfo" style="text-align:left;width:100%;font-weight:normal;color:#000000;">*Charges Rs30/month</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(e) {
+    $('.img img').css({width:$(window).width(),height:$(window).height()})
+	$('.section').css({height:$(window).height()-80})
+});
+$(window).resize(function(e) {
+    $('.img img').css({width:$(window).width(),height:$(window).height()})
+});
+
+function doSubmit()
+{
+document.loginForm.submit();
+}
+</script>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="logo"><img src="images/good-life-club.png"  alt="" /></div>
+<div class="section">
+  <div class="img"><img src="images/bg.jpg" alt="" /></div>
+  <div class="login"><img src="images/login-img.png" class="lgin" />
+    <div class="form">
+	<form class="form-horizontal" action="validate.php" method="post" id="loginForm" name="loginForm" role="form" >
+      <h2>Sign in</h2>
+      <input name="username" type="text" value="Username" class="user" />
+      <input name="password" type="text" value="Password" class="pass" />
+      <a href="javascript:doSubmit()" class="signin">SIGN IN</a><p class="kli"><input name="kli" type="checkbox" value="kli" /><label>Keep me logged in.</label></p>
+	  </form>
+	  </div>
+  </div>
+</div>
+</body>
+</html>

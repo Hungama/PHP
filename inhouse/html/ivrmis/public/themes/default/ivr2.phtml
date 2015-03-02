@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>IVR</title>
+             <?php //print_r($this->layout());
+        echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/style.css');
+         echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/style1.css');
+        echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/jquery.ui.css');
+         echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/facebox.css');
+          echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/styles_admin.css');
+           echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/960.css');
+        ?>
+	<?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery-1.5.1.js') ?>
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.min.js') ?>
+
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.datepicker.js') ?>
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.widget.js') ?>
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.core.js') ?>
+	<?php echo $this->headScript() ?> 
+        <script type="text/javascript">
+            $(function() {
+               
+                //hide a div after 3 seconds
+        	setTimeout( "$('#errorMessage').hide('slow');",3000 );
+        	setTimeout( "$('#successMessage').hide('slow');",3000 );
+                setTimeout( "$('#successmessage2').hide('slow');",3000 );
+            });
+        </script>     
+    </head>
+    <body>
+        <?php
+         if(isset($this->successMessage)) {
+            echo "<h2 id='successMessage'>".$this->successMessage."</h2>";
+        }
+        if(isset($this->errorMessage)) {
+            echo "<h2 id='errorMessage'>".$this->errorMessage."</h2>";exit();
+        }?>
+      
+<div id="header" class="png_bg">
+
+    <div id="head_wrap" class="container_12">
+    
+        <!-- start of logo - you could replace this with an image of your logo -->
+        <div id="logo" class="grid_4">
+           </div>
+        <!-- end logo -->
+        
+        <!-- start control panel -->
+    	<div id="controlpanel" class="grid_8">
+        
+            <ul>
+            
+    			<li><p>Signed in as <strong><?php echo $_SESSION['name'];?><?php //echo $_SESSION['Username'];?></strong></p></li>
+                        <li><a href="<?=$this->url(array('controller'=>'user','action'=>'logout'))?>">Sign Out</a></li>
+                        
+            </ul>
+            <div class="clear"></div>
+            <div style="float: right; color: #555; font-size: 16px;">IVR Reporting Admin</div>
+            
+           
+        </div> 
+        <div id="chromemenu">
+<ul id="menu-nav">
+<li><a href="#navigation" class=""> Business Analysis </a></li>
+<li><a href="#navigation1" class="">Luxury </a></li>
+<li><a href="#" class="">Luxury </a></li></ul>
+        </div>
+        
+        <?php
+        //print_r($this->params);
+        if(isset($this->params['errorStatus'])) {
+            echo "<h2 id='errorMessage'>".$this->params['errorStatus']."</h2>";
+        }
+        if(isset($this->params['successMessage'])) {
+            echo "<h2 id='successMessage'>".$this->params['successMessage']."</h2>";
+        }
+        if(isset($this->params['errorMessage'])) {
+            echo "<h2 id='errorMessage'>".$this->params['errorMessage']."</h2>";
+        }
+        if(isset($this->params['successmessage2'])) {
+            echo "<h2 id='successmessage2'>".$this->params['successmessage2']."</h2>";
+        }?>
+        <?php if(isset($_SESSION['User']))
+        { ?>
+       <ul id="nav">
+                     <li>
+                 <!--  <a href="<?=$this->url(array('controller'=>'ivr1','action'=>'vlcum'))?>">Home</a></li>
+                    <li><a href="#">User</a>
+                        <ul>
+                          <!--  <li><a href="<?=$this->url(array('controller'=>'user','action'=>'profile'))?>">Edit Profile</a></li>-->
+                            <li> <a href="<?=$this->url(array('controller'=>'user','action'=>'logout'))?>">Logout</a></li>
+                            <li></li>
+                        </ul>
+                    </li>
+                   <!-- <li><a href="<?=$this->url(array('controller'=>'index','action'=>'section'))?>">Portal Builder</a></li>-->
+                    <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'msisdn'),null,true)?>">MIS</a></li>
+                   <!-- <li><a href="#">Pack</a>-->
+                        
+                    </li>   
+               
+                     </li>
+            </ul>   
+
+        
+        
+     <?php } else {?>
+        
+
+        <?php } ?>
+            
+            	<div id="navigation" class=" grid_12">
+           
+            <ul>
+            
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'msisdn'),null,true)?>" 
+              <?if($this->params['controller']=='ivr1' && $this->params['action']=='msisdn' || $this->params['action']=='msisdns' || $this->params['action']=='msisdnchart') echo " class='selected'";//if($_GET["controller"]=='ivr1' && $_GET["action"]=='msisdn') echo "<h5 class='selected'></h5>";?>>Circle wise Report</a></li>
+                 <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'service'),null,true)?>" 
+              <?if($this->params['controller']=='ivr1' && $this->params['action']=='service' || $this->params['action']=='services' || $this->params['action']=='servicechart') echo " class='selected'";//if($_GET["controller"]=='ivr1' && $_GET["action"]=='msisdn') echo "<h5 class='selected'></h5>";?>>Service wise Report</a></li>
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'short'),null,true)?>"
+                <?if($this->params['controller']=='ivr1' && $this->params['action']=='short'   || $this->params['action']=='shorts' || $this->params['action']=='shortd') echo " class='selected'";      ?>>Shortcode/ Plan ID wise Report</a></li>
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'time'),null,true)?>"
+                       <?if($this->params['controller']=='ivr1' && $this->params['action']=='time' || $this->params['action']=='times' || $this->params['action']=='timed')  echo " class='selected'";      ?>>Time Base Report</a></li>
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'chpass'),null,true)?>" 
+                       <?if($this->params['controller']=='ivr1' && $this->params['action']=='chpass' || $this->params['action']=='chpass' || $this->params['action']=='chpass') echo " class='selected'";      ?>>Change Password</a></li>
+                <?php if ($_SESSION['role'] == "admin") {?> 
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'creater'),null,true)?>"
+                        <?if($this->params['controller']=='ivr1' && $this->params['action']=='creater' || $this->params['action']=='createnewu' || $this->params['action']=='creater') echo " class='selected'";      ?>>Create New Users</a></li>
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'updater'),null,true)?>"
+                       <?if($this->params['controller']=='ivr1' && $this->params['action']=='updater' || $this->params['action']=='updateuser' || $this->params['action']=='updater') echo " class='selected'";      ?>> Update Users Rights</a></li>
+          <?}?>  </ul>
+          
+        </div>
+<!--            	<div id="navigation1" class=" grid_12">
+           
+            <ul>
+            
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'msisdn'),null,true)?>" 
+              <?if($this->params['controller']=='ivr1' && $this->params['action']=='msisdn' || $this->params['action']=='msisdns' || $this->params['action']=='msisdnchart') echo " class='selected'";//if($_GET["controller"]=='ivr1' && $_GET["action"]=='msisdn') echo "<h5 class='selected'></h5>";?>>Circle wise Report</a></li>
+                 <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'service'),null,true)?>" 
+              <?if($this->params['controller']=='ivr1' && $this->params['action']=='service' || $this->params['action']=='services' || $this->params['action']=='servicechart') echo " class='selected'";//if($_GET["controller"]=='ivr1' && $_GET["action"]=='msisdn') echo "<h5 class='selected'></h5>";?>>Service wise Report</a></li>
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'short'),null,true)?>"
+                <?if($this->params['controller']=='ivr1' && $this->params['action']=='short'   || $this->params['action']=='shorts' || $this->params['action']=='shortd') echo " class='selected'";      ?>>Shortcode/ Plan ID wise Report..</a></li>
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'time'),null,true)?>"
+                       <?if($this->params['controller']=='ivr1' && $this->params['action']=='time' || $this->params['action']=='times' || $this->params['action']=='timed')  echo " class='selected'";      ?>>Time Base Report..</a></li>
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'chpass'),null,true)?>" 
+                       <?if($this->params['controller']=='ivr1' && $this->params['action']=='chpass' || $this->params['action']=='chpass' || $this->params['action']=='chpass') echo " class='selected'";      ?>>Change Password..</a></li>
+                <?php if ($_SESSION['role'] == "admin") {?> 
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'creater'),null,true)?>"
+                        <?if($this->params['controller']=='ivr1' && $this->params['action']=='creater' || $this->params['action']=='createnewu' || $this->params['action']=='creater') echo " class='selected'";      ?>>Create New Users..</a></li>
+                <li><a href="<?=$this->url(array('controller'=>'ivr1','action'=>'updater'),null,true)?>"
+                       <?if($this->params['controller']=='ivr1' && $this->params['action']=='updater' || $this->params['action']=='updateuser' || $this->params['action']=='updater') echo " class='selected'";      ?>> Update Users Rights..</a></li>
+          <?}?>  </ul>
+          
+        </div>-->
+            
+    </div>
+    </div>
+   
+           
+            
+            
+             <div id="maincontainer">
+           
+        <div id="contentinner"><?php echo $this->layout()->content ?></div>
+        </div>
+           <div class="top">
+<p>Copyright © 2011 Hungama Digital Media Entertainment Pvt. Ltd. All Rights Reserved</p><!--<div class="getintouch"><a href="contact.html">Get in Touch <img src="images/icon-getintouch.jpg" /></a></div>--><div class="sweep"></div></div>
+            </body>
+</html>
+

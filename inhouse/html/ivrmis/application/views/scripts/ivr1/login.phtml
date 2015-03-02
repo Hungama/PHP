@@ -1,0 +1,93 @@
+
+<!--<script>
+	$(function() {
+		$( "#startdatepicker" ).datepicker();
+                $( "#enddatepicker" ).datepicker();
+	});
+	</script>-->
+      
+       
+        
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Hungama analytikÃ¨s</title>
+<!--<link href="css/style.css" rel="stylesheet" type="text/css" />-->
+<?php
+     echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/style1.css'); 
+        ?>
+</head>
+ <form name="misform" id="misform" method="post" action="" >
+<body>
+<div class="wrap">
+<!--Logo start-->
+<div align="center" class="header"><img src="http://192.168.4.65/gdp/public/themes/custom/img/logo.jpg" width="357" height="74" /></div>
+<!--Logo End-->
+<!--Content start-->
+<div class="cont" >
+<!--User Name start-->
+<div class="left_cont" >Sign In</div>
+<div class="left_cont" ><input name="signin" type="text" class="right_cont" /></div>
+<div class="clear"></div>
+<!--User Name end-->
+<!--Password start-->
+<div class="gap">
+<div class="left_cont" >Password</div>
+<div class="left_cont" ><input name="password" type="password" class="right_cont" /></div>
+</div>
+<div class="clear"></div>
+<!--Password End-->
+<div class="gap">
+<div class="button"><input type="submit" name="submit" value="Sign In" id="button" class="ui-state-error" name="button"></div>
+</div>
+<div class="clear"></div>
+<div class="gap">
+<div  class="button" ><a href="#">Forgot Password?</a></div>
+</div>
+
+ </div>
+<!--Content End-->
+
+
+
+</div>
+    
+    #
+<?php
+#
+if (isset($_POST['submit']))
+#
+{
+#
+// Execute this code if the submit button is pressed.
+#
+$value1 = $_POST['signin'];
+$value2 = $_POST['password'];
+#
+}?>
+    <script>
+                 $(document).ready(function() {  
+
+               $("#button").click(
+               function() {
+  $("#misform").attr('action','/gdp/public/index.php/user/login/signin/password/<?php echo $this->signin , $this->password ?>');
+ 
+  
+           
+               } );
+               
+               
+               
+           });
+          
+            </script>
+    
+    
+</body>
+     </form>
+</html>
+
+        
+       

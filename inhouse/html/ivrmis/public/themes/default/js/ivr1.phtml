@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>GDP</title>
+             <?php //print_r($this->layout());
+        echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/style.css');
+        echo $this->headLink()->appendStylesheet(MEDIA_PATH.'/css/jquery.ui.css');
+        ?>
+	<?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery-1.5.1.js') ?>
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.min.js') ?>
+
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.datepicker.js') ?>
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.widget.js') ?>
+        <?php $this->headScript()->appendFile(MEDIA_PATH.'/js/jquery.ui.core.js') ?>
+	<?php echo $this->headScript() ?> 
+        <script type="text/javascript">
+            $(function() {
+               
+                //hide a div after 3 seconds
+        	setTimeout( "$('#errorMessage').hide('slow');",3000 );
+        	setTimeout( "$('#successMessage').hide('slow');",3000 );
+            });
+        </script>     
+    </head>
+    <body>
+       <div id="headerinner">
+                <div id="logo"></div>
+            <div class="welcome">Welcome Momin<?php //echo $_SESSION['Username'];?><br/>
+                <h3>GDP ADMIN</h3>
+            </div>
+        </div>
+       
+        <?php if(isset($this->errorStatus)) {
+            echo "<h2 id='errorMessage'>".$this->errorStatus."</h2>";
+        }
+        if(isset($this->successStatus)) {
+            echo "<h2 id='successMessage'>".$this->successStatus."</h2>";
+        }
+        if(isset($this->errorMessage)) {
+            echo "<h2 id='errorMessage'>".$this->errorMessage."</h2>";
+        }?>
+        <?php if(isset($_SESSION['User']))
+        { ?>
+        <ul id="nav">
+                     <li>
+                   <a href="<?=$this->url(array('controller'=>'index','action'=>'index'))?>">Home</a></li>
+                    <li><a href="#">User</a>
+                        <ul>
+                            <li><a href="<?=$this->url(array('controller'=>'user','action'=>'profile'))?>">Edit Profile</a></li>
+                            <li> <a href="<?=$this->url(array('controller'=>'user','action'=>'logout'))?>">Logout</a></li>
+                            <li></li>
+                        </ul>
+                    </li>
+                    <li><a href="<?=$this->url(array('controller'=>'index','action'=>'section'))?>">Portal Builder</a></li>
+                    <li><a href="<?=$this->url(array('controller'=>'mis','action'=>'index'))?>">MIS</a></li>
+                    <li><a href="#">Pack</a>
+                        <ul>
+                            <li> <a href="<?=$this->url(array('controller'=>'pricepoint','action'=>'index'))?>">Price Point</a></li>
+                            <li></li>
+                        </ul>
+                    </li>   
+               
+                     </li>
+            </ul>   
+
+        
+        
+     <?php } else {?>
+         <ul id="nav">
+            <li>
+              <a href="<?=$this->url(array('controller'=>'index','action'=>'index'))?>">Home</a>
+            </li>
+            <li><a href="#">User</a>
+                        <ul>
+                            <li><a href="<?=$this->url(array('controller'=>'user','action'=>'login'))?>">Login</a></li>
+                            <li> <a href="<?=$this->url(array('controller'=>'user','action'=>'signup'))?>">Signup</a></li>
+                            <li></li>
+                        </ul>
+                    </li>
+        </ul>
+
+        <?php } ?>
+        <div id="maincontainer">
+            <div id="leftmenu">
+               
+              <!--  <h4><a href="">Date wise Report</a></h4>
+                <h4><a href="">Packs wise Reports</a></h4>
+                <h4><a href="">Plans wise Reports</a></h4>-->
+              
+             <!-- <ul id="nav">
+            <li> -->
+             <h4>  <a href="<?=$this->url(array('controller'=>'mis','action'=>'try'))?>">MSISDN wise report:</a> </h4>
+                <h4>  <a href="<?=$this->url(array('controller'=>'mis','action'=>'pack'))?>">Short code/Plan id wise report:</a> </h4>
+                    <h4>  <a href="<?=$this->url(array('controller'=>'mis','action'=>'plan'))?>">Time based report:</a> </h4>
+          <!--  <li><a href="#">User</a>
+                        <ul>
+                            <li><a href="<?=$this->url(array('controller'=>'user','action'=>'login'))?>">Login</a></li>
+                            <li> <a href="<?=$this->url(array('controller'=>'user','action'=>'signup'))?>">Signup</a></li>
+                            <li></li>
+                        </ul>
+                    </li>
+        </ul>-->
+
+
+            </div>
+            <div id="contentinner"><?php echo $this->layout()->content ?></div>
+        </div>
+    </body>
+</html>
+

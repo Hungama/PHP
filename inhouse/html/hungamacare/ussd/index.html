@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>Admin</title>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<style media="all" type="text/css">@import "css/all.css";</style>
+	<script language="javascript" type="text/javascript" src="datetimepicker/datetimepicker.js"></script>
+		<script language="javascript" type="text/javascript" src="js/validate.js"></script>
+</head>
+<body>
+<div id="main">
+	<div id="header">
+		<a href="index.html" class="logo">
+		<img src="img/Hlogo.png" width="282" height="80" alt=""/>
+		</a>
+		
+	</div>
+	<div id="middle">
+		<div id="left-column">
+		
+			</div>
+		<div id="center-column">
+			<div class="top-bar">
+				<a href="#" class="button">Login</a>
+				<h1>USSD- Uninor- Admin Panel</h1>
+				</div><br />
+		  <div class="select-bar">
+		    </div>
+			 <div class="table">
+				<img src="img/bg-th-left.gif" width="8" height="7" alt="" class="left" />
+				<img src="img/bg-th-right.gif" width="7" height="7" alt="" class="right" />
+				<form name="obd_up_form" method="post" action="checklogin.php" onsubmit="return validate_login_form()" enctype="multipart/form-data">
+				<table class="listing form" cellpadding="0" cellspacing="0">
+					<tr>
+						<th class="full" colspan="2">Login</th>
+					</tr>
+					
+					<tr class="bg">
+						<td class="first"><strong>Username:</strong></td>
+						<td class="last"><input type="text" class="text" name="obd_form_uname" id="obd_form_uname"/></td>
+					</tr>
+					<tr class="bg">
+						<td class="first"><strong>Password:</strong></td>
+						<td class="last"><input type="password" class="text" name="obd_form_pwd" id="obd_form_pwd"/>
+						
+						</td>
+					</tr>
+					<tr class="bg">
+						<td class="first"><strong></strong></td>
+						<td class="last"><input type="submit" name="submit" value="submit"/></td>
+					</tr>
+					</table>
+					</form>
+	        <p>&nbsp;</p>
+		  </div>
+		</div>
+		<div id="right-column">
+			  </div>
+	</div>
+	<div id="footer"></div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<script language="javascript" type="text/javascript">
+	
+	function getMsisdnInfo(type )
+{
+if(document.getElementById("hul_gp_msisdn").value=='')
+{
+   alert ( "Please enter mobile number." );
+   document.getElementById("hul_gp_msisdn").focus();
+
+}
+else 
+{
+	str=document.getElementById("hul_gp_msisdn").value;
+   getMsisdnDetail(str);	
+}
+
+
+}
+
+function getMsisdnDetail(str)
+{
+//$subscription_path="http://192.168.100.210/billing/uninor_billing/UninorWap.php?msisdn=".$msisdn;
+
+var xmlhttp;    
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+document.getElementById("showinfo").innerHTML='';
+document.getElementById("showinfo").innerHTML=xmlhttp.responseText;
+//alert(xmlhttp.responseText);
+    }
+  }
+xmlhttp.open("GET","do_subscription_hun.php?msisdn="+str,true);
+xmlhttp.send();
+
+//
+}
+
+	</script>
+	<style type="text/css">
+.gradientBoxesWithOuterShadows { 
+height: 150px;
+width: 300px; 
+padding: 20px;
+background-color: white; 
+
+/* outer shadows  (note the rgba is red, green, blue, alpha) */
+-webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4); 
+-moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+
+/* rounded corners */
+-webkit-border-radius: 12px;
+-moz-border-radius: 7px; 
+border-radius: 7px;
+
+/* gradients */
+background: -webkit-gradient(linear, left top, left bottom, 
+color-stop(0%, white), color-stop(15%, white), color-stop(100%, #D7E9F5)); 
+background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3 130%); 
+}
+	</style>
+	</head>
+<body>
+ <div class="gradientBoxesWithOuterShadows">
+			<table class="listing form" cellpadding="0" cellspacing="0" style="width:300px">
+				<tr><td colspan="2">
+				<p>Hi! you can now listen Artist aloud on your mobile by just entering your mobile number.</p>
+				</td></tr>		
+					<tr class="bg">
+						<td class="first"><strong>Mobile No-</strong></td>
+						<td class="last"><input type="text" class="text" name="hul_gp_msisdn" id="hul_gp_msisdn" />
+						<input type="button" name="getinfo" value="Submit" onclick="getMsisdnInfo(2)"/>
+						</td>
+					</tr>
+									
+					
+					
+										</table>
+					<span id="showinfo"></span>
+</div>
+</body>
+</html>

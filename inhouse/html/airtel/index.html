@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title>Hello World</title>
+</head>
+<body>
+<div id="fb-root"></div>
+<script>
+  (function() {
+    var e = document.createElement('script'); e.async = false;
+        e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+        document.getElementById('fb-root').appendChild(e);
+        }());
+window.fbAsyncInit = function() {
+    FB.init({ appId: '423300181057368', 
+      status: true, 
+      cookie: true,
+      xfbml: true,
+      oauth: true});
+	FB.Event.subscribe('auth.authResponseChange', handleResponseChange);  
+	alert('atharh');
+    };
+function handleResponseChange(response) {
+alert('athar');
+   document.body.className = response.authResponse ? 'connected' : 'not_connected';
+
+   if (response.authResponse) {
+     console.log(response);
+   }
+ }
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<deal>
+	<mainMenu>
+		<id>1</id>	
+		<menuHeading>Deals of the day</menuHeading>
+	</mainMenu>
+	<mainMenu>
+		<id>2</id>	
+		<menuHeading>Deals Around Me</menuHeading>
+	</mainMenu>
+	<mainMenu>
+		<id>3</id>	
+		<menuHeading>Deal Categories</menuHeading>
+	</mainMenu>
+	<mainMenu>
+		<id>3</id>	
+		<menuHeading>Deal12 Categories</menuHeading>
+	</mainMenu>
+</deal>

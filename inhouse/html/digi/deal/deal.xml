@@ -1,0 +1,43 @@
+<deal>
+	<fdeal>
+		<attr name='dealId'>1</attr>
+		<attr name='subCatId'>1</attr>
+		<attr name='catId'>1</attr>
+		<attr name='type'>deal</attr>
+		<attr name='dealName'>For Domestic Holidays</attr>
+		<attr name='dealDescription'>For Pay Rs 20 and get 50% off on Room tariff in Delhi at Liv Inn. Also get 10% off on food and beverages!</attr>
+		<attr name='getType'>description</attr>
+	</fdeal>
+	<fdeal>
+		<attr name='dealId'>2</attr>
+		<attr name='subCatId'>1</attr>
+		<attr name='catId'>1</attr>
+		<attr name='type'>deal</attr>
+		<attr name='dealName'>For Domestic Holidays</attr>
+		<attr name='dealDescription'> For Pay Rs. 10 to get 50% off on room tariff at Mirage Quality Hotel - The Regency, Pune.</attr>
+		<attr name='getType'>description</attr>
+		
+	</fdeal>
+	<fdeal>
+		<attr name='dealId'>3</attr>
+		<attr name='subCatId'>1</attr>
+		<attr name='catId'>1</attr>
+		<attr name='type'>deal</attr>
+		<attr name='dealName'>For Domestic Holidays</attr>
+		<attr name='dealDescription'>For Pay Rs. 10 to get 50% off 1 night stay in Haridwar at Hotel Classic Residency.</attr>
+		<attr name='getType'>description</attr>
+		
+	</fdeal>
+	<fdeal>
+		<attr name='dealId'>4</attr>
+		<attr name='subCatId'>1</attr>
+		<attr name='catId'>1</attr>
+		<attr name='type'>deal</attr>
+		<attr name='dealName'>For Domestic Holidays</attr>
+		<attr name='dealDescription'>For Pay Rs 20 and get 50% off on Room tariff in Delhi at Liv Inn. Also get 10% off on food and beverages!</attr>
+		<attr name='getType'>description</attr>
+		
+	</fdeal>
+		
+</deal>
+

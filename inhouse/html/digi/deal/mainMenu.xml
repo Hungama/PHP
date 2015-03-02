@@ -1,0 +1,18 @@
+<deal>
+	<mainMenu>
+		<attr name='id'>1</attr>	
+		<attr name='name'>Deals of the day</attr>
+	</mainMenu>
+	<mainMenu>
+		<attr name='id'>2</attr>	
+		<attr name='name'>Deals Around Me</attr>
+	</mainMenu>
+	<mainMenu>
+		<attr name='id'>3</attr>	
+		<attr name='name'>Deal Categories</attr>
+	</mainMenu>
+	<mainMenu>
+		<attr name='id'>4</attr>	
+		<attr name='name'>Help Menu</attr>
+	</mainMenu>
+</deal>

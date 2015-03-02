@@ -1,0 +1,136 @@
+
+
+<html>
+           <script language="javascript" type="text/javascript">
+function compareData()
+{
+var invalid = " "; // Invalid character is a space
+var minLength = 6;
+  var anUpperCase = /[A-Z]/;
+   // var aLowerCase = /[a-z]/;
+    var aNumber = /[0-9]/;
+
+    
+
+var id = document.myform1.id.value;
+var pass = document.myform1.pass.value;
+
+   
+   if (id=="") 
+  {
+  alert("Enter username ");
+  return false;  
+  }
+  if(pass=="")
+       {
+  alert("Enter password");
+  return false;  
+  }
+//  if (pass.length < minLength ) {
+//alert('Your password must be at least ' + minLength + ' characters long. Try again.');
+//return false;
+//}
+//if(pass.search(anUpperCase) == -1  
+//           || pass.search (aNumber) == -1)
+//            {
+//              alert("Password must contain atleast one uppercase and numeric character");
+//  return false;    
+//            }
+//// check for spaces
+//if (pass.indexOf(invalid) > -1) {
+//alert("Spaces are not allowed.");
+//return false;
+//
+//}
+}
+  // function writestatus(){
+//status=" <h4>Your Password must contain atleast one  uppercase, lowercase, and numeric character and should be min of 6 length</h4>"
+//}    
+   </script>
+<script language="javascript" type="text/javascript">
+
+
+  
+
+           </script>
+ 
+
+
+
+</div>
+<form name="myform1" id="myform1" align="center" valign="top" method="post" action="">
+         
+        <div class="clear"></div>
+        <div style="width: 780px; padding: 20px">
+         
+
+ 
+         
+            <div style="width: 700px; padding-top: 10px">
+            <div style="width:130px; float: left; font-size: 12px; font-weight: bold">UserId:</div>
+            <div style="width:230px; float: left "><input type=text  name="id"  size="15" ></input></div></div>
+            <div class="clear"></div>
+            <div style="width: 700px; padding-top: 15px">
+            <div style="width:130px; float: left; font-size: 12px; font-weight: bold">Password:</div>
+              <div style="width:230px; float: left "><input type="password" name="pass"  size="15" maxlength=15 ></input></div>
+             
+            </div>
+          <div class="clear"></div>
+          
+          <div style="width: 700px; padding-top: 5px">
+          </div>
+            
+  
+  <div class="clear"></div>
+            
+                    <div style="width: 700px; padding-top: 10px; padding-left: 130px;  float: left; "> 
+             <div style="width: 100px; float: left" ><input type="submit" id="b1" name="submit" value="Submit" onclick="return compareData();"></input>
+             </div>   
+                     <div style="width: 450px;  float: left; "> 
+             <div style="width: 200px; padding-top: 6px; font-size: 14px" >Forgot password ? <a style="color:#000099;" href="<?=$this->url(array('controller'=>'user','action'=>'forgotpass1'))?>">Click here</a> 
+<!--<input type="submit" id="b2" name="submit" value="Forgot Password" onclick="return compareDatas();"></input>-->
+             </div>
+                    </div>
+          </div>
+    
+    
+
+    <script>
+                 $(document).ready(function() {  
+
+               $("#b1").click(
+               function() {
+  $("#myform1").attr('action','/ivrmis/public/index.php/user/login/id/<?php //echo $this->id ?>'); 
+  
+           
+               } );
+               
+               
+               
+           });
+          
+            </script>
+      <script>
+             //    $(document).ready(function() {  
+
+            //   $("#b2").click(
+           //    function() {
+ // $("#myform1").attr('action','/gdp/public/index.php/user/forgotpass1/id/<?//php echo $this->id ?>');
+ 
+  
+           
+             //  } );
+               
+               
+               
+       //    });
+          
+            </script>
+    
+    
+</body>
+     </form>
+</html>
+
+        
+       

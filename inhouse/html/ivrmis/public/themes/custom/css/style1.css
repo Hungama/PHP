@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{ margin:0; padding:0; font-family: arial}
+.clear{ clear:both}
+img{ border:none}
+a{ color:#000; text-decoration:none}
+
+/* sign in page start*/
+
+.header{ padding-top:20px}
+.wrap {
+    margin: 0 auto;
+    padding: 0;
+    width: 998px;
+}
+
+.cont{ padding:80px 0 20px 310px; width:680px;  background:url('http://192.168.4.65/gdp/public/themes/custom/img/bg.jpg') no-repeat center ; min-height:340px }
+
+.left_cont{ font-size:24px; float:left; width:180px}
+.right_cont{ font-size:24px; float:left; width:180px;  border:#999 solid 1px}
+.gap{ padding-top:30px}
+.button_gap{ padding-top:10px}
+.button{padding-left:180px}
+
+.ui-state-error{
+    background:url(../img/button.png) repeat scroll 50% 50% #D34D17;
+    border: 1px solid #FFB73D;
+    color: #FFFFFF;
+	width:200px; font-size: 24px;
+}

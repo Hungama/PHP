@@ -1,0 +1,26 @@
+<deal>
+	<Menu3>
+		<attr name='id'>1</attr>	
+		<attr name='name'>Restaurant</attr>
+	</Menu3>
+	<Menu3>
+		<attr name='id'>2</attr>	
+		<attr name='name'>Health Beauty</attr>
+	</Menu3>
+	<Menu3>
+		<attr name='id'>3</attr>	
+		<attr name='name'>Travel</attr>
+	</Menu3>
+	<Menu3>
+		<attr name='id'>4</attr>	
+		<attr name='name'>Entertainment</attr>
+	</Menu3>
+	<Menu3>
+		<attr name='id'>5</attr>
+		<attr name='name'>Miscellaneous</attr>
+	</Menu3>
+	<Menu3>
+		<attr name='id'>#</attr>
+		<attr name='name'> to go back to the Main Menu.</attr>
+	</Menu3>
+</deal>

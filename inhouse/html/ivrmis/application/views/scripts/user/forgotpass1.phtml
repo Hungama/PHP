@@ -1,0 +1,41 @@
+<form name="myform1" id="myform1" align="center" valign="top" Method="post" onsubmit="return compareData();" action="<?=$this->url(array('controller'=>'user','action'=>'forgotpass'),null,true)?>" >
+        
+     <script language="javascript" type="text/javascript">
+function compareData()
+{
+var id = document.myform1.id.value;
+
+
+   
+   if (id=="")
+  {
+  alert("Enter username ");
+  return false;
+  }
+ 
+  if($session['name']==id)
+      {
+          alert("Enter valid user name");
+          return false;
+      } return true;
+}
+</script>     
+    
+    <div style="text-align: left; font-size: 18px; padding: 10px ; font-weight: bold">Forgot your password?</div>
+        <div class="clear"></div>
+        <div style="width: 780px; padding: 20px">
+          <?php // print_r($this->output);?>
+            
+              <div class="clear"></div>
+            <div style="width: 700px; padding-top: 10px">
+            <div style="width:700px; float: left; font-size: 12px; font-weight: bold; padding-bottom: 12px; color: #e42b30">To reset your password, type the full email address you use to sign in to your Account
+Email address </div>
+             <div class="clear"></div>
+            <div style="width: 700px; padding-top: 10px">
+            <div style="width:130px; float: left; font-size: 12px; font-weight: bold">Email Address</div>
+            <div style="width:230px; float: left "><input type="text"  name="id"  size="15" ></input></div></div>
+             <div class="clear"></div>
+            
+                    <div style="width: 700px; padding: 30px 0 0 130px; float: left; "> 
+             <div style="width: 200px;" ><input type="submit" id="b1" name="submit" value="Submit" onclick="return compareData();"></input>
+             </div>   </div>

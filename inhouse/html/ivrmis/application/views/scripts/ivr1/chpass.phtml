@@ -1,0 +1,126 @@
+<form name="myform1" id="myform1" align="left" valign="top" Method="post" onsubmit="return compareText();" action="<?=$this->url(array('controller'=>'ivr1','action'=>'chpass'),null,true)?>">
+        
+         
+        <div class="clear"></div>
+        <div style="width: 780px; padding: 20px">
+          <?php // print_r($this->output);?>
+             <div class="clear"></div>
+            <div style="width: 700px; padding-top: 10px">
+            <div style="width:130px; float: left; font-size: 12px; font-weight: bold">Old Password</div>
+            <div style="width:230px; float: left "><input type="password"  name="Opass"  size="15" ></input></div></div>
+            <div class="clear"></div>
+            <div style="width: 700px; padding-top: 15px">
+            <div style="width:130px; float: left; font-size: 12px; font-weight: bold">New Password</div>
+              <div style="width:230px; float: left "><input type="password" name="Npass"  size="15" ></input></div>
+            </div>
+          <div class="clear"></div>
+          
+          <div style="width: 700px; padding-top: 5px">
+            <div style="width:130px; float: left; font-size: 12px; font-weight: bold">Confirm Password</div>
+              <div style="width:230px; float: left "><input type="password" name="Cpass"   size="15" ></input></div>
+            </div>
+            
+  
+  <div class="clear"></div>
+            
+                    <div style="width: 700px; padding: 30px 0 10px 130px; float: left; "> 
+             <div style="width: 200px;" ><input class="submit" type="submit" id="b1" name="submit" value="Submit" onclick="return compareText();" ></input>
+             </div>   </div>
+          </div>
+        <div class="clear"></div>
+           
+ <?php    
+// if($_SESSION['role'] == 'admin')
+ //{
+   //  if($_SESSION['pass']!="Opass")
+     //     $this->view->errorMessage = "Not a same password";
+ //}else
+   //  if($_SESSION['role'] == 'user')
+     //{
+       //  if($_SESSION['pass']!="Opass")
+         // $this->view->errorMessage = "Not a same password";
+     //}
+ 
+        
+       
+        //if ($this->getRequest()->isPost()) { 
+       
+           
+     // if($this->output=="success")
+             // print_r($this->output);
+       //$this->view->successMessage = "Password has been succesfully reset";}
+       //   $this->_redirect('ivr1/vlcum/successMessage/Password has been succesfully reset');
+        //}      
+
+////if (isset($_POST['submit']))
+////#
+////{
+////#
+////// Execute this code if the submit button is pressed.
+////#
+////$value1 = $_POST['Opass'];
+////$value2 = $_POST['Npass'];
+////$value2 = $_POST['Cpass'];
+//#
+//}?>
+        
+         <script language="javascript" type="text/javascript">
+function compareText()
+{
+    
+    var invalid = " "; // Invalid character is a space
+var minLength = 6;
+  var anUpperCase = /[A-Z]/;
+    //var aLowerCase = /[a-z]/;
+    var aNumber = /[0-9]/;
+
+var opass = document.myform1.Opass.value;
+var npass = document.myform1.Npass.value;
+var cpass = document.myform1.Cpass.value;
+
+   //var startDate = Date.parse(start);
+   //var endDate = Date.parse(end);
+           
+   if (opass=="" || npass=="" || cpass=="")
+  {
+  alert("All fields are required");
+  return false;
+  }
+   if (npass.length < minLength ) {
+alert('Your password must be at least ' + minLength + ' characters long. Try again.');
+return false;
+}
+if(npass.search(anUpperCase) == -1 || 
+             npass.search (aNumber) == -1)
+            {
+              alert("Password must contain atleast one uppercase and numeric character");
+  return false;    
+            }
+// check for spaces
+if (npass.indexOf(invalid) > -1) {
+alert("Spaces are not allowed.");
+return false;
+}
+
+
+// alert(a1);
+// alert(a1.length);
+
+ /*var difference = (endDate - startDate)/(86400000 * 7);
+   if (difference < 0) {
+       alert("The start date must come before the end date.");
+       return false;*/
+        
+   if(opass==npass)
+       {
+           alert("Oldpassword and Newpassword can not be same");return false;
+       }
+   if(npass!=cpass)
+       {
+           alert("Confirm Password and new password does not match");return false;
+       }
+return true;
+}
+</script>
+
+</form>

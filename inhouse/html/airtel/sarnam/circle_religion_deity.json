@@ -1,0 +1,145 @@
+{
+"circle": [
+		{"CircleId":"2","CircleName":"DEL",
+		"religion":[
+				{
+				 "religionId":1,
+				 "religionname":"Hindu",
+
+				 "AssoDeityName1":"Bhagwan BholeShankar",
+				 "DeityId1":"1",
+				 "DeityImage1":"images/img07.gif",
+				 "DeityPage1":"subCat2.php",
+
+				 "AssoDeityName2":"Devi Maa",
+				 "DeityId2":"2",
+				 "DeityImage2":"images/img09.gif",
+				 "DeityPage2":"subCat2.php",
+
+				 "AssoDeityName3":"SankatmochanShri Hanuman",
+				 "DeityId3":"7",
+				 "DeityImage3":"images/img11.gif",
+				 "DeityPage3":"subCat2.php",
+
+				 "AssoDeityName4":"Murlidharshri Krishna",
+				 "DeityId4":"12",
+				 "DeityImage4":"images/img12.gif",
+				 "DeityPage4":"subCat2.php",
+
+				 "AssoDeityName5":"Ganesha",
+				 "DeityId5":"3",
+				 "DeityImage5":"images/img10.gif",
+				 "DeityPage5":"subCat2.php",
+
+				 "AssoDeityName6":"Shirdi Sai Baba",
+				 "DeityId6":"9",
+				 "DeityImage6":"images/img08.gif",
+				 "DeityPage6":"subCat2.php"
+
+				 }
+			]
+		},
+		{"CircleId":"1","CircleName":"GUJ",
+		"religion":[
+				{
+				 "religionId":1,
+				 "religionname":"Hindu",
+
+				 "AssoDeityName1":"Devi Maa",
+				 "DeityId1":"2",
+				 "DeityImage1":"images/img09.gif",
+				 "DeityPage1":"subCat2.php",
+
+				 "AssoDeityName2":"Bhagwan BholeShankar",
+				 "DeityId2":"1",
+				 "DeityImage2":"images/img07.gif",
+				 "DeityPage2":"subCat2.php",
+
+				 "AssoDeityName3":"SankatmochanShri Hanuman",
+				 "DeityId3":"7",
+				 "DeityImage3":"images/img11.gif",
+				 "DeityPage3":"subCat2.php",
+
+				 "AssoDeityName4":"Murlidharshri Krishna",
+				 "DeityId4":"12",
+				 "DeityImage4":"images/img12.gif",
+				 "DeityPage4":"subCat2.php",
+
+				 "AssoDeityName5":"Ganesha",
+				 "DeityId5":"3",
+				 "DeityImage5":"images/img10.gif",
+				 "DeityPage5":"subCat2.php",
+
+				 "AssoDeityName6":"Shirdi Sai Baba",
+				 "DeityId6":"9",
+				 "DeityImage6":"images/img08.gif",
+				 "DeityPage6":"subCat2.php",
+
+				"AssoDeityName7":"Aarti",
+				 "DeityId7":"25",
+				 "DeityImage7":"images/songlist_img08.jpg",
+				 "DeityPage7":"subCat2.php",
+				
+				 "AssoDeityName8":"Bhajan",
+				 "DeityId8":"26",
+				 "DeityImage8":"images/songlist_img09.jpg",
+				 "DeityPage8":"subCat2.php",
+				
+				 "AssoDeityName9":"Yatra",
+				 "DeityId9":"27",
+				 "DeityImage9":"images/songlist_img10.jpg",
+				 "DeityPage9":"subCat2.php",
+
+				"AssoDeityName10":"Yatra",
+				 "DeityId10":"28",
+				 "DeityImage10":"images/songlist_img11.jpg",
+				 "DeityPage10":"subCat2.php",
+
+				"AssoDeityName11":"Yatra",
+				 "DeityId11":"29",
+				 "DeityImage11":"images/songlist_img12.jpg",
+				 "DeityPage11":"subCat2.php"
+		}
+			]
+		},
+		{"CircleId":"3","CircleName":"MAH",
+		"religion":[
+				{
+				 "religionId":1,
+				 "religionname":"Hindu",
+
+				 "AssoDeityName1":"Bhagwan BholeShankar",
+				 "DeityId1":"1",
+				 "DeityImage1":"images/img07.gif",
+				 "DeityPage1":"subCat.php",
+
+				 "AssoDeityName2":"Devi Maa",
+				 "DeityId2":"2",
+				 "DeityImage2":"images/img09.gif",
+				 "DeityPage2":"subCat.php",
+
+				 "AssoDeityName3":"SankatmochanShri Hanuman",
+				 "DeityId3":"7",
+				 "DeityImage3":"images/img11.gif",
+				 "DeityPage3":"subCat.php",
+
+				 "AssoDeityName4":"Murlidharshri Krishna",
+				 "DeityId4":"12",
+				 "DeityImage4":"images/img12.gif",
+				 "DeityPage4":"subCat.php",
+
+				 "AssoDeityName5":"Ganesha",
+				 "DeityId5":"3",
+				 "DeityImage5":"images/img10.gif",
+				 "DeityPage5":"subCat.php",
+
+				 "AssoDeityName6":"Shirdi Sai Baba",
+				 "DeityId6":"9",
+				 "DeityImage6":"images/img08.gif",
+				 "DeityPage6":"subCat.php"
+
+				 }
+			]
+		}
+	  ]
+}
