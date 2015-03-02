@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.png">
+<title>LIVE KPI's</title>
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<!-- Theme -->
+<link rel="stylesheet" href="css/flat-ui.css">
+<link rel="stylesheet" href="css/hungamaweb.css">
+<link rel="stylesheet" href="css/bootstrap-select.css">
+
+
+<!-- IE Issues Fix -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js"></script>
+    <![endif]-->
+
+<!-- Fonts & Icons -->
+<link rel="stylesheet" href="css/fontello.css">
+<!--[if IE 7]>
+    <link rel="stylesheet" href="css/fontello-ie7.css">
+<![endif]-->
+
+</head>
+
+<body>
+<div class="container">
+<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.php"><img src="images/logo.png" border="0" alt="Hungama" /></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.php"><i class="icon-home ics"></i></li></a>
+                            	<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sales <b class="caret"></b></a>
+               		<ul class="dropdown-menu">
+                   <li ><a href="../Revenue.php">Sales Dashboard</a></li>                   <li class="active"><a href="Revenue.Live.php">LIVE KPI's</a></li>                   <li ><a href="Revenue.Dashboard.php">Monthly Dashboard</a></li>                   <li ><a href="User.Alerts.php">Alerts</a></li>                    </ul>
+                </li>
+                              	                	<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Recharge <b class="caret"></b></a>
+               		<ul class="dropdown-menu">
+                   <li ><a href="../Recharge.php">Recharge Now</a></li>                   <li ><a href="Recharge.PendingApprovals.php">Pending Approvals</a></li>                   <li ><a href="Recharge.MyView.php">My Transactions</a></li>                    </ul>
+                </li>
+                                
+                <li class="dropdown">
+                		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Content <b class="caret"></b></a>	
+                	<ul class="dropdown-menu">
+                    	<li ><a href="../Content.php">Content Analysis</a></li>	 					<li ><a href="../AlbumDetail.php">Album Analysis</a></li>                    	<li ><a href="../2.0/Content.Live.php">Live Content Listing</a></li>                         <li ><a href="../CMS.LoadMetaInner.php">Content Mgmt</a></li>                         <li ><a href="CMS.Dispatch.php">Content Deploy</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Others <b class="caret"></b></a>	
+                	<ul class="dropdown-menu">
+                    	
+						<li ><a href="../PCR.php">Product Change</a></li>                        <li ><a href="../Travel.php">Travel</a></li>						           <li ><a href="../2.0/CampaignManager.php">Campaign Manager</a></li>
+             
+          				<li><a href="../Signature.php">Email Signature</a></li>
+  					</ul>
+                </li>
+                
+               
+			                 	<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Data <b class="caret"></b></a>
+               		<ul class="dropdown-menu">
+                   <li ><a href="Transactional.Dumps.php">Transactional Dumps</a></li>                   <li ><a href="../NDNC.php">NDNC Filtering</a></li>                   <li class="divider"></li>
+                   <li ><a href="SMS.Dashboard.php">SMS Dashboard</a></li>                    </ul>
+                </li>
+                            
+            
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+                             	<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+               		<ul class="dropdown-menu">
+                   <li ><a href="Admin.Usermanager.php">User Manager</a></li>                   <li ><a href="Admin.Services.php">Service Manager</a></li>                   <li class="divider"></li>
+				   <li ><a href="Admin.Dispatch.php">MIS Dispatch</a></li>                   <li ><a href="Admin.Dispatch.php?Queue=1">MIS Queue</a></li>                   <li ><a href="Admin.Dispatch.php?Sent=1">MIS Dispatched</a></li>                    </ul>
+                </li>
+                                
+                
+            <li><a href="logout.php">Signout</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    
+    <div class="row">
+	<form id="livemis">
+<div class="col-md-3">
+<select multiple="multiple" class="select-block" name="Service[]" id="Service" data-title="Select Service">
+				                          <option value="AircelMC">Aircel - Music Connect</option>
+                                                    <option value="Airtel54646">Airtel - 54646</option>
+                                                    <option value="AirtelRegTN">Airtel - Crazy Kondattam</option>
+                                                    <option value="AirtelEU">Airtel - Entertainment Unlimited</option>
+                                                    <option value="AirtelGL">Airtel - Lifestyle Dressing Room</option>
+                                                    <option value="AirtelComedy">Airtel - Mana Paata Mana</option>
+                                                    <option value="AirtelRegKK">Airtel - Manoranjana Pack</option>
+                                                    <option value="AirtelMND">Airtel - MND</option>
+                                                    <option value="MTVAirtel">Airtel - MTV DJ Dial</option>
+                                                    <option value="AirtelPK">Airtel - Palleturi Kathalu</option>
+                                                    <option value="AirtelPD">Airtel - PD</option>
+                                                    <option value="VH1Airtel">Airtel - Radio GaGa</option>
+                                                    <option value="AirtelDevo">Airtel - Sarnam</option>
+                                                    <option value="AirtelSE">Airtel - Spoken English</option>
+                                                    <option value="AirtelRegKR">Airtel - Tintu Mon Jokes</option>
+                                                    <option value="DIGIMA">Digi - Live Radio</option>
+                                                    <option value="SMSEtisalatNigeria">Etisalat - Lifestyle Pack (SMS)</option>
+                                                    <option value="MTS54646">MTS - 54646</option>
+                                                    <option value="MTSDevo">MTS - Bhakti Sagar</option>
+                                                    <option value="MTSFMJ">MTS - Celebrity Chat</option>
+                                                    <option value="MTSContest">MTS - Contesting Portal</option>
+                                                    <option value="MTSJokes">MTS - Hasi Ke Fuhare</option>
+                                                    <option value="MTSComedy">MTS - Mana Paata Mana</option>
+                                                    <option value="MTSMND">MTS - MPD</option>
+                                                    <option value="MTSMU">MTS - muZic Unlimited</option>
+                                                    <option value="MTSAC">MTS - muZic2Cinema</option>
+                                                    <option value="REDFMMTS">MTS - Red FM</option>
+                                                    <option value="MTSReg">MTS - Regional Portal</option>
+                                                    <option value="MTSVA">MTS - Voice Alerts</option>
+                                                    <option value="Reliance54646">Reliance - 54646</option>
+                                                    <option value="RelianceCM">Reliance - CricketMania</option>
+                                                    <option value="RelianceMM">Reliance - MusicMania</option>
+                                                    <option value="TataDoCoMo54646">Tata DoCoMo - 54646</option>
+                                                    <option value="TataIndicom54646">Tata DoCoMo - 54646 CDMA</option>
+                                                    <option value="TataDoCoMoMX">Tata DoCoMo - Endless Music</option>
+                                                    <option value="TataDoCoMoMXcdma">Tata DoCoMo - Endless Music CDMA</option>
+                                                    <option value="TataDoCoMoMXvmi">Tata DoCoMo - Endless Music VMI</option>
+                                                    <option value="TataDoCoMoFMJ">Tata DoCoMo - Filmi Meri Jaan</option>
+                                                    <option value="TataDoCoMoFMJcdma">Tata DoCoMo - Filmi Meri Jaan CDMA</option>
+                                                    <option value="RIATataDoCoMo">Tata DoCoMo - Miss Riya</option>
+                                                    <option value="RIATataDoCoMocdma">Tata DoCoMo - Miss Riya CDMA</option>
+                                                    <option value="RIATataDoCoMovmi">Tata DoCoMo - Miss Riya VMI</option>
+                                                    <option value="REDFMTataDoCoMo">Tata DoCoMo - Red FM</option>
+                                                    <option value="REDFMTataDoCoMocdma">Tata DoCoMo - Red FM CDMA</option>
+                                                    <option value="REDFMTataDoCoMovmi">Tata DoCoMo - Red FM VMI</option>
+                                                    <option value="TataDoCoMoSongBook">Tata DoCoMo - SongBook</option>
+                                                    <option value="TataDoCoMoSongBookcdma">Tata DoCoMo - SongBook CDMA</option>
+                                                    <option value="TataDoCoMoSongBookvmi">Tata DoCoMo - SongBook VMI</option>
+                                                    <option value="TuneTalkIVR">TuneTalk - Tune In Radio</option>
+                                                    <option value="Uninor54646">Uninor - 54646</option>
+                                                    <option value="AAUninor">Uninor - ArtistAloud</option>
+                                                    <option value="UninorDevo">Uninor - Bhakti Ras</option>
+                                                    <option value="UninorAstro">Uninor - Jyotish Aapke Dwar</option>
+                                                    <option value="UninorContest">Uninor - Khelo India Jeeto India</option>
+                                                    <option value="UninorComedy">Uninor - Mana Paata Mana</option>
+                                                    <option value="RIAUninor">Uninor - Miss Riya</option>
+                                                    <option value="UninorMU">Uninor - MusicUnlimited</option>
+                                                    <option value="UninorRT">Uninor - My Ringtones</option>
+                                                    <option value="UninorMyMusic">Uninor - MyMusic</option>
+                                                    <option value="REDFMUninor">Uninor - Red FM</option>
+                                                    <option value="WAPREDFMUninor">Uninor - Red FM (WAP)</option>
+                                                    <option value="UninorSU">Uninor - Sports Unlimited</option>
+                                                    <option value="Vodafone54646">Vodafone - 54646</option>
+                                                    <option value="REDFMVodafone">Vodafone - Red FM</option>
+                                                    <option value="VH1Vodafone">Vodafone - VH1 Radio GaGa</option>
+                          	</select>&nbsp;<a href="javascript:toggle('Service')" id="all-Service">[All]</a><a href="javascript:toggle('Service')" id="none-Service" style="display:none">[X]</a>
+</div>
+<div class="col-md-3">
+	<select multiple="multiple" class="selectpicker select-block" name="Circle[]" id="Circle"  data-size="8" data-title="Select Circle">
+	  
+                         <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bangla">Bangla</option>
+                                    <option value="Bihar">Bihar</option>
+                                    <option value="Chennai">Chennai</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="EPL">EPL</option>
+                                    <option value="Fun">Fun</option>
+                                    <option value="Gujarat">Gujarat</option>
+                                    <option value="Haryana">Haryana</option>
+                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                    <option value="Hollywood">Hollywood</option>
+                                    <option value="Indian">Indian</option>
+                                    <option value="Jammu-Kashmir">Jammu-Kashmir</option>
+                                    <option value="Jokes">Jokes</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Kolkata">Kolkata</option>
+                                    <option value="Lifestyle">Lifestyle</option>
+                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Motive">Motive</option>
+                                    <option value="Mumbai">Mumbai</option>
+                                    <option value="NE">NE</option>
+                                    <option value="Nepali">Nepali</option>
+                                    <option value="Orissa">Orissa</option>
+                                    <option value="Punjab">Punjab</option>
+                                    <option value="Rajasthan">Rajasthan</option>
+                                    <option value="SPL">SPL</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                    <option value="UP EAST">UP EAST</option>
+                                    <option value="UP WEST">UP WEST</option>
+                                    <option value="WestBengal">WestBengal</option>
+                       
+	</select>&nbsp;<a href="javascript:toggle('Circle')" id="all-Circle">[All]</a><a href="javascript:toggle('Circle')" id="none-Circle" style="display:none">[X]</a>
+ </div>
+ 	 <div class="col-md-3">
+     <select class="select-block" id="Date" name="Date">
+	   <option value="2013-12-15" >December 15</option>
+                <option value="2013-12-16"  selected>December 16</option>
+	</select></div>
+      <div class="col-md-3">
+      <a href="javascript:;" class="btn btn-block btn-primary" id="go">Go!</a>&nbsp;&nbsp;&nbsp;
+      </div>
+</form>
+</div>    
+
+<div class="row">
+ 	 <div class="col-md-12">
+     <div id="loading"><img src="../2.0/assets/img/loading-circle-48x48.gif" border="0" /></div> 
+     <div id="alert-success" class="alert alert-success"></div> 
+     <div id="alert-error" class="alert alert-danger"></div> 
+     </div>
+         
+</div>   
+<div class="row">
+ 	 <div class="col-md-12">
+	 <div id="grid"></div> 
+     </div>
+</div>  
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Latest compiled and minified JavaScript -->
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/bootstrap-switch.js"></script>
+    <script src="js/flatui-checkbox.js"></script>
+    <script src="js/flatui-radio.js"></script>
+    <script src="js/jquery.tagsinput.js"></script>
+    <script src="js/jquery.placeholder.js"></script>
+	<script>
+	$("select").selectpicker({style: 'btn btn-primary', menuStyle: 'dropdown-inverse'});
+	function toggle(id){
+		
+		if( $("#all-"+id).is(":visible") ) {
+			$("#"+id).selectpicker("selectAll");
+			$("#all-"+id).toggle();
+			$("#none-"+id).toggle();
+		}
+		else {
+			$("#"+id).selectpicker("deselectAll");
+			$("#all-"+id).toggle();
+			$("#none-"+id).toggle();
+		
+		}
+	}	
+	</script><script>
+	
+	
+		$('#go').on('click', function() {
+		//alert('Hello');
+			$('#loading').show();
+			$('#alert-success').hide();
+			
+			if($('#Service').val() == "1") {
+				$('#loading').hide();
+				$('#alert-error').html('Please select a service');
+				$('#alert-error').show();
+					
+			} else if($('#Circle').val() == "1") {
+				$('#loading').hide();
+				$('#alert-error').html('Please select a circle');
+				$('#alert-error').show();
+				
+			} else{
+			
+			$('#grid').hide();
+			$('#grid').html('');
+			$('#alert-error').hide();
+
+			$.ajax({
+				url: 'snippets/Revenue.Live.php',
+				data: $('#livemis').serialize(),
+				type: 'post',
+				cache: false,
+				dataType: 'html',
+				success: function (xhr) {
+
+						$('#loading').hide();
+						$('#grid').html(xhr);
+						$('#grid').show();
+	
+	
+				}
+				
+			});
+			}
+	});
+
+
+
+$('#loading').hide();
+$('#alert-success').hide();
+$('#alert-error').hide();
+$('#grid').hide();
+</script>
+<style>
+select {
+display: inline;	
+}
+</style>
+</body>
+</html>

@@ -1,0 +1,3 @@
+<?
+echo 'athar test';
+?>

@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.0/css/bootstrap.min.css" type="text/css" media="screen" />
+	
+    
+    <link href="css/bootstrap-timepicker.min.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+         .input-append {
+            display: inline-block;
+            vertical-align: middle;
+            margin-bottom: 10px;
+        }
+      </style>
+    
+
+</head>
+<body>
+   
+   
+<section id="timepicker">
+    <div class="center hero-unit" style="margin: 0; padding: 0;">
+   
+
+    <div class="input-append bootstrap-timepicker">
+        <input id="timepicker1" class="input-small" type="text"/><span class="add-on"><i class="icon-time"></i></span>
+    </div>
+   
+</section>
+
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+       <script type="text/javascript" src="js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () { 
+            $('#timepicker1').timepicker();
+
+               setTimeout(function() {
+              $('#timeDisplay').text($('#timepicker1').val());
+            }, 100);
+
+            $('#timepicker1').on('changeTime.timepicker', function(e) {
+              $('#timeDisplay').text(e.time.value);
+            });
+        });
+    </script>
+</body>
+</html>

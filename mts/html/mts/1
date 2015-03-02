@@ -1,0 +1,2 @@
+today_date=`$DATE +'%Y%m%d'`
+echo $today_date

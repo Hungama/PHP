@@ -1,0 +1,10 @@
+
+@media only screen and (max-width: 767px) {
+  
+  body{
+	-webkit-text-size-adjust: none;
+	font-family: Helvetica, Arial, Verdana, sans-serif;
+	padding: 5px;
+	background-color: #9F0;
+    }
+}
