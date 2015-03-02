@@ -1,0 +1,7 @@
+Options +FollowSymLinks
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteBase /securesub/subscription/
+RewriteRule !^sub.php - [C] 
+RewriteRule  ^(.*)    ./sub.php?contid=$1  [L,QSA]
+</IfModule>

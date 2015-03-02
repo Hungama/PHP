@@ -1,0 +1,8 @@
+<?php 
+$msisdn=$_REQUEST['msisdn'];
+$srvkey=$_REQUEST['srvkey'];
+$ChannelName=$_REQUEST['ChannelName'];
+$SourceChannel=$_REQUEST['SourceChannel'];
+$url="http://10.2.73.156:8080/hungama/Encryptor?msisdn=$msisdn&srvkey=$srvkey&ChannelName=$ChannelName&SourceChannel=$SourceChannel";
+echo file_get_contents($url);
+?>

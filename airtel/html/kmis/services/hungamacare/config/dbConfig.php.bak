@@ -1,0 +1,27 @@
+<?php
+//MASTER DATABASE ACCESS VARIABLES
+ $DB_HOST_M     = '10.2.73.156'; //DB HOST
+ $DB_USERNAME_M = 'billing';  //DB Username
+ $DB_PASSWORD_M = 'billing';  //DB Password
+ $DB_DATABASE_M = 'master_db';  //Datbase Name
+ $db_m = $DB_DATABASE_M;
+
+
+//Airtel DATABASE ACCESS VARIABLES
+ $DB_HOST_AIRTEL_HUNGAMA     = '10.2.73.156'; //DB HOST
+ $DB_USERNAME_AIRTEL_HUNGAMA = 'billing';  //DB Username
+ $DB_PASSWORD_AIRTEL_HUNGAMA = 'billing';  //DB Password
+ $DB_DATBASE_AIRTEL_HUNGAMA = 'airtel_hungama';  //Datbase Name
+ $db_airtel_hungama = $DB_DATBASE_AIRTEL_HUNGAMA;
+ $SUBS_TABLE_AIRTEL_HUNGAMA="tbl_mtv_subscription";
+ $UNSUBS_TABLE_AIRTEL_HUNGAMA="tbl_mtv_unsub";
+
+ //Airtel DATABASE ACCESS VARIABLES
+ $DB_HOST_AIRTEL_HUNGAMA     = '10.2.73.156'; //DB HOST
+ $DB_USERNAME_AIRTEL_HUNGAMA = 'billing';  //DB Username
+ $DB_PASSWORD_AIRTEL_HUNGAMA = 'billing';  //DB Password
+ $DB_DATBASE_AIRTEL_HUNGAMA = 'airtel_vh1';  //Datbase Name
+ $db_airtel_vh1 = $DB_DATBASE_AIRTEL_VH1;
+ $SUBS_TABLE_AIRTEL_HUNGAMA="tbl_jbox_subscription";
+ $UNSUBS_TABLE_AIRTEL_HUNGAMA="tbl_jbox_unsub";
+?>
